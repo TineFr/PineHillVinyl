@@ -1,34 +1,49 @@
-@import "../../../styles/variables/_variables.scss";
+@import "../../../../styles/variables/variables";
 
 .navBar {
     background: $black;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 75px;
+    align-items: flex-end;
     font-size: 1.2rem;
-}
+    display:flex;
+    justify-content: flex-start;
+    gap: 20px;
 
+}
 
 .logoContainer{
    height:100%;
    overflow:hidden;
-
-  
+   float:left;
 }
-
-.navItem{
-    color: white;
-}
-
 
 .logo {
     margin-left: 0.5rem;
     font-size: 1.6rem;
-    width: auto; // to maintain aspect ratio. You can use 100% if you don't care about that
+    width: auto;
     height: 120px;
 }
 
-.active{
-    color: blue;
+ul{
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+
+    li{
+        margin-bottom: 10px;
+    }
 }
+
+a.nav-links {
+    text-decoration: none;
+    color: rgb(236, 227, 227);
+    font-family: sans-serif;
+    &.active {
+        text-decoration: underline;
+        text-decoration-color: gold;
+    }
+ 
+}
+
+
+
