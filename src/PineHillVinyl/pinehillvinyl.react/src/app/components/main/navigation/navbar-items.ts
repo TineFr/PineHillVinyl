@@ -1,28 +1,26 @@
-
-
 export const NavbarItems = [
 
     {
         title: 'Home',
-        url: '#',
+        url: '/',
         cName: 'nav-links',
         active: false
     },
     {
         title: 'Shop',
-        url: '#',
+        url: '/shop',
         cName: 'nav-links',
         active: false
     },
     {
         title: 'About us',
-        url: '#',
+        url: '/about',
         cName: 'nav-links',
         active: false
     },
     {
         title: 'Contact',
-        url: '#',
+        url: '/contact',
         cName: 'nav-links',
         active: false
     }

@@ -1,34 +1,71 @@
-@import "../../../styles/variables/_variables.scss";
+@import "../../../../styles/variables/variables";
 
 .navBar {
-    background: $black;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: rgba(0, 0, 0, 0.644);
+    transition: background-color ease-in 0.5s;
+    height: 75px;
+    align-items: flex-end;
     font-size: 1.2rem;
-}
+    display:flex;
+    justify-content: flex-start;
+    gap: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 
+    &.dark{
+        background-color: black;
+        transition: background-color ease-in 1s;
+    }
+
+    @media screen and (max-width: 650px){
+        height: 10vh;
+        
+    }
+
+
+}
 
 .logoContainer{
    height:100%;
    overflow:hidden;
-
-  
+   float:left;
 }
-
-.navItem{
-    color: white;
-}
-
 
 .logo {
     margin-left: 0.5rem;
     font-size: 1.6rem;
-    width: auto; // to maintain aspect ratio. You can use 100% if you don't care about that
-    height: 120px;
+    width: auto;
+    height: 110%;
 }
 
-.active{
-    color: blue;
+ul{
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+
+    li{
+        margin-bottom: 15px;
+        list-style-type: none;
+    }
+
+    @media screen and (max-width: 650px){
+        display: none;
+
+    }
 }
+
+a.nav-links {
+    text-decoration: none;
+    color: rgb(236, 227, 227);
+    font-family: sans-serif;
+    padding-bottom: 4px;
+    // border-bottom: 2px solid gold;
+    &.active {
+
+    }
+ 
+}
+
+
+
