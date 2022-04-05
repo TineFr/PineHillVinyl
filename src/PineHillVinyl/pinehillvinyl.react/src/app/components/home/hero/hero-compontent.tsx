@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
 import './hero-component.scss';
 
-
-
-class Hero extends Component {
-    render() {
+function Hero() {
+    {
         return (
-            <div className="mountains">
-            </div>
+            <div className="mountains"></div>
         );
     }
 }
