@@ -1,13 +1,28 @@
 @import "../../../../styles/variables/variables";
 
 .navBar {
-    background: $black;
+    background: rgba(0, 0, 0, 0.644);
+    transition: background-color ease-in 0.5s;
     height: 75px;
     align-items: flex-end;
     font-size: 1.2rem;
     display:flex;
     justify-content: flex-start;
     gap: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+
+    &.dark{
+        background-color: black;
+        transition: background-color ease-in 1s;
+    }
+
+    @media screen and (max-width: 650px){
+        height: 10vh;
+        
+    }
+
 
 }
 
@@ -21,7 +36,7 @@
     margin-left: 0.5rem;
     font-size: 1.6rem;
     width: auto;
-    height: 120px;
+    height: 110%;
 }
 
 ul{
@@ -30,7 +45,13 @@ ul{
     gap: 20px;
 
     li{
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        list-style-type: none;
+    }
+
+    @media screen and (max-width: 650px){
+        display: none;
+
     }
 }
 
@@ -38,9 +59,10 @@ a.nav-links {
     text-decoration: none;
     color: rgb(236, 227, 227);
     font-family: sans-serif;
+    padding-bottom: 4px;
+    // border-bottom: 2px solid gold;
     &.active {
-        text-decoration: underline;
-        text-decoration-color: gold;
+
     }
  
 }
