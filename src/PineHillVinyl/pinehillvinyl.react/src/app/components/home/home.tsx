@@ -4,12 +4,14 @@ import Hero from './hero/hero-compontent';
 import { NewestArrivals } from './newest-arrivals/newest-arrivals';
 import Test from './test/test';
 import './home.scss';
+import AvailableSoon from './available-soon/available-soon';
 
 function Home() {
     return (
         <div className='mountains-background'>   
         <Hero/>
-        {/* <NewestArrivals/> */}
+        <AvailableSoon/>
+        <NewestArrivals/>
         <Test/>
         <Footer/>
         </div>

@@ -10,20 +10,20 @@ export const NewestArrivals = () => {
       <div className="newest-arrivals-container">
          <div className="newest-arrivals-container-item" id="item1">
          <div className="newest-arrival-item">
-               <img className='imageBackground' src={require('../../../../assets/images/mountains.jpg')}alt="" />
-               <img className='blurredImage' src={require('../../../../assets/images/mountains.jpg')}alt="" />
+               <img className='imageBackground' src={require('../../../../assets/images/mountains.jpg')}alt="" loading="lazy" />
+               <img className='blurredImage' src={require('../../../../assets/images/mountains.jpg')}alt="" loading="lazy"/>
          </div> 
          </div>
          <div className="newest-arrivals-container-item" id="item2">
          <div className="newest-arrival-item">
-               <img className='imageFront' src={require('../../../../assets/images/mountains.jpg')}alt="" />
-               <img className='blurredImageMain' src={require('../../../../assets/images/mountains.jpg')}alt="" />
+               <img className='imageFront' src={require('../../../../assets/images/mountains.jpg')}alt="" loading="lazy" />
+               <img className='blurredImageMain' src={require('../../../../assets/images/mountains.jpg')}alt="" loading="lazy" />
          </div> 
          </div>
          <div className="newest-arrivals-container-item" id="item3">
          <div className="newest-arrival-item">
-               <img className='imageBackground' src={require('../../../../assets/images/mountains.jpg')}alt="" />
-               <img className='blurredImage' src={require('../../../../assets/images/mountains.jpg')}alt="" />
+               <img className='imageBackground' src={require('../../../../assets/images/mountains.jpg')}alt=""  loading="lazy"/>
+               <img className='blurredImage' src={require('../../../../assets/images/mountains.jpg')}alt=""  loading="lazy"/>
          </div> 
          </div>
       </div>

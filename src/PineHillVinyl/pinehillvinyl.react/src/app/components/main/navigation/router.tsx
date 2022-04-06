@@ -15,7 +15,6 @@ function RouterComponent() {
 
     const toggle = () =>{
         setShowMobileNav(!showMobileNav);
-        console.log({showMobileNav});
     }
 
     const handleResize = () =>{
