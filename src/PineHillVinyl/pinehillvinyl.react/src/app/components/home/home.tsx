@@ -9,7 +9,7 @@ function Home() {
     return (
         <div className='mountains-background'>   
         <Hero/>
-        <NewestArrivals/>
+        {/* <NewestArrivals/> */}
         <Test/>
         <Footer/>
         </div>
