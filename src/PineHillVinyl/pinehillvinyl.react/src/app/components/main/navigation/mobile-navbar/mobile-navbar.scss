@@ -17,18 +17,21 @@
     align-items: center;
     justify-content: center;
 
+    .logo-mobile{
+        width: 100%;
+        margin-left: 20px;
+    }
+
 }
 
 .navContainer-mobile{
     display: flex;
-    // height: 400px;
     flex-direction: column;
     align-items: center;
-    // justify-content: space-between;
 
     li{
         list-style-type: none;
-        // margin: 10px;
+
 
     }
 
@@ -45,10 +48,10 @@ a.nav-links {
     z-index: 1111;
     top: 0;
     right: 0;
-    margin: 30px;
+    margin: 10px;
     color: white;
 
     .gr-close{
-        font-size: 70px;
+        font-size: 40px;
     }
 }
