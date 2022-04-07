@@ -1,13 +1,25 @@
 import './hero-component.scss';
+import {useState, useEffect} from 'react';
 
 
 function Hero() {
     {
+        const [darkBackground, setDarkBackGround] = useState(false);
+
+        const changeBackground = () =>{
+            if(window.scrollY >= 200){
+                setDarkBackGround(true);
+            } else setDarkBackGround(false);
+        }
+
+        useEffect(() => {
+            window.addEventListener('scroll', changeBackground)
+        }, [])
         return (
             <>
             <div className="hero-container">
                 <div className='video-container'>
-                    <video  className="hero-video" loop autoPlay muted >
+                    <video  className={`hero-video${darkBackground? " dark" : ""}`} loop autoPlay muted >
                         <source
                         src={require('../../../../assets/videos/hero.mp4')}
                         type="video/mp4"
@@ -16,17 +28,6 @@ function Hero() {
                 </div>
                 
             </div>
-
-
-{/* 
-
-
-
-
-            <div className="hero">
-                <img className='vinyl-record'
-                src={require('../../../../assets/images/vinyl-record.png')}alt="vinyl record"></img>
-            </div> */}
             </>
         );
     }

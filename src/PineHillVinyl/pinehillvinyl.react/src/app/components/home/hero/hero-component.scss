@@ -1,5 +1,5 @@
 .hero-container{
-    height: 500px;
+    height: 100vh;
     display:flex;
     background-color: white;
     justify-content: center;
@@ -16,8 +16,7 @@
         top:0;
         left: 0;
         bottom: 0;
-        right: 0;
-        
+        right: 0;        
     }
 }
 
@@ -26,7 +25,12 @@
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    transition: all 5s ease;
+    transition: all 3s ease;
+
+
+    &.dark{
+        filter: brightness(50%);
+    }
 
 
 }
