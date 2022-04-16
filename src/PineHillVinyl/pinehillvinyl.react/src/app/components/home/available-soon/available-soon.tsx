@@ -1,4 +1,4 @@
-import "./available-soon.scss"
+
 
 const AvailableSoon = () => {
   return (
