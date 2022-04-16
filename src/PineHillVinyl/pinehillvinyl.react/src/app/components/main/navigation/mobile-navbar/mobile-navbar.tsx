@@ -1,7 +1,6 @@
 
 import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
-import './mobile-navbar.scss';
 import "../../../../../assets/icons/logo.png";
 import { AiOutlineClose } from 'react-icons/ai';
 

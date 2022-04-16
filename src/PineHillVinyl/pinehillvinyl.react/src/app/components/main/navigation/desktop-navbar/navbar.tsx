@@ -1,42 +1,46 @@
 import { useState, useEffect } from 'react';
 import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
-import './_navbar.scss';
-import "../../../../../assets/icons/logo.png";
-import { FaBars } from 'react-icons/fa';
-
+import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon} from './navbar-styled'
+import { ShoppingCart } from '@material-ui/icons';
 
 
 function Navbar(props : any) {
-        const [darkBackground, setDarkBackGround] = useState(false);
 
-        const changeBackground = () =>{
-            if(window.scrollY >= 75){
-                setDarkBackGround(true);
-            } else setDarkBackGround(false);
+    const [show, setShow] = useState(true);
+    const handleShow = () =>{
+        if (window.pageYOffset >= 20){
+            setShow(false);
+        } 
+        else {
+            setShow(true);
         }
+    }
 
-        useEffect(() => {
-            window.addEventListener('scroll', changeBackground)
-        }, [])
+    useEffect( () =>{
+
+        window.addEventListener("scroll", handleShow );
+
+    }, []);
+
         return (
-            <nav data-color='' className={`navBar${darkBackground ? " dark" : ""}`}>
-            <div className="logoContainer">
-                <img className="logo" src={require("../../../../../assets/icons/logo-transparent.png")}  alt="logo"/>
-            </div>
-            <ul className="navContainer">
-                {NavbarItems.map((item, index) => {
-                    return (
-                        <li key={index}>
-                            <NavLink to={item.url} className={((navData) => navData.isActive ? item.cName + " active" : item.cName)}>{item.title}</NavLink>
-                        </li>
-                    )             
-                })}
-            </ul>
-            <div className='fa-bars-container'>
-                 <FaBars className="fa-bars" onClick={props.toggleBars}/>
-            </div>
-        </nav>
+            <>
+    <NavbarContainer show={show ? 1 : 0} >
+    <LogoContainer>
+        <img src={require('../../../../../assets/icons/logo-transparent.png')} />
+    </LogoContainer>
+        <NavbarList>
+        {NavbarItems.map((item, index) => {
+                return (
+                    <NavbarItem key={index}>
+                        <NavLink to={item.url} className={((navData) => navData.isActive ? item.cName + " active" : item.cName)}>{item.title}</NavLink>
+                    </NavbarItem>
+                )             
+                    })}
+        </NavbarList>
+    </NavbarContainer>
+    <BarsIcon show={show ? 1: 0}/>
+    </>
     );
 
 }

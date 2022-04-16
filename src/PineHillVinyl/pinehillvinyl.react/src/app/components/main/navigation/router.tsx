@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes , Route} from 'react-router-dom'
 import ErrorPage from '../../../error';
 import About from '../../about/about';
 import Contact from '../../contact/contact';
-import Home from '../../home/home';
-import Shop from '../../shop/shop';
+import Home from '../../../pages/home';
+import Shop from '../../../pages/shop';
 import Navbar from './desktop-navbar/navbar';
 import MobileNavbar from './mobile-navbar/mobile-navbar';
 
@@ -32,7 +32,7 @@ function RouterComponent() {
 
         return (
          <Router>
-             <MobileNavbar toggle={toggle} show={showMobileNav}/>
+             {/* <MobileNavbar toggle={toggle} show={showMobileNav}/> */}
              <Navbar toggleBars={toggle}/>
             <Routes>
                 <Route path="/" element={<Home/>}></Route>

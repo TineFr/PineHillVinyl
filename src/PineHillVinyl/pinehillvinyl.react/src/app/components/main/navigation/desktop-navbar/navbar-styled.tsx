@@ -9,7 +9,7 @@ interface Props{
 
 
 export const NavbarContainer = styled.div<Props>`
-/* display: flex; */
+display: flex;
 opacity: ${props => props.show ?  1 : 0};
 background-color: #151515;
 align-items: center;
@@ -19,7 +19,7 @@ width: 100%;
 z-index: 999;
 transition: all 0.4s ease-in-out;
 position: fixed;
-display:none;
+
 `
 
 export const LogoContainer = styled.div`
