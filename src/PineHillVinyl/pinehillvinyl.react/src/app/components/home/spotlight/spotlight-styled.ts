@@ -6,6 +6,7 @@ margin-top: 30px;
 height: auto;
 margin-bottom: 100px;
 
+
 `
 
 export const Title = styled.div`
