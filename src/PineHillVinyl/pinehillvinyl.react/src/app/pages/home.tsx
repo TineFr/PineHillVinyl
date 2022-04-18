@@ -14,7 +14,7 @@ function Home() {
         <Events/>
         
         <Spotlight/>
-      {/*   <Footer/>  */}
+      <Footer/>  
         </>
     );
 }
