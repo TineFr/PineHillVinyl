@@ -3,11 +3,13 @@ import {colors, screens} from '@styles/variables'
 
 
 export const Container = styled.div`
-height: 70vh;
+height: auto;
+margin-bottom: 40px;
 overflow: hidden;
 
 @media ${screens.laptopL}{
             margin-top: 8vh;
+            margin-bottom: 100px;
         }
 `
 

@@ -11,9 +11,10 @@ function Home() {
         <>   
         <Hero/>
         <AvailableSoon/>
-        {/* <Events/>
+        <Events/>
+        
         <Spotlight/>
-        <Footer/>  */}
+      {/*   <Footer/>  */}
         </>
     );
 }
