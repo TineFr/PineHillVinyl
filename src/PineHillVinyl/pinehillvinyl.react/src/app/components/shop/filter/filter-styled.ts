@@ -1,36 +1,42 @@
 
 import styled from 'styled-components/macro';
-import {colors} from '@styles/variables';
+import {colors, screens} from '@styles/variables';
 
+interface Props{
 
+  isInVisible? : boolean;
+}
 
 
 export const Container = styled.div`
 
 height: 60px;
 display: flex;
-font-family: "onyx";
-font-size: 1.7vw;
+font-size: calc(12px + 1.5vw);
 margin-top: 40px;
 margin-bottom:40px;
-justify-content: center;
+overflow-x: scroll;
+width: 100%;
+color: ${colors.black};
+::-webkit-scrollbar{
+display: none;
+}
 `
 export const Title = styled.div`
 text-decoration: underline;
 padding: 0px 40px;
-border-right: 3px solid #B03737;
+border-right: 3px solid ${colors.red};
 height: 100%;
 display: flex;
 align-items: center;
 
 `
-export const FilterItem = styled.div`
+export const FilterItem = styled.div<Props>`
 height: 100%;
-display: flex;
+display: ${props => props.isInVisible? "none" : "flex"};
 align-items: center;
 padding: 0px 30px;
-border-right: 3px solid #B03737;
-
+border-right: 3px solid ${colors.red};
 `
 export const SearchBox = styled.input`
   width: 400px;
@@ -50,9 +56,6 @@ gap: 15px;
  .test{
      transform:rotate(-50deg);
  }
-
-
-
 `
 
 export const ArrowDown = styled.div`

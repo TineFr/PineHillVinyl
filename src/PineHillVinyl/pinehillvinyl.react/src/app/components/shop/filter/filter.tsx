@@ -11,7 +11,7 @@ const Filter = () => {
         <FilterItem>Artist<ArrowDown/> </FilterItem>
         <FilterItem>Tags<ArrowDown/> </FilterItem>
         <FilterItem>Price<ArrowDown/> </FilterItem>
-        <FilterItem><SearchBox placeholder=' Type anything...'/> </FilterItem>
+        <FilterItem isInVisible={false}><SearchBox placeholder=' Type anything...'/> </FilterItem>
         <ResetFilters><BsArrowCounterclockwise className='test'/> Reset Filters</ResetFilters>
     </Container>
   )

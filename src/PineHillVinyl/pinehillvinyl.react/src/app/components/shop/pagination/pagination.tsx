@@ -1,4 +1,4 @@
-import {Container, Page, ArrowButton} from './pagination-styled'
+import {Container, PageButton} from './pagination-styled'
 import {MdArrowRight, MdArrowLeft} from 'react-icons/md'
 
 const Pagination = (props: any) => {
@@ -6,17 +6,17 @@ const Pagination = (props: any) => {
   const pages = [1,3,4,4,5,6,7]
   return (
     <Container>
-        <ArrowButton><MdArrowLeft/></ArrowButton>
+        <PageButton><button><MdArrowLeft/></button></PageButton>
             {pages.map((item) => 
             {
                 return(
-                <Page>
+                <PageButton>
                     <button>{item}</button>
-                </Page>
+                </PageButton>
                 );
 
             })}
-        <ArrowButton><MdArrowRight/></ArrowButton>
+        <PageButton><button><MdArrowRight/></button></PageButton>
     </Container>
   )
 }
