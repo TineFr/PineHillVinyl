@@ -25,7 +25,7 @@ function Navbar(props : any) {
 
         return (
             <>
-    <NavbarContainer show={show ? 1 : 0} >
+    <NavbarContainer show={show} >
     <LogoContainer>
         <img src={require('../../../../../assets/icons/logo-transparent.png')} />
     </LogoContainer>
@@ -39,7 +39,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
     </NavbarContainer>
-    <BarsIcon show={show ? 1: 0}/>
+    <BarsIcon show={show}/>
     </>
     );
 

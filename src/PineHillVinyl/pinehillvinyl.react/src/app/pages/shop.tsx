@@ -8,10 +8,10 @@ import Tags from "../components/shop/tags/tags"
 
 const Shop = () => {
 
-  const pages = [1,3,4,4,5,6,7]
+  const pages = [1,2,3,4,5,6,7]
   return (
     <>
-    <Filter/>
+    <Filter/> 
     <Products/>
     <Pagination pages={pages}/>
     <Footer/>

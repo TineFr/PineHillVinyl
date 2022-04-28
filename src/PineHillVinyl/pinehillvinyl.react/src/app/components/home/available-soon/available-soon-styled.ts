@@ -3,8 +3,14 @@ import {colors, screens} from '@styles/variables'
 
 
 export const Container = styled.div`
-height: 70vh;
+height: auto;
+margin-bottom: 40px;
 overflow: hidden;
+
+@media ${screens.laptopL}{
+            margin-top: 8vh;
+            margin-bottom: 100px;
+        }
 `
 
 export const Title = styled.div`
@@ -14,6 +20,10 @@ padding-top: 20px;
 width: 70vw;
 text-align:end;
 color: ${colors.black};
+
+@media ${screens.laptop}{
+            width: 37vw;
+        }
 
     span{
         z-index:3;
@@ -33,7 +43,14 @@ color: ${colors.black};
      height: 7vw;
      width: 100%;
      background-color: ${colors.red};;
-     margin-top: -5vw;    
+     margin-top: -5vw;   
+
+     @media ${screens.laptop}{
+            height: 2vw;
+            margin-top: -2vw; 
+            margin-left: 50px;
+        }
+     
  }
 `
 export const PreOrder = styled.div`
@@ -47,6 +64,7 @@ height: 17vw;
 background-color:  ${colors.black};
 position: absolute; 
 right: 0;
+margin-top: -90px;
 margin-right: 30px;
 color: white;
 font-size: 4vw;
@@ -55,6 +73,11 @@ text-decoration: 3px underline  ${colors.red};
 padding-left: 10px;
 padding-right: 10px;
 padding-top: 10px;
+}
+
+@media ${screens.laptop}{
+top: 0;
+margin-top: 10px;
 }
 
 `
@@ -78,6 +101,18 @@ export const Product = styled.div`
     margin: 4px;
     position: relative;
 
+    @media ${screens.tablet}{
+        width: 17vw;
+        flex: 0 0 17vw;
+        margin: 10px;
+    }
+
+    @media ${screens.laptopL}{
+    width: 14vw;
+    flex: 0 0 14vw;
+    margin: 15px;
+    }
+
       img{
             width: 100%;
             object-fit: cover;
@@ -91,13 +126,18 @@ export const Product = styled.div`
             font-size: 7vw;
             width: 100%;
             overflow-wrap: break-word;
+
+            @media ${screens.tablet}{
+                font-size: 3vw;
+                }
         }
 
         h2{
 
             font-size: 5vw;
-
-
+            @media ${screens.tablet}{
+                font-size: 2vw;
+                }
         }
 
         p{
@@ -111,6 +151,10 @@ export const Product = styled.div`
             right: 0;
             top: 0;
             font-size:8vw;
+
+            @media ${screens.tablet}{
+                font-size: 2vw;
+                }
 
         }
 

@@ -21,7 +21,7 @@ flex-direction: column;
     }
 
     @media ${screens.laptop}{
-        height: 100vh;
+        height: 90vh;
     }
 `
 
