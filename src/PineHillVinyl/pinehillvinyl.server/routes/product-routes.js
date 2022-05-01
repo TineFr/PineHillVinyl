@@ -115,14 +115,15 @@ Router.put("/products/:productId", async (req, res) =>{
 
 Router.delete("/products/:productId", async (req, res) =>{
     try{
-        const product = await Product.findById(req.params);
-        if (!product) {
-            res.status(500).json("Product does not exist");
-            return;
-        }
-        const isDeleted = await product.delete();
-        if (isDeleted) res.status(201).json("Product was successfully deleted");
-        else res.status(500).json("Failed to delete product");
+        return await Product.findByIdAndDelete(req.params)
+        .then(res =>{
+                res.status(201).json("Product was successfully deleted");
+            }
+        );
+
+        // const isDeleted = await product.delete();
+        // if (isDeleted) res.status(201).json("Product was successfully deleted");
+        // else res.status(500).json("Failed to delete product");
     }
     catch(err){
         res.status(500).json(err);
