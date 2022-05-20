@@ -1,16 +1,19 @@
-import styled from 'styled-components/macro'
+import styled, {keyframes} from 'styled-components/macro'
 import {colors, screens} from '@styles/variables'
+import Marquee from 'react-fast-marquee'
 
 
-export const Container = styled.div`
-height: auto;
-margin-bottom: 40px;
-overflow: hidden;
-
-@media ${screens.laptopL}{
-            margin-top: 8vh;
-            margin-bottom: 100px;
-        }
+const scroll = keyframes`
+    0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
 `
 
 export const Title = styled.div`
@@ -42,7 +45,7 @@ color: ${colors.black};
      content:"";
      height: 7vw;
      width: 100%;
-     background-color: ${colors.red};;
+     background-color: ${colors.red};
      margin-top: -5vw;   
 
      @media ${screens.laptop}{
@@ -57,6 +60,7 @@ export const PreOrder = styled.div`
 
 display:none;
 
+
 @media ${screens.tablet}{
 display: flex;
 width: 7vw;
@@ -65,14 +69,15 @@ background-color:  ${colors.black};
 position: absolute; 
 right: 0;
 margin-top: -90px;
-margin-right: 30px;
+margin-right: 60px;
 color: white;
 font-size: 4vw;
-z-index:2;
+z-index:5;
 text-decoration: 3px underline  ${colors.red};
 padding-left: 10px;
 padding-right: 10px;
 padding-top: 10px;
+
 }
 
 @media ${screens.laptop}{
@@ -83,15 +88,30 @@ margin-top: 10px;
 `
 
 
-
 export const ProductsWrapper = styled.div`
 display: flex;
 align-items: center;
 margin-top: 30px;
 overflow-x: auto;
+width: auto;
+
+
 ::-webkit-scrollbar {   
      display: none;
      }
+
+`
+export const Test = styled.div`
+  flex: 0 0 auto;
+  z-index: 1;
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  transform: translateX(100%);
+  align-items: center;
+  animation: ${scroll} 20s linear infinite;
+  animation-direction: left;
+  
 `
 
 export const Product = styled.div`
@@ -162,6 +182,8 @@ export const Product = styled.div`
      opacity: 0.5;
  }
 
+
+
  &:hover h1{
      opacity: 1;
  }
@@ -171,5 +193,28 @@ export const Product = styled.div`
  }
 
 `
+export const MarqueeContainer = styled(Marquee)`
+.marquee{
+    min-width: initial !important;
+    
+}
+`
+export const Container = styled.div`
+height: auto;
+margin-bottom: 40px;
+overflow: hidden;
 
+& ${ProductsWrapper}:hover + ${PreOrder} {
+
+    background-color: yellow;
+
+    }
+
+    #container:hover ~ #cube { background-color: yellow; }
+
+@media ${screens.laptopL}{
+            margin-top: 8vh;
+            margin-bottom: 100px;
+        }
+`
 

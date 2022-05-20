@@ -6,9 +6,11 @@ const Events = () => {
         <TitleContainer>
             <Title data-aos="fade-up"><span>Upcoming events</span></Title>
             </TitleContainer>
-            <Event data-aos="fade-right" side="right"></Event>  
-            <Event data-aos="fade-left" side="left"></Event> 
-            <Event data-aos="fade-right"side="right"></Event> 
+            <Event data-aos="fade-right" side="right" >          
+            <img src={require('../../../../assets/images/event1.png')}></img>
+            </Event>  
+            <Event data-aos="fade-left" side="left" >  <img src={require('../../../../assets/images/event2.png')}></img></Event> 
+            <Event data-aos="fade-right"side="right"> <img src={require('../../../../assets/images/event2.png')}></img></Event>
     </Container>
   )
 }

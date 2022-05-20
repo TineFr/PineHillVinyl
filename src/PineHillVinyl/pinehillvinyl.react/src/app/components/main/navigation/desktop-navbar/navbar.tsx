@@ -39,7 +39,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
     </NavbarContainer>
-    <BarsIcon show={show}/>
+    <BarsIcon show={show} onClick={props.toggleBars}/>
     </>
     );
 

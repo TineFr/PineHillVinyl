@@ -4,10 +4,11 @@ import {colors, screens} from '@styles/variables'
 interface Props{
 
     tagBGC : string;
+    imageSource? : string;
 }
 
 export const Container = styled.div`
-height: 65vh;
+height: 60vh;
 width: 100%;
 background-color: ${colors.black};
 position: relative;
@@ -15,10 +16,6 @@ transition: all 0.3s ease-in;
 display:flex;
 align-items: space-between;
 flex-direction: column;
-
-    @media ${screens.mobileS}{
-            height: 80vh;
-    }
 
     @media ${screens.laptop}{
         height: 90vh;
@@ -59,6 +56,37 @@ transition: all 0.3s ease-in;
 max-width: 400px;
 position: relative;
 object-fit: contain;
+background:  linear-gradient(30deg, transparent 40%, rgba(42, 41, 40, .85) 40%) no-repeat 100% 0, linear-gradient(60deg, rgba(42, 41, 40, .85) 60%, transparent 60%) no-repeat 0 100%, repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
+    background-size: 50% 100%, 100% 50%, 100% 100%;
+
+
+&::after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px;
+    border: solid 1px #d9a388;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px ${colors.red}, inset 0 0 0 27px ${colors.red};
+    background:${colors.grey};
+    content: '';
+}
+
+
+&::before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px ${colors.black}, inset 0 0 0 27px ${colors.black};
+    background:${colors.black};
+    content: '';
+}
     @media (max-height: 750px){
         max-width: 300px;
     }
