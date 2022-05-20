@@ -1,20 +1,7 @@
-import styled, {keyframes} from 'styled-components/macro'
+import styled from 'styled-components/macro'
 import {colors, screens} from '@styles/variables'
 import Marquee from 'react-fast-marquee'
 
-
-const scroll = keyframes`
-    0% {
-        -moz-transform: translateX(100%);
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-    }
-    100% {
-        -moz-transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-    }
-`
 
 export const Title = styled.div`
 display: flex;
@@ -101,19 +88,6 @@ width: auto;
      }
 
 `
-export const Test = styled.div`
-  flex: 0 0 auto;
-  z-index: 1;
-  display: flex;
-  width: auto;
-  flex-direction: row;
-  transform: translateX(100%);
-  align-items: center;
-  animation: ${scroll} 20s linear infinite;
-  animation-direction: left;
-  
-`
-
 export const Product = styled.div`
 
     width: 35vw;
