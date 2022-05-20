@@ -178,13 +178,6 @@ height: auto;
 margin-bottom: 40px;
 overflow: hidden;
 
-& ${ProductsWrapper}:hover + ${PreOrder} {
-
-    background-color: yellow;
-
-    }
-
-    #container:hover ~ #cube { background-color: yellow; }
 
 @media ${screens.laptopL}{
             margin-top: 8vh;
