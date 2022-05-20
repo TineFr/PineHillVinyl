@@ -37,7 +37,7 @@ background-color: ${colors.red};
 
 @media ${screens.laptop}{
     width: 50%;
-    margin-right: 40px;
+    margin-right: 60px;
 }
 
  span{

@@ -1,17 +1,7 @@
 import styled from 'styled-components/macro'
 import {colors, screens} from '@styles/variables'
+import Marquee from 'react-fast-marquee'
 
-
-export const Container = styled.div`
-height: auto;
-margin-bottom: 40px;
-overflow: hidden;
-
-@media ${screens.laptopL}{
-            margin-top: 8vh;
-            margin-bottom: 100px;
-        }
-`
 
 export const Title = styled.div`
 display: flex;
@@ -42,7 +32,7 @@ color: ${colors.black};
      content:"";
      height: 7vw;
      width: 100%;
-     background-color: ${colors.red};;
+     background-color: ${colors.red};
      margin-top: -5vw;   
 
      @media ${screens.laptop}{
@@ -57,6 +47,7 @@ export const PreOrder = styled.div`
 
 display:none;
 
+
 @media ${screens.tablet}{
 display: flex;
 width: 7vw;
@@ -65,14 +56,15 @@ background-color:  ${colors.black};
 position: absolute; 
 right: 0;
 margin-top: -90px;
-margin-right: 30px;
+margin-right: 60px;
 color: white;
 font-size: 4vw;
-z-index:2;
+z-index:5;
 text-decoration: 3px underline  ${colors.red};
 padding-left: 10px;
 padding-right: 10px;
 padding-top: 10px;
+
 }
 
 @media ${screens.laptop}{
@@ -83,17 +75,19 @@ margin-top: 10px;
 `
 
 
-
 export const ProductsWrapper = styled.div`
 display: flex;
 align-items: center;
 margin-top: 30px;
 overflow-x: auto;
+width: auto;
+
+
 ::-webkit-scrollbar {   
      display: none;
      }
-`
 
+`
 export const Product = styled.div`
 
     width: 35vw;
@@ -162,6 +156,8 @@ export const Product = styled.div`
      opacity: 0.5;
  }
 
+
+
  &:hover h1{
      opacity: 1;
  }
@@ -171,5 +167,21 @@ export const Product = styled.div`
  }
 
 `
+export const MarqueeContainer = styled(Marquee)`
+.marquee{
+    min-width: initial !important;
+    
+}
+`
+export const Container = styled.div`
+height: auto;
+margin-bottom: 40px;
+overflow: hidden;
 
+
+@media ${screens.laptopL}{
+            margin-top: 8vh;
+            margin-bottom: 100px;
+        }
+`
 
