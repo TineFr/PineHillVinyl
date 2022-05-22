@@ -7,7 +7,7 @@ const Footer = () => {
             <Container>
                 <Wrapper>
                 <Column>
-                <Title>KakaPipi</Title>
+                <Title>Information</Title>
                 <NavLink to="/">Informatie</NavLink>
                 <NavLink to="/">Informatie</NavLink>            
                 <NavLink to="/">Informatie</NavLink>
@@ -15,7 +15,7 @@ const Footer = () => {
                 <NavLink to="/">Informatie</NavLink>                                       
                 </Column>
                 <Column>
-                <Title>Je Moeder</Title>
+                <Title>Information</Title>
                 <NavLink to="/">Informatie</NavLink>
                 <NavLink to="/">Informatie</NavLink>            
                 <NavLink to="/">Informatie</NavLink>
@@ -23,7 +23,7 @@ const Footer = () => {
                 <NavLink to="/">Informatie</NavLink>                                       
                 </Column>
                 <Column>
-                <Title>KakaPipi</Title>
+                <Title>Information</Title>
                 <NavLink to="/">Informatie</NavLink>
                 <NavLink to="/">Informatie</NavLink>            
                 <NavLink to="/">Informatie</NavLink>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <NavLink to="/">Informatie</NavLink>                                       
                 </Column>
                 <Column>
-                <Title>KakaPipi</Title>
+                <Title>Information</Title>
                 <NavLink to="/">Informatie</NavLink>
                 <NavLink to="/">Informatie</NavLink>            
                 <NavLink to="/">Informatie</NavLink>
