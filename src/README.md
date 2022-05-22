@@ -2,8 +2,8 @@
 
 Clone this repo
 
-## Run the backend
-In the current state of the project, the backend is not yet functional
+## Run the server
+In the current state of the project, the server is not yet functional
 
 ## Run the frontend
 
