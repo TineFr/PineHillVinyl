@@ -58,8 +58,7 @@ float: ${props => props.side};
 
 
  img{
-    height: 250px;
-    object-fit: cover;
-    -o-object-fit: cover;
+    height: 100%;
+    width: 100%;
  }
 `
