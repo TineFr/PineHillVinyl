@@ -1,6 +1,6 @@
 
 import styled from 'styled-components/macro';
-import {colors, screens} from '@styles/variables';
+import {colors, screens} from '../../../../styles/variables'
 
 interface Props{
 
