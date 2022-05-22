@@ -8,15 +8,15 @@ Styled-components is a popular library that is used to style React applications.
 
 ## Advantages
 
-* <b>Eleminates class name bugs:</b> For each component, a unique class name is automatically generated. This avoids problems with duplications and misspellings 
+* <b>Eliminates class name bugs:</b> For each component, a unique class name is automatically generated. This avoids problems with duplications and misspellings 
 
-* <b>Clean:</b> styling can be easily managed. It is easy to determine which CSS was applied. As only one classname is applied, it ensures that no overload of different class names has to be used to achieve the desired result
+* <b>Clean:</b> styling can be easily managed. It is easy to determine which CSS was applied. As only one class name is applied, it ensures that no overload of different class names has to be used to achieve the desired result
 
 * <b>Clean:</b> styling can be easily managed. It is easy to determine which CSS was applied. 
 
 * <b>Simple and dynamic:</b> As styling is applied through props and global themes, it ensures that no overload of different class names has to be used to achieve the desired result. Not only that, but you will never have to hunt across different files to find the styling affecting your component.
 
-* <b>Reproducible:</b> Components can be resued infinitely through imports.
+* <b>Reproducible:</b> Components can be reused infinitely through imports.
 
 * <b>Optimization:</b> Styled Components have some optimization features which means they render only when they’re needed. It keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically.
 
@@ -34,8 +34,7 @@ Styled-components is a popular library that is used to style React applications.
 ## How to use
 
 ### How to Install
-
-npm install — save styled-components
+Using nodejs: npm install — save styled-components
 
 ### How to Declare
 
@@ -62,7 +61,7 @@ example:<br>
 
         export default SaveButton;
 
-### Sources
+## Sources
 
 Official SC documentation: https://styled-components.com/docs/basics#motivation <br>
 Review by Christopher Kade, Frontend Engineer @OpenClassrooms : https://dev.to/christopherkade/styled-component-what-why-and-how-5gh3#disadvantages <br>

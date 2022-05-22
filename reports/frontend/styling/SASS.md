@@ -1,10 +1,10 @@
-# SASS
+# Sass
 
 ![logo](../../images/sass.png) 
 
 ## Intro
 
-SASS, also known as SCSS, stands for Syntactically Awesome Style Sheets. In short, Sass is a CSS preprocessor, which means it is a scripting language that extends CSS by allowing developers to write code in one language and then compile it into CSS. It enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organized and allows you to create style sheets faster.
+SASS, better known as SCSS, stands for Syntactically Awesome Style Sheets. In short, it is a CSS preprocessor, which means it is a scripting language that extends CSS by allowing developers to write code in one language and then compile it into CSS. It enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organized and allows you to create style sheets faster.
 
 ## Advantages
 
