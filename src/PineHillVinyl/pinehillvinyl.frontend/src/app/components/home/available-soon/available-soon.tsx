@@ -9,7 +9,7 @@ const AvailableSoon = () => {
 
   return (
 
-    <Container data-aos="fade-up">
+    <Container data-aos="fade-up" data-aos-once="true">
         <Title><span>Coming Soon</span></Title>
         <PreOrder><span>Pre order now</span></PreOrder>
         <MarqueeContainer speed={60}> 

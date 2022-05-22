@@ -8,8 +8,8 @@ export const Spotlight = () => {
 
   return (
         <Container>
-        <Title data-aos="fade-right"><span>IN THE SPOTLIGHT</span></Title>
-          <ProductsWrapper data-aos="fade-up">
+        <Title data-aos="fade-right" data-aos-offset="500" data-aos-once="true"><span>IN THE SPOTLIGHT</span></Title>
+          <ProductsWrapper data-aos="fade-up" data-aos-once="true" data-aos-offset="500" >
   {data.map((item, index) => {
                       return (
               <Product key={index}>
