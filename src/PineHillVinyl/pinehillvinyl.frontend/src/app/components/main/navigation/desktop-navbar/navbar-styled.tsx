@@ -1,6 +1,6 @@
 import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components/macro'
-import {colors} from '@styles/variables'
+import {colors} from '../../../../../styles/variables'
 
 
 interface Props{

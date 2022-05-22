@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import {colors, screens} from '@styles/variables'
+import {colors, screens} from '../../../../styles/variables'
 
 export const Container = styled.div`
 margin-top: 30px;
