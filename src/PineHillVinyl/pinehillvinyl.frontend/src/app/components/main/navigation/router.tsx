@@ -32,7 +32,7 @@ function RouterComponent() {
 
         return (
          <Router>
-             {/* <MobileNavbar toggle={toggle} show={showMobileNav}/> */}
+             <MobileNavbar show={showMobileNav} toggle={toggle}/>
              <Navbar toggleBars={toggle}/>
             <Routes>
                 <Route path="/" element={<Home/>}></Route>
