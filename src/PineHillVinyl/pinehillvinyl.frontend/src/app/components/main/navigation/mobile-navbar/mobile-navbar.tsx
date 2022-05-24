@@ -1,32 +1,30 @@
 
-import { NavbarItems } from '../navbar-items'
-import { NavLink } from 'react-router-dom'
-import "../../../../../assets/icons/logo.png";
-import { AiOutlineClose } from 'react-icons/ai';
+import { useEffect, useState } from 'react';
+import { Container, CloseButton, NavContainer, NavItems, NavItem, LogoContainer  } from './mobile-navbar-styled';
+
 
 function MobileNavbar (props : any) {
 
   return (
-    <nav className={`navBar-mobile${props.show ? "" : " hidden"}`} onClick={props.toggle}>
-    <div className="logoContainer-mobile">
-        <img className="logo-mobile" src={require("../../../../../assets/icons/logo-transparent.png")}  alt="logo"/>
-    </div>
-    <ul className="navContainer-mobile">
-        {NavbarItems.map((item, index) => {
-            return (
-                <li key={index}>
-                    <NavLink to={item.url} className={`mobile ${item.cName}`} onClick={props.toggle}>{item.title}</NavLink>
-                </li>
-            )            
-        })}
-    </ul>
-    <div className='gr-close-container'>
-         <AiOutlineClose className="gr-close" onClick={props.toggle}/>
-    </div>
-</nav>
-
-
+      <>
+      <Container show={props.show}>
+      <CloseButton onClick={props.toggle}/>
+      <NavContainer>
+          <NavItems>
+        <NavItem>Home</NavItem>
+        <NavItem>Shop</NavItem>
+        <NavItem>About Us</NavItem>
+        <NavItem>Contact</NavItem>
+        </NavItems>
+      </NavContainer>
+      <LogoContainer>
+        <img src={require('../../../../../assets/icons/logo-transparent.png')} />      </LogoContainer>
+      </Container>
+      </>
   )
 }
 
+
+
 export default MobileNavbar
+
