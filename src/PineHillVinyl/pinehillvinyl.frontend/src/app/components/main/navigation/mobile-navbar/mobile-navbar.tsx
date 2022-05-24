@@ -1,6 +1,7 @@
 
 import { Container, CloseButton, NavContainer, NavItems, NavItem, LogoContainer  } from './mobile-navbar-styled';
-
+import { NavbarItems } from '../navbar-items'
+import { NavLink } from 'react-router-dom'
 
 function MobileNavbar (props : any) {
 
@@ -10,10 +11,13 @@ function MobileNavbar (props : any) {
       <CloseButton onClick={props.toggle}/>
       <NavContainer>
           <NavItems>
-            <NavItem>Home</NavItem>
-            <NavItem>Shop</NavItem>
-            <NavItem>About Us</NavItem>
-            <NavItem>Contact</NavItem>
+          {NavbarItems.map((item, index) => {
+                return (
+                    <NavItem key={index} onClick={props.toggle}>
+                        <NavLink to={item.url} className={((navData) => navData.isActive ? item.cName + " active" : item.cName)}>{item.title}</NavLink>
+                    </NavItem>
+                )             
+                    })}
         </NavItems>
       </NavContainer>
       <LogoContainer>

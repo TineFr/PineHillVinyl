@@ -32,9 +32,6 @@ animation: ${props => props.show ?  css`
         `  : ''};
 `
 
-
-
-
 export const CloseButton = MenuButton.withComponent(AiOutlineClose);
 
 

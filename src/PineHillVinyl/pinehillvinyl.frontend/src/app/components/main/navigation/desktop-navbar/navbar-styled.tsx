@@ -1,16 +1,17 @@
+import { RoomSharp } from '@material-ui/icons'
 import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components/macro'
 import {colors} from '../../../../../styles/variables'
 
 
 interface Props{
-  show : boolean
+  show? : boolean
+  isMobile? : boolean
 }
 
 
 export const NavbarContainer = styled.div<Props>`
-display: flex;
-opacity: ${props => props.show ?  1 : 0};
+opacity: ${props => props.show  ?  1 : 0};
 background-color: ${colors.black};
 align-items: center;
 justify-content: flex-start;
@@ -32,8 +33,9 @@ left: 0;
  }
 `
 
-export const NavbarList = styled.div`
-display: flex;
+export const NavbarList = styled.div<Props>`
+display: ${props => props.isMobile  ?  "none" : "flex"};
+/* display: flex; */
 justify-content: center;
 align-items: center;
 width: 100%;
@@ -59,7 +61,7 @@ font-size: 30px;
 position: fixed;
 right: 0;
 top: 0;
-opacity: ${props => props.show ?  0 : 1};
+opacity: ${props =>  props.isMobile || !props.show ?  1 : 0};
 margin: 20px;
 transition: all 0.5s ease-in-out;
 z-index: 999;

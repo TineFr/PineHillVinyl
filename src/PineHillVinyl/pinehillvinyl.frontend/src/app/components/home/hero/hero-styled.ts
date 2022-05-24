@@ -1,14 +1,32 @@
-import styled from 'styled-components/macro'
+import styled, {keyframes} from 'styled-components/macro'
 import {colors, screens}  from '../../../../styles/variables'
 
 interface Props{
 
-    tagBGC : string;
+    tagBGC? : string;
     imageSource? : string;
+    delay?: number;
+    loaded? : boolean
 }
 
+const vinylAnimation = keyframes`
+  from {
+   -webkit-transform:rotate(60deg);
+   -moz-transform:rotate(60deg);
+   -o-transform:rotate(60deg);
+   opacity:0
+  }
+
+  to {
+    -webkit-transform:rotate(360deg);
+   -moz-transform:rotate(360deg);
+   -o-transform:rotate(360deg);
+   opacity:1
+  }
+`;
+
 export const Container = styled.div`
-height: 60vh;
+height: 90vh;
 width: 100%;
 background-color: ${colors.black};
 position: relative;
@@ -17,9 +35,6 @@ display:flex;
 align-items: space-between;
 flex-direction: column;
 
-    @media ${screens.laptop}{
-        height: 90vh;
-    }
 `
 
 export const Title = styled.h1`
@@ -35,6 +50,17 @@ text-align: center;
         text-align: start;
     }
 `
+
+export const Letter = styled.div<Props>`
+color: ${colors.red};
+font-size:calc(19px + 18vw);
+font-weight: normal;
+display: inline-block;
+transition: opacity 1s; 
+transition-delay: ${props => props.delay}s;
+opacity: ${props => props.loaded ? 1 : 0};
+`
+
 
 export const Wrapper = styled.div`
 display:flex;
@@ -58,7 +84,7 @@ position: relative;
 object-fit: contain;
 background:  linear-gradient(30deg, transparent 40%, rgba(42, 41, 40, .85) 40%) no-repeat 100% 0, linear-gradient(60deg, rgba(42, 41, 40, .85) 60%, transparent 60%) no-repeat 0 100%, repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
     background-size: 50% 100%, 100% 50%, 100% 100%;
-
+animation: ${vinylAnimation} 1s linear;
 
 &::after{
     position: absolute;
@@ -117,7 +143,7 @@ display:none;
         transform: skew(.600rad);
         text-align: center;
         transition: all 0.3s ease-in;
-        float:right;
+        float:right;      
     }
 `
 export const Tag = styled.div<Props>`
@@ -127,6 +153,10 @@ font-size:calc(10px + 1vw);
 margin-bottom: 10px;
 display:flex;
 flex-direction: column;
+
+transition: opacity 1s; 
+transition-delay: ${props => props.delay}s;
+opacity: ${props => props.loaded ? 1 : 0};
 
     span{
         z-index:3;
