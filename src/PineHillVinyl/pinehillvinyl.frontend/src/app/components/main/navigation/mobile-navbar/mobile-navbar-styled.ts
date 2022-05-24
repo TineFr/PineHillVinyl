@@ -18,17 +18,6 @@ const slideIn = keyframes`
   }
 `
 
-const slideOut = keyframes`
-  from {
-    transform: translate(0);
-  }
-
-  to {
-    transform: translate(100vw);
-  }
-`
-
-
 export const Container = styled.div<Props>`
 background-color: ${colors.black};
 font-size: 7rem;
@@ -39,9 +28,8 @@ z-index: 1050;
 display: ${props => props.show ? 'table' : 'none'};
 flex-direction: column;
 animation: ${props => props.show ?  css`
-          ${slideIn} 0.5s linear forwards
-        `  :  css`
-          ${slideOut} 0.5s linear forwards`};
+          ${slideIn} 0.3s linear forwards
+        `  : ''};
 `
 
 
@@ -69,6 +57,9 @@ justify-content: space-evenly;
 export const NavItem = styled.a`
 z-index: 1051;
 color: white;
+display:block;
+cursor: pointer;
+
 
 &:hover{
     text-decoration: underline 5px solid ${colors.white}
