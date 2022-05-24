@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
 import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon} from './navbar-styled'
-import { ShoppingCart } from '@material-ui/icons';
 
 
 function Navbar(props : any) {
@@ -29,7 +28,7 @@ function Navbar(props : any) {
     <LogoContainer>
         <img src={require('../../../../../assets/icons/logo-transparent.png')} />
     </LogoContainer>
-        <NavbarList>
+        <NavbarList isMobile={props.isMobile}>
         {NavbarItems.map((item, index) => {
                 return (
                     <NavbarItem key={index}>
@@ -39,7 +38,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
     </NavbarContainer>
-    <BarsIcon show={show} onClick={props.toggleBars}/>
+    <BarsIcon show={show} isMobile={props.isMobile} onClick={props.toggleBars}/>
     </>
     );
 

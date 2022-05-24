@@ -11,29 +11,33 @@ import MobileNavbar from './mobile-navbar/mobile-navbar';
 
 function RouterComponent() {
 
-    const [showMobileNav, setShowMobileNav] = useState(false);
+    const [isMobile, setIsMobileNav] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+
 
     const toggle = () =>{
-        setShowMobileNav(!showMobileNav);
+        setShowMenu(!showMenu);
     }
 
     const handleResize = () =>{
-        console.log({showMobileNav});
-        if (window.innerWidth >= 700 && showMobileNav){
-            toggle();
+        if (window.innerWidth >= 700){
+            setIsMobileNav(false);
+             }
+            else {
+                setIsMobileNav(true);
+            }
         };
-    }
 
     useEffect(() => {
         window.addEventListener("resize", handleResize)
+        window.addEventListener("load", handleResize)
       });
 
-    
 
         return (
          <Router>
-             <MobileNavbar show={showMobileNav} toggle={toggle}/>
-             <Navbar toggleBars={toggle}/>
+             <MobileNavbar show={showMenu} toggle={toggle}/>
+             <Navbar isMobile={isMobile} toggleBars={toggle}/>
             <Routes>
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
