@@ -55,12 +55,16 @@ export const NavItem = styled.a`
 z-index: 1051;
 color: white;
 display:block;
-cursor: pointer;
 
+a{
+    color:${colors.white};
+    text-decoration: none;
+    &:hover{
+    text-decoration: underline 5px solid ${colors.white};
+    text-underline-offset: 0.2em;
+ } 
+}
 
-&:hover{
-    text-decoration: underline 5px solid ${colors.white}
- }
 `
 
 export const LogoContainer = styled.div`

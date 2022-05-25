@@ -13,8 +13,8 @@ function MobileNavbar (props : any) {
           <NavItems>
           {NavbarItems.map((item, index) => {
                 return (
-                    <NavItem key={index} onClick={props.toggle}>
-                        <NavLink to={item.url} className={((navData) => navData.isActive ? item.cName + " active" : item.cName)}>{item.title}</NavLink>
+                    <NavItem key={index}>
+                        <NavLink  onClick={props.toggle} to={item.url} className={((navData) => navData.isActive ? item.cName + " active" : item.cName)}>{item.title} </NavLink>
                     </NavItem>
                 )             
                     })}
