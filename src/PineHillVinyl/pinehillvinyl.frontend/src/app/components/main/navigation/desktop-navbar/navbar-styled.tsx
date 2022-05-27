@@ -5,26 +5,26 @@ import {colors} from '../../../../../styles/variables'
 
 
 interface Props{
-  show? : boolean
-  isMobile? : boolean
+  $show? : boolean
+  $isMobile? : boolean
 }
 
 
 export const NavbarContainer = styled.div<Props>`
-opacity: ${props => props.show  ?  1 : 0};
+position: ${props => props.$isMobile ?  "fixed" : "initial"};
 background-color: ${colors.black};
 align-items: center;
 justify-content: flex-start;
 height: 75px;
 width: 100%;
 z-index: 999;
-transition: all 0.4s ease-in-out;
+/* transition: all 0.1s ease-in-out; */
 
 `
 
 export const LogoContainer = styled.div`
 height: 75px;
-position: fixed;
+position: absolute;
 top: 0;
 left: 0;
  img{
@@ -34,7 +34,7 @@ left: 0;
 `
 
 export const NavbarList = styled.div<Props>`
-display: ${props => props.isMobile  ?  "none" : "flex"};
+display: ${props => props.$isMobile  ?  "none" : "flex"};
 /* display: flex; */
 justify-content: center;
 align-items: center;
@@ -61,8 +61,8 @@ font-size: 30px;
 position: fixed;
 right: 0;
 top: 0;
-opacity: ${props =>  props.isMobile || !props.show ?  1 : 0};
+opacity: ${props =>  props.$isMobile || !props.$show ?  1 : 0};
 margin: 20px;
-transition: all 0.5s ease-in-out;
+transition: all 0.2s ease-in-out;
 z-index: 999;
 `

@@ -1,7 +1,7 @@
 import styled, {keyframes, css} from 'styled-components/macro'
 import { AiOutlineClose } from 'react-icons/ai';
 import { colors } from '@styles/variables';
-import {MenuButton} from '../../../shared/buttons/menu-button-styled'
+import {MenuButton} from '../../../shared/buttons/navbar/menu-button-styled'
 
 
 interface Props{
@@ -51,7 +51,7 @@ justify-content: space-evenly;
 
 `
 
-export const NavItem = styled.a`
+export const NavItem = styled.div`
 z-index: 1051;
 color: white;
 display:block;

@@ -1,6 +1,6 @@
 
 import styled from 'styled-components/macro';
-import {colors, screens} from '../../../../styles/variables'
+import {colors, screens} from '../../../../../styles/variables'
 
 interface Props{
 
@@ -13,7 +13,6 @@ background-color: #ededed;
 height: 80px;
 display: flex;
 font-size: calc(12px + 1.5vw);
-/* margin-top: 40px; */
 margin-bottom:40px;
 overflow-x: scroll;
 width: 100%;
