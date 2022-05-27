@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-
-class Contact extends Component {
-    render() {
-        return (
-            <div>
-                This is the contact page.
-            </div>
-        );
-    }
+import { Hero, ContactForm, Message } from "../components/contact/index"
+import Footer from '../components/main/footer/footer';
+function Contact()  {
+    return (
+        <>   
+ <Hero/>
+ <Message/>
+ <ContactForm/>
+ <Footer/>
+        </>
+    );
 }
 
 export default Contact;
