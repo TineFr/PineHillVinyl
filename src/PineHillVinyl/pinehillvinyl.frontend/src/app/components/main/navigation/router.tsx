@@ -6,6 +6,7 @@ import About from '../../about/about';
 import Contact from '../../contact/contact';
 import Home from '../../../pages/home';
 import Shop from '../../../pages/shop';
+import ProductDetails from '../../../pages/product-details';
 import Navbar from './desktop-navbar/navbar';
 import MobileNavbar from './mobile-navbar/mobile-navbar';
 
@@ -44,6 +45,7 @@ function RouterComponent() {
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
                 <Route path="/shop" element={<Shop/>}></Route>
+                <Route path="/products" element={<ProductDetails/>}></Route>
                 <Route path="/contact" element={<Contact/>}></Route>
                 <Route path="*" element={<ErrorPage/>}></Route>
             </Routes>          

@@ -1,7 +1,7 @@
 import styled, {keyframes, css} from 'styled-components/macro'
 import { AiOutlineClose } from 'react-icons/ai';
 import { colors } from '@styles/variables';
-import {MenuButton} from '../../../shared/menu-button-styled'
+import {MenuButton} from '../../../shared/buttons/menu-button-styled'
 
 
 interface Props{
