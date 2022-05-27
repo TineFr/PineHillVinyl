@@ -1,9 +1,9 @@
 
-import { Container, CloseButton, NavContainer, NavItems, NavItem, LogoContainer  } from './mobile-navbar-styled';
+import { Container, CloseButton, NavContainer, NavItems, NavItem, LogoContainer  } from './side-navbar-styled';
 import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
 
-function MobileNavbar (props : any) {
+function SideNavbar (props : any) {
 
   return (
       <>
@@ -27,5 +27,5 @@ function MobileNavbar (props : any) {
   )
 }
 
-export default MobileNavbar
+export default SideNavbar
 

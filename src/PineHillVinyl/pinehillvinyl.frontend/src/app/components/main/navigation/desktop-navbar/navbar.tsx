@@ -6,6 +6,7 @@ import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon} from '
 
 function Navbar(props : any) {
 
+
     const [show, setShow] = useState(true);
     const handleShow = () =>{
         if (window.pageYOffset >= 20){
@@ -24,11 +25,11 @@ function Navbar(props : any) {
 
         return (
             <>
-    <NavbarContainer show={show} >
+    <NavbarContainer $show={show} $isMobile={props.isMobile} >
     <LogoContainer>
         <img src={require('../../../../../assets/icons/logo-transparent.png')} />
     </LogoContainer>
-        <NavbarList isMobile={props.isMobile}>
+        <NavbarList $isMobile={props.isMobile}>
         {NavbarItems.map((item, index) => {
                 return (
                     <NavbarItem key={index}>
@@ -38,7 +39,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
     </NavbarContainer>
-    <BarsIcon show={show} isMobile={props.isMobile} onClick={props.toggleBars}/>
+    <BarsIcon $show={show} $isMobile={props.isMobile} onClick={props.toggleBars}/>
     </>
     );
 

@@ -8,7 +8,7 @@ import Home from '../../../pages/home';
 import Shop from '../../../pages/shop';
 import ProductDetails from '../../../pages/product-details';
 import Navbar from './desktop-navbar/navbar';
-import MobileNavbar from './mobile-navbar/mobile-navbar';
+import SideNavBar from './side-navbar/side-navbar';
 
 
 function RouterComponent() {
@@ -38,7 +38,7 @@ function RouterComponent() {
 
         return (
          <Router>
-             <MobileNavbar show={showMenu} toggle={toggle}/>
+             <SideNavBar show={showMenu} toggle={toggle}/>
              <Navbar isMobile={isMobile} toggleBars={toggle}/>
              <ScrollBack>
             <Routes>  

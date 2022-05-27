@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, keyframes } from 'styled-components'
 
 
 export const GlobalStyle = createGlobalStyle`  
@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   
   ::-webkit-scrollbar-thumb {
-      background: lightgray;
+      background: lightgrey;
   }
   
   ::-webkit-scrollbar-track {

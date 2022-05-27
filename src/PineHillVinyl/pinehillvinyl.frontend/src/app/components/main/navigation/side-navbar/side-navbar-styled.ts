@@ -51,7 +51,7 @@ justify-content: space-evenly;
 
 `
 
-export const NavItem = styled.a`
+export const NavItem = styled.div`
 z-index: 1051;
 color: white;
 display:block;

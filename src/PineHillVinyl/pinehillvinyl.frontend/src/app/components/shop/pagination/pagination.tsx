@@ -7,10 +7,10 @@ const Pagination = (props: any) => {
   return (
     <Container>
         <PageButton><button><MdArrowLeft/></button></PageButton>
-            {pages.map((item) => 
+            {pages.map((item, index) => 
             {
                 return(
-                <PageButton>
+                <PageButton key={index}>
                     <button>{item}</button>
                 </PageButton>
                 );
