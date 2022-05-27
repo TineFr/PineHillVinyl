@@ -9,11 +9,11 @@ interface Props{
 
 
 export const Container = styled.div`
-
-height: 60px;
+background-color: #ededed;
+height: 80px;
 display: flex;
 font-size: calc(12px + 1.5vw);
-margin-top: 40px;
+/* margin-top: 40px; */
 margin-bottom:40px;
 overflow-x: scroll;
 width: 100%;

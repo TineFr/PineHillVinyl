@@ -1,5 +1,5 @@
 import Footer from "../components/main/footer/footer"
-import Filter from "../components/shop/filter/filter"
+import Filter from "../components/shared/filter/filter"
 import Pagination from "../components/shop/pagination/pagination"
 import { Products } from "../components/shop/products/products"
 import Tags from "../components/shop/tags/tags"
