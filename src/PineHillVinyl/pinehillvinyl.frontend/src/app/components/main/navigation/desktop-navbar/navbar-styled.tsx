@@ -24,7 +24,7 @@ z-index: 999;
 
 export const LogoContainer = styled.div`
 height: 75px;
-position: fixed;
+position: absolute;
 top: 0;
 left: 0;
  img{

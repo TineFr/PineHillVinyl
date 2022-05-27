@@ -1,8 +1,12 @@
 import React from 'react'
-
+import {Container} from './shop-menu-styled'
+import SortButton from '.././../shared/buttons/sort/sort-button'
 const ShopMenu = () => {
   return (
-    <div>shop-menu</div>
+    <Container>
+      <SortButton/>
+
+    </Container>
   )
 }
 

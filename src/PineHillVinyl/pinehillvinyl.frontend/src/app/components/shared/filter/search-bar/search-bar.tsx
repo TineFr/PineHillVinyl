@@ -1,13 +1,17 @@
-import React from 'react'
-import {Container, SearchBox} from './search-bar-styled'
+
+import {Container, SearchBoxContainer, SearchBox, SearchIcon} from './search-bar-styled'
 
 
-const Searchbar = () => {
+
+const SearchBar = () => {
   return (
     <Container>
-        <SearchBox placeholder=' Type anything...'/>
+        <SearchBoxContainer>
+        <SearchBox type="text" placeholder='Type anything...' maxLength ={65}/>
+        <SearchIcon/>
+        </SearchBoxContainer>
     </Container>
   )
 }
 
-export default Searchbar
+export default SearchBar
