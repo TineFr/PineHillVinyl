@@ -1,4 +1,4 @@
-import { Hero, ContactForm, Message } from "../components/contact/index"
+import { Hero, ContactForm, Message, FindUs } from "../components/contact/index"
 import Footer from '../components/main/footer/footer';
 function Contact()  {
     return (
@@ -6,6 +6,7 @@ function Contact()  {
  <Hero/>
  <Message/>
  <ContactForm/>
+ <FindUs/>
  <Footer/>
         </>
     );
