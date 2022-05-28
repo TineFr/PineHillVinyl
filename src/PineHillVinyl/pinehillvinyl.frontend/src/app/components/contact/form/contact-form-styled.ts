@@ -30,7 +30,7 @@ padding: 30px 20px;
 export const Form = styled.form`
 width: 100%;
 max-width: 700px;
-padding: 0 30px;
+
 
 @media ${screens.tablet} {
     display:grid;

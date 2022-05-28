@@ -2,7 +2,7 @@ import {Container, Form, Input, InputSmall, TextArea} from './contact-form-style
 
 const ContactForm = () => {
   return (
-    <Container>
+    <Container data-aos="fade-up" data-aos-once="true">
         <Form>
             <InputSmall type='text' name='name'placeholder='Name'/>
             <InputSmall type='text' name='firstName' placeholder='First Name'/>
