@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes , Route} from 'react-router-dom'
 import ScrollBack from './scroll-back';
 import ErrorPage from '../../../error';
 import About from '../../about/about';
-import Contact from '../../contact/contact';
+import Contact from '../../../pages/contact';
 import Home from '../../../pages/home';
 import Shop from '../../../pages/shop';
 import ProductDetails from '../../../pages/product-details';
