@@ -5,7 +5,7 @@ import Filter from "../components/shared/filter/filters/filter"
 // import Tags from "../components/shop/tags/tags"
 import SearchBar from "../components/shared/filter/search-bar/search-bar"
 
-import { Pagination, Products, ShopMenu, Tags } from "../components/shop/index"
+import { Pagination, Products, ShopMenu, Tags, ShopGrid } from "../components/shop/index"
 
 
 const Shop = () => {
@@ -15,7 +15,7 @@ const Shop = () => {
     <>
     <SearchBar/>
     {/* <Filter/>  */}
-    <Products/>
+    <ShopGrid/>
     <Pagination pages={pages}/>
     <Footer/>
     </>
