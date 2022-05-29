@@ -1,4 +1,4 @@
-import Footer from '../components/main/footer/footer';
+import Footer from '../components/shared/footer/footer';
 import Hero from '../components/home/hero/hero';
 import { Spotlight } from '../components/home/spotlight/spotlight';
 import AvailableSoon from '../components/home/available-soon/available-soon';

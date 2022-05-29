@@ -1,14 +1,12 @@
 import {useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes , Route} from 'react-router-dom' 
+import {Home, Contact, About, ProductDetails, Shop} from '../../../pages/index'
+
 import ScrollBack from './scroll-back';
 import ErrorPage from '../../../error';
-import About from '../../about/about';
-import Contact from '../../../pages/contact';
-import Home from '../../../pages/home';
-import Shop from '../../../pages/shop';
-import ProductDetails from '../../../pages/product-details';
 import Navbar from './desktop-navbar/navbar';
 import SideNavBar from './side-navbar/side-navbar';
+
 
 
 function RouterComponent() {
