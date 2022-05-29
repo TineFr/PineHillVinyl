@@ -1,4 +1,4 @@
-import Hero from './hero/hero'
+import Hero from '../shared/hero/hero'
 import ContactForm from './form/contact-form'
 import Message from './message/contact-message'
 import FindUs from './find-us/find-us'
