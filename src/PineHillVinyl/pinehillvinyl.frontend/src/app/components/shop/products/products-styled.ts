@@ -8,19 +8,19 @@ align-items: center;
 justify-content: center;
 overflow: hidden;
 width:100%;
-margin: 20px 0px 30px 0px;
+/* margin: 20px 0px 30px 0px; */
 `
 
 export const ProductsWrapper = styled.div`
 display: Grid;
 margin-top: 10px;
-width: 90%;
-max-width: 2000px;
+/* width: 90%; */
+/* max-width: 2000px; */
 grid-template-columns: repeat(2, 50%);
 text-align: center;
 grid-row-gap: 20px;
 margin:auto;
-justify-content: center;
+justify-content: flex-end;
 
 @media ${screens.laptop}{
   grid-template-columns: repeat(5, 18%);

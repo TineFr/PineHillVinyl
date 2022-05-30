@@ -1,13 +1,14 @@
-import React from 'react'
-import Filter from "../components/shared/filter/filters/filter"
-import AddToCart from '../components/shared/buttons/add to cart/add-to-cart'
-import Availability from '../components/product-details/availability/availability-component'
+
+import AddToCart from '../components/product-details/buy-block/add to cart/add-to-cart'
+import Availability from '../components/product-details/buy-block/availability/availability-component'
+import BuyBlock from '../components/product-details/buy-block/buy-block-component'
+import SearchBar from '../components/shared/filter/search-bar/search-bar'
 const ProductDetails = () => {
   return (
     <>
-    <Filter></Filter>
-    <AddToCart></AddToCart>
-    <Availability></Availability>
+    <SearchBar></SearchBar>
+    <BuyBlock></BuyBlock>
+
 
     
     </>

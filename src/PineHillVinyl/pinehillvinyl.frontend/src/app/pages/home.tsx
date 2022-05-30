@@ -8,7 +8,7 @@ import Events from '../components/home/events/events';
 
 function Home() {
     return (
-        <>   
+        <>  
         <Hero/>
         <AvailableSoon/>
         <Events/>    

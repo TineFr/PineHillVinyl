@@ -11,7 +11,9 @@ interface Props{
 
 
 export const NavbarContainer = styled.div<Props>`
-position: ${props => props.$isMobile ?  "fixed" : "initial"};
+position: ${props => props.$isMobile ?  "sticky" : "initial"};
+top: 0;
+left: 0;
 background-color: ${colors.black};
 align-items: center;
 justify-content: flex-start;

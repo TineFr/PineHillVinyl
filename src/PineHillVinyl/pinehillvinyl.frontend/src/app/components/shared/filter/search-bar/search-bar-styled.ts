@@ -33,11 +33,14 @@ display: flex;
 justify-content: center;
 background-color: ${colors.black};
 height: 4rem;
-position: fixed;
+position: sticky;
+top:75px;
+left: 0;
 width: 100%;
-margin-top: 75px;
+z-index: 200;
 
-@media ${screens.mobileL} {
+
+@media ${screens.laptop} {
 margin-top: 0px;
 position: initial;
 }
