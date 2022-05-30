@@ -4,7 +4,7 @@ import {SortCategories as data} from '../../../../data/sort-categories'
 const SortProducts = () => {
   return (
     <Container>
-        <SortSelection show={true} >
+        <SortSelection>
         {data.map((item, index) => {
                 return (
                     <option key={index} value={item.name}>{item.name} </option>

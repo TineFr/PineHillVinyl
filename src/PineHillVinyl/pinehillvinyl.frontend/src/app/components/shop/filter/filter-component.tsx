@@ -3,6 +3,7 @@ import CheckboxFilterItem from './filter-items/checkbox-filter-item/checkboxfilt
 const Filter = () => {
   return (
     <Container>
+      <h1>Filters</h1>
 <CheckboxFilterItem/>
 <CheckboxFilterItem/>
 <CheckboxFilterItem/>
