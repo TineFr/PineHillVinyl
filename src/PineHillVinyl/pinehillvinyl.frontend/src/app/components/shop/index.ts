@@ -1,5 +1,5 @@
 import Pagination from './pagination/pagination'
-import {Products} from './products/products'
+import {Products} from './products/product-list'
 import ShopMenu from './shop-menu/shop-menu'
 import Tags from './tags/tags'
 import ShopGrid from './shop-grid/shop-grid-component'
