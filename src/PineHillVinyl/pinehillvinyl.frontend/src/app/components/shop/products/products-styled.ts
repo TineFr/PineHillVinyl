@@ -4,22 +4,17 @@ import {colors, screens} from '../../../../styles/variables'
 
 export const ProductsContainer = styled.div`
 display: flex;
-align-items: center;
-justify-content: center;
+/* align-items: center; */
+/* justify-content: center; */
 overflow: hidden;
 width:100%;
-/* margin: 20px 0px 30px 0px; */
 `
 
 export const ProductsWrapper = styled.div`
 display: Grid;
 margin-top: 10px;
-/* width: 90%; */
-/* max-width: 2000px; */
 grid-template-columns: repeat(2, 50%);
-text-align: center;
 grid-row-gap: 20px;
-margin:auto;
 justify-content: flex-end;
 
 @media ${screens.laptop}{
@@ -29,9 +24,6 @@ justify-content: flex-end;
 export const ProductsItem = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: auto;
 height: auto;
 width: 90%;
 cursor: pointer;

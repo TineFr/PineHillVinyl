@@ -3,6 +3,10 @@ const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const baseUrl = "/api/v1";
+var cors = require('cors');
+
+
+
 
 //ROUTES
 const authRoutes = require("./routes/auth-routes");
@@ -17,7 +21,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 }).catch((err) =>{
     console.log("Connection failed" + '\n' + err);
 });
-
+app.use(cors({origin: '*'}));
 app.listen(process.env.PORT || 5000, () => {
     console.log("Server is running");
 })
