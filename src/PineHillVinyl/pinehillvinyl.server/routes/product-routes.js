@@ -1,12 +1,16 @@
 const Router = require('express').Router();
 const Product = require("../models/product");
-
+const {verifyAdmin} = require("../helpers/verifyToken");
 
 // GET ALL 
 
-Router.get("/products", async (req, res) =>{
+Router.get("/" , async (req, res) =>{
+    const category = req.query.category;
+
     try{
-        const products = await Product.find();
+        let products = category ? await Product.find({categories:{
+            $in: [category]
+        }}) : await Product.find()
         res.status(201).json(products);
     }
     catch(err){
@@ -16,7 +20,7 @@ Router.get("/products", async (req, res) =>{
 
 // GET BY ID
 
-Router.get("/products/:productId", async (req, res) =>{
+Router.get("/:productId", async (req, res) =>{
     try{
         const product = await Product.findById(req.params);
         res.status(201).json(product);
@@ -28,7 +32,7 @@ Router.get("/products/:productId", async (req, res) =>{
 
 // GET COMING SOON
 
-Router.get("/products/comingsoon", async (req, res) =>{
+Router.get("/comingsoon", async (req, res) =>{
     
     const today = new Date();
     const range = new Date();
@@ -45,7 +49,7 @@ Router.get("/products/comingsoon", async (req, res) =>{
 
 // POST MULTIPLE 
 
-Router.post("/products/batch", async (req, res) =>{
+Router.post("/batch", async (req, res) =>{
     let newProducts = [];
     req.array.forEach(product => {
         const newProduct = new Product({
@@ -71,7 +75,7 @@ Router.post("/products/batch", async (req, res) =>{
 
 // POST 
 
-Router.post("/products", async (req, res) =>{
+Router.post("/", async (req, res) =>{
     const newProduct = new Product({
         title: req.body.title,
         description: req.body.description,
@@ -92,7 +96,7 @@ Router.post("/products", async (req, res) =>{
 
 // PUT 
 
-Router.put("/products/:productId", async (req, res) =>{
+Router.put("/:productId", async (req, res) =>{
     try{
         const product = await Product.findById(req.params);
         if (!product) {
@@ -113,7 +117,7 @@ Router.put("/products/:productId", async (req, res) =>{
 
 // DELETE 
 
-Router.delete("/products/:productId", async (req, res) =>{
+Router.delete("/:productId", async (req, res) =>{
     try{
         return await Product.findByIdAndDelete(req.params)
         .then(res =>{
