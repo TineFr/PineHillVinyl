@@ -7,21 +7,23 @@ import { Product, ProductDocument } from "./schemas/product.schema";
 
 @Injectable()
 export class ProductRepository {
-  constructor(@InjectModel(Product.name) private _repository: Model<ProductDocument>) {}
+  constructor(@InjectModel(Product.name) private _model: Model<ProductDocument>) {}
 
-  async getAll(): Promise<Product[]> {
-    return await this._repository.find();
-  }
+    async getAll(): Promise<Product[]> {
+      return await this._model.find();
+    }
 
-  async getById(id: any): Promise<Product> {
-    return this._repository.findById(id);
-  }
+    async getById(id: any): Promise<Product> {
+     return await this._model.findById(id);
+     
+    };
 
-  async create(item: Product): Promise<Product> {
-    return this._repository.create(item);
-  }
+    async add(prd :  Product): Promise<Product> {
+      return await this._model.create(prd);  
+    };
 
-  async update(id: string, item: Product) {
-    return this._repository.findByIdAndUpdate(id, item);
-  }
+    async update(id : any, prd :  Product): Promise<Product> {
+       await this._model.findByIdAndUpdate(id, prd);  
+       return this._model.findById(id);
+    };
 }

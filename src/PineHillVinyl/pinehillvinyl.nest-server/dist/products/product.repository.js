@@ -25,7 +25,7 @@ let ProductRepository = class ProductRepository {
         return await this._repository.find();
     }
     async getById(id) {
-        return this._repository.findById(id);
+        return await this._repository.findById(id);
     }
     async create(item) {
         return this._repository.create(item);

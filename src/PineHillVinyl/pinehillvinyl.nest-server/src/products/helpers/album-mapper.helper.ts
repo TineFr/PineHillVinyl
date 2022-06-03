@@ -10,7 +10,16 @@ export class ProductMapper {
     //   const data = instanceToPlain(Product);
     //   return plainToInstance(ResponseProductDto, data);
     // }
+    
+     singleToSchema(dto :RequestProductDto):  Product {
+      const newProduct = new Product();
+      newProduct.artist = dto.artist;
+      newProduct.title = dto.title;
+      newProduct.image = dto.image;
+      newProduct.trackList = dto.trackList;
+      return newProduct;
 
+    }
     // static listToDto(Products : Product[]):  ResponseProductDto[] {
     //     let mappedList = []
     //     Products.forEach(x =>{

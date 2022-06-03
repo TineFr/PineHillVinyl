@@ -1,5 +1,5 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
-import { ResponseProductDto } from './dtos/product.dto';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { RequestProductDto } from './dtos/product.dto';
 import { ProductService } from './product.service';
 import { Product } from './schemas/product.schema';
 
@@ -13,16 +13,23 @@ export class ProductsController {
     return result;
   }
 
-//   @Get(':id')
-//   findOne(@Param('id') id:string): Album {
-//     // return this.appService.getHello();
-//     return this.appService.findOne(Number(id));
-//   }
-// @ApiResponse({status: 201, description: 'Record was created'})
-//   @Post()
-//   async create(@Body() createAlbumDto: CreateAlbumDto){
-//     return this.appService.createNew(createAlbumDto);
-//   }
+  @Get(':id')
+  async findOne(@Param('id') id:any): Promise<Product> {
+    return await this._service.getById(id);
+  }
+
+  @Post()
+  async addProduct(@Body() dto: RequestProductDto) {
+    return this._service.add(dto);
+  }
+
+  @Put(':id')
+  async updateProduct(
+    @Param('id') id: any,
+    @Body() dto: RequestProductDto,
+  ) {
+    return this._service.update(id, dto);
+  }
 
 
 }

@@ -4,4 +4,5 @@ export declare class ProductService {
     private readonly _repository;
     constructor(_repository: ProductRepository);
     getAll(): Promise<Product[]>;
+    getById(id: number): Promise<Product>;
 }

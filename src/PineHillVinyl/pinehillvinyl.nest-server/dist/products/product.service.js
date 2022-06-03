@@ -20,6 +20,10 @@ let ProductService = class ProductService {
         let result = await this._repository.getAll();
         return result;
     }
+    async getById(id) {
+        let result = await this._repository.getById(id);
+        return result;
+    }
 };
 ProductService = __decorate([
     (0, common_1.Injectable)(),

@@ -9,6 +9,10 @@ export class Product{
     title: string;
     @Prop({ required: true })
     artist: string;
+    @Prop({ required: true })
+    image: string;
+    @Prop({ required: true })
+    trackList: string[];
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

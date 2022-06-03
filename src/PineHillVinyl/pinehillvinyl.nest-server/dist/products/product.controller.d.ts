@@ -4,4 +4,5 @@ export declare class ProductsController {
     private readonly _service;
     constructor(_service: ProductService);
     findAll(): Promise<Product[]>;
+    findOne(id: string): Promise<Product>;
 }
