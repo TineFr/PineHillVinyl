@@ -1,17 +1,26 @@
-import { ResponseProductDto, RequestProductDto } from "../dtos/product.dto";
+
 import { Product } from "../schemas/product.schema";
 // import { plainToInstance, instanceToPlain } from 'class-transformer';
 import { ProductRepository } from "../product.repository";
+import { CreateProductDto, UpdateProductDto } from "../dtos/product.dto";
 
 
 export class ProductMapper {
+  
+     createDtoToSchema(dto : CreateProductDto):  Product {
+      const newProduct = new Product();
+      newProduct.artist = dto.artist;
+      newProduct.title = dto.title;
+      newProduct.image = dto.image;
+      newProduct.trackList = dto.trackList;
+      newProduct.description = dto.description;
+      newProduct.price = dto.price;
+      newProduct.genres = dto.genres;
+      newProduct.releaseDate = dto.releaseDate;
+      return newProduct;
 
-    // static singleToDto(Product :Product):  ResponseProductDto {
-    //   const data = instanceToPlain(Product);
-    //   return plainToInstance(ResponseProductDto, data);
-    // }
-    
-     singleToSchema(dto :RequestProductDto):  Product {
+    }
+    updateDtoToSchema(dto : UpdateProductDto):  Product {
       const newProduct = new Product();
       newProduct.artist = dto.artist;
       newProduct.title = dto.title;
@@ -20,33 +29,4 @@ export class ProductMapper {
       return newProduct;
 
     }
-    // static listToDto(Products : Product[]):  ResponseProductDto[] {
-    //     let mappedList = []
-    //     Products.forEach(x =>{
-    //         mappedList.push(instanceToPlain(x));
-    //     });  
-    //    let result = []
-    //    mappedList.forEach(x => {
-    //         result.push(plainToInstance(ResponseProductDto, x)); 
-    //     }); 
-    //     return result;
-    //   }
-
-    // static singleToEntity(dto : RequestProductDto):  Product {
-    //     const data = instanceToPlain(dto);
-    //     return plainToInstance(Product, data);
-    //   }
-
-    // static listToEntity(dtos : RequestProductDto[]):  Product[] {
-    //     let mappedList = []
-    //     dtos.forEach(x =>{
-    //         mappedList.push(instanceToPlain(x));
-    //     });  
-    //    let result = []
-    //    mappedList.forEach(x => {
-    //         result.push(plainToInstance(Product, x)); 
-    //     }); 
-    //     return result;
-    //   }
-
   }

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { RequestProductDto } from './dtos/product.dto';
+import { CreateProductDto, UpdateProductDto } from './dtos/product.dto';
 import { ProductService } from './product.service';
 import { Product } from './schemas/product.schema';
 
@@ -19,14 +19,14 @@ export class ProductsController {
   }
 
   @Post()
-  async addProduct(@Body() dto: RequestProductDto) {
+  async addProduct(@Body() dto: CreateProductDto) {
     return this._service.add(dto);
   }
 
   @Put(':id')
   async updateProduct(
     @Param('id') id: any,
-    @Body() dto: RequestProductDto,
+    @Body() dto: UpdateProductDto,
   ) {
     return this._service.update(id, dto);
   }

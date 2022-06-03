@@ -1,6 +1,7 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsString, IsNotEmpty, IsNumber, IsDate, IsArray } from 'class-validator';
 
-export class RequestProductDto{
+export class CreateProductDto{
     @IsNotEmpty()
     @IsString()
     title: string;
@@ -10,11 +11,36 @@ export class RequestProductDto{
     @IsNotEmpty()
     @IsString()
     image: string;
+    @IsArray()
     trackList: string[];
+    @IsString()
+    description: string;
+    @IsArray()
+    genres: string[];
+    @IsNotEmpty()
+    @IsNumber()
+    price: number;
+    @Type(() => Date)
+    @IsDate()
+    releaseDate : Date;
+
 }
 
-export class ResponseProductDto {
-    id: string;
+export class UpdateProductDto {
+    @IsString()
     title: string;
+    @IsString()
     artist: string;
+    @IsString()
+    image: string;
+    @IsArray()
+    trackList: string[];
+    @IsString()
+    description: string;
+    @IsArray()
+    genres: string[];
+    @IsNumber()
+    price: number;
+    @IsDate()
+    releaseDate : Date
 }

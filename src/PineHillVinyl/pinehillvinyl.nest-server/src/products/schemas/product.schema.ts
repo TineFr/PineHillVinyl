@@ -11,7 +11,16 @@ export class Product{
     artist: string;
     @Prop({ required: true })
     image: string;
+    @Prop()
     trackList: string[];
+    @Prop()
+    description: string;
+    @Prop()
+    releaseDate: Date;
+    @Prop()
+    genres: string[];
+    @Prop({ required: true })
+    price: number;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
