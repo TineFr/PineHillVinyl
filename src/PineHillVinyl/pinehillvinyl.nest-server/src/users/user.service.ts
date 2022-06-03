@@ -23,6 +23,11 @@ export class UserService {
       return result;
   }
 
+  async getByEmail(email : string): Promise<User> {
+    let result = await this._repository.getByEmail(email);
+    return result;
+}
+
   async add(dto: CreateUserDto): Promise<User> {
       const product = this._mapper.createDtoToSchema(dto);
       return this._repository.add(product);

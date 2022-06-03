@@ -18,6 +18,11 @@ export class UserRepository {
         return result;
     }
 
+    async getByEmail(email: string): Promise<User> {
+      let result =  await this._model.findOne({email:email}); 
+      return result;
+  }
+
     async add(prd :  User): Promise<User> {
       return await this._model.create(prd);  
     };
