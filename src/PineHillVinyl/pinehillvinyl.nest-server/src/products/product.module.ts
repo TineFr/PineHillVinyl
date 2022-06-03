@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ProductMapper } from './helpers/album-mapper.helper';
+import { ProductMapper } from './helpers/product-mapper.helper';
 import { ProductsController } from './product.controller';
 import { ProductRepository } from './product.repository';
 import { ProductService } from './product.service';
