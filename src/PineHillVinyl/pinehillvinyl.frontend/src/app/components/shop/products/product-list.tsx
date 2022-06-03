@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import {ProductsContainer, ProductsWrapper } from './product-list-styled'
 import {Product} from '../../../interfaces/index'
 import ProductListItem from './product-list-item/product-list-item'
-
+import Spinner from '../../shared/spinner/spinner.component';
+import {Products as data} from '../../../../data/products'
+ 
 
 
 
@@ -13,24 +15,36 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 
   const [products, setProducts] = useState<Product[]>([]);
+  const [isBusy, setIsBusy] = useState(false);
 
-
-  useEffect(  () =>{
+  useEffect( () =>{
+    setIsBusy(true);
     axios.get<Product[]>("http://localhost:4000/api/v1/products")
     .then(res => {
       setProducts(res.data);
-    });
+      setIsBusy(false);
+    })
+    .catch((err) => {
+      setIsBusy(false);
+    });;
   }, [])
   
   return (   
     <ProductsContainer>
+      <Spinner busy={isBusy} />
       <ProductsWrapper>
 
-{products!.map((product : Product, index) => {
+      {data!.map((product : any, index) => {
                     return (
                       <ProductListItem key={index} product={product}/>
                     )             
                 })}
+
+{/* {products!.map((product : Product, index) => {
+                    return (
+                      <ProductListItem key={index} product={product}/>
+                    )             
+                })} */}
 
 </ProductsWrapper>
 
