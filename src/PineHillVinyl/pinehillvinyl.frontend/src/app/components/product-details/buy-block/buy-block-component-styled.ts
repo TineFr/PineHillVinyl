@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import {screens} from '@styles/variables'
 
 export const Container = styled.div`
 display:flex;
@@ -7,10 +8,14 @@ align-items: flex-end;
 `
 
 export const Wrapper = styled.div`
-width: 8rem;
-height: 200px;
+width: 40vmin;
 margin: 1rem;
-margin-top: 79px;
-background-color: red;
+margin-top: 10px;
+max-width: 270px;
+
+@media ${screens.laptop}{
+    margin: 4rem;
+
+}
 
 `

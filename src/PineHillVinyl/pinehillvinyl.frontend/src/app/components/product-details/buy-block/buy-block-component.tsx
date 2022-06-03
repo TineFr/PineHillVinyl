@@ -7,8 +7,8 @@ const BuyBlock = () => {
   return (
     <Container>
         <Wrapper>
-            {/* <AddToCart></AddToCart>
-            <Availability></Availability>          */}
+            <AddToCart></AddToCart>
+            <Availability></Availability>         
         </Wrapper>
     </Container>
   )
