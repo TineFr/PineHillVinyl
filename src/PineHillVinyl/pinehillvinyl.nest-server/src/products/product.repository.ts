@@ -4,7 +4,6 @@ import { Model } from "mongoose";
 import { Product, ProductDocument } from "./schemas/product.schema";
 
 
-
 @Injectable()
 export class ProductRepository {
   constructor(@InjectModel(Product.name) private _model: Model<ProductDocument>) {}
@@ -14,8 +13,7 @@ export class ProductRepository {
     }
 
     async getById(id: any): Promise<Product> {
-     return await this._model.findById(id);
-     
+     return await this._model.findById(id);    
     };
 
     async add(prd :  Product): Promise<Product> {

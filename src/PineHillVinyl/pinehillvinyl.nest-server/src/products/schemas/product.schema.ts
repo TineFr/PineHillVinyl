@@ -11,7 +11,6 @@ export class Product{
     artist: string;
     @Prop({ required: true })
     image: string;
-    @Prop({ required: true })
     trackList: string[];
 }
 
