@@ -68,3 +68,7 @@ margin: 20px;
 transition: all 0.2s ease-in-out;
 z-index: 999;
 `
+
+export const ClientContainer = styled.div`
+
+`
