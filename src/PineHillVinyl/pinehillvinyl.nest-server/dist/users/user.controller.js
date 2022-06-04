@@ -33,6 +33,9 @@ let UsersController = class UsersController {
     async updateProduct(id, dto) {
         return this._service.update(id, dto);
     }
+    async deleteProduct(id) {
+        return this._service.delete(id);
+    }
 };
 __decorate([
     (0, common_1.Get)(''),
@@ -62,6 +65,13 @@ __decorate([
     __metadata("design:paramtypes", [Object, dtos_1.UpdateUserDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "updateProduct", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "deleteProduct", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [user_service_1.UserService])

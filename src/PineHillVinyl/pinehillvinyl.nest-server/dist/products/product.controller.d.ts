@@ -8,4 +8,5 @@ export declare class ProductsController {
     findOne(id: any): Promise<Product>;
     addProduct(dto: CreateProductDto): Promise<Product>;
     updateProduct(id: any, dto: UpdateProductDto): Promise<Product>;
+    deleteProduct(id: any): Promise<string>;
 }

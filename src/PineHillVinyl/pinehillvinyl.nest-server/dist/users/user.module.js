@@ -22,7 +22,7 @@ UserModule = __decorate([
                 }])],
         controllers: [user_controller_1.UsersController],
         providers: [user_service_1.UserService, user_repository_1.UserRepository, user_mapper_helper_1.UserMapper],
-        exports: [user_service_1.UserService]
+        exports: [user_service_1.UserService, user_repository_1.UserRepository]
     })
 ], UserModule);
 exports.UserModule = UserModule;

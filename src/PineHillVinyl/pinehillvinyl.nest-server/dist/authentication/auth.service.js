@@ -29,7 +29,9 @@ let AuthService = class AuthService {
     async verifyUser(email, password) {
         const user = await this._userRepository.getByEmail(email);
         if (user) {
-            const hashedPass = Crypto.AES.decrypt(user.password, process.env.PASSWORD);
+            const key = process.env.PASSWORD;
+            const hashedPass = Crypto.AES.decrypt(user.password, key)
+                .toString(Crypto.enc.Utf8);
             if (password === hashedPass) {
                 return {
                     id: user.id,
@@ -45,13 +47,14 @@ let AuthService = class AuthService {
     async login(login) {
         const user = await this.verifyUser(login.email, login.password);
         if (user) {
-            const payload = { username: user.username, sub: user.id };
+            const payload = { username: user.username, sub: user.id, email: user.email };
+            const jwt = await this._jwtService.signAsync(payload);
             return {
-                jwt: this._jwtService.sign(payload),
+                jwt: jwt
             };
         }
         else
-            throw new common_1.HttpException('Wrong login credentials', common_1.HttpStatus.UNAUTHORIZED);
+            throw new common_1.HttpException('Wrong credentials', common_1.HttpStatus.UNAUTHORIZED);
     }
     async register(dto) {
         const user = await this._userService.getByEmail(dto.email);

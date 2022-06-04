@@ -10,4 +10,5 @@ export declare class ProductService {
     getById(id: any): Promise<Product>;
     add(dto: CreateProductDto): Promise<Product>;
     update(id: any, dto: UpdateProductDto): Promise<Product>;
+    delete(id: any): Promise<string>;
 }

@@ -27,4 +27,8 @@ export class ProductRepository {
         return this._model.findById(id);
     }
 
+    async delete(id :  any): Promise<Product> {
+      return await this._model.findByIdAndDelete(id); 
+    };
+
 }

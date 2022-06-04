@@ -11,22 +11,24 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
 const auth_service_1 = require("./auth.service");
-const local_strategy_1 = require("./strategies/local.strategy");
-const dotenv = require("dotenv");
 const auth_controller_1 = require("./auth.controller");
 const user_module_1 = require("..//users/user.module");
+const jwt_strategy_1 = require("./strategies/jwt.strategy");
+const jwt_guard_1 = require("./guards/jwt.guard");
+const dotenv = require("dotenv");
 dotenv.config({ path: `${__dirname}/../../.env` });
 let AuthModule = class AuthModule {
 };
 AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [user_module_1.UserModule, passport_1.PassportModule,
-            jwt_1.JwtModule.register({
-                secret: process.env.JWT,
-                signOptions: { expiresIn: '1d' },
+            jwt_1.JwtModule.registerAsync({ useFactory: () => ({
+                    secret: process.env.JWT,
+                    signOptions: { expiresIn: '3600s' },
+                })
             }),],
         controllers: [auth_controller_1.AuthController],
-        providers: [auth_service_1.AuthService, local_strategy_1.LocalStrategy, jwt_1.JwtService]
+        providers: [auth_service_1.AuthService, jwt_guard_1.JwtGuard, jwt_strategy_1.JwtStrategy]
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;

@@ -10,4 +10,5 @@ export declare class UserService {
     getByEmail(email: string): Promise<ResponseUserDto>;
     add(dto: CreateUserDto): Promise<ResponseUserDto>;
     update(id: any, dto: UpdateUserDto): Promise<ResponseUserDto>;
+    delete(id: any): Promise<string>;
 }
