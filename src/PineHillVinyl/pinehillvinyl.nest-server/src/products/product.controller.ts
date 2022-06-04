@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { CreateProductDto, UpdateProductDto } from './dtos';
 import { ProductService } from './product.service';
 import { Product } from './schemas/product.schema';
@@ -13,6 +14,7 @@ export class ProductsController {
     return result;
   }
 
+  @UseGuards(JwtGuard)
   @Get(':id')
   async findOne(@Param('id') id:any): Promise<Product> {
     return await this._service.getById(id);

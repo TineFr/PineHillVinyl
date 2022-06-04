@@ -1,10 +1,12 @@
 import { Module } from "@nestjs/common";
-import { JwtModule, JwtService } from "@nestjs/jwt";
+import { JwtModule } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
 import { AuthService } from "./auth.service";
-import * as dotenv from "dotenv";
 import { AuthController } from "./auth.controller";
 import { UserModule } from "..//users/user.module";
+import { JwtStrategy } from "./strategies/jwt.strategy";
+import { JwtGuard } from "./guards/jwt.guard";
+import * as dotenv from "dotenv";
 dotenv.config({ path: `${__dirname}/../../.env` });
 
 @Module({
@@ -15,7 +17,7 @@ dotenv.config({ path: `${__dirname}/../../.env` });
       })
       }),],
    controllers: [AuthController],
-   providers: [AuthService]
+   providers: [AuthService, JwtGuard, JwtStrategy]
   
   })
   export class AuthModule {}
