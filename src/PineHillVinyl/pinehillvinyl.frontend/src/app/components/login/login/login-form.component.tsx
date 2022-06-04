@@ -1,17 +1,18 @@
 import {useState, useEffect} from 'react'
 import {Container, Form, Input, Submit, Title, FormGroup, Label} from '../authentication-form.styled'
-
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginComponent = () => {
-
+    const navigate = useNavigate();
     const [user, setUser] = useState({email: "", password: ""})
     const [error, setError] = useState("");
 
     const submitHandler =  (e : any) => {
       e.preventDefault();
       console.log(user);
-
+      sessionStorage.setItem("logged", "true");
+      navigate(-1);
     }
 
   return (

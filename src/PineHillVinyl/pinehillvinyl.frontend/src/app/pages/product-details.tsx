@@ -9,7 +9,6 @@ const ProductDetails = () => {
     <SearchBar></SearchBar>
     <BuyBlock></BuyBlock>
     <ProductHeader/>
-    <Footer/>
 
 
 

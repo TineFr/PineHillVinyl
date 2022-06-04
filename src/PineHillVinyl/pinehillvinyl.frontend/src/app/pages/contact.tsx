@@ -9,7 +9,6 @@ function Contact()  {
  <Message/>
  <ContactForm/>
  <FindUs/>
- <Footer/>
         </>
     );
 }

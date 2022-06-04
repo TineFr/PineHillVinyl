@@ -12,7 +12,6 @@ function About(){
         <SingleText position={'flex-start'} message={data[1].message}title={data[1].title}></SingleText>
         <ImageText imageFirst={false} image={data[0].image} position={'flex-end'} message={data[0].message}title={data[0].title}></ImageText>
         <SingleText position={'center'} message={data[2].message}title={data[2].title}></SingleText>
-        <Footer/>
         </>
     );
 };

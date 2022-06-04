@@ -7,7 +7,7 @@ import AccountButton from './account-button/account-button.component';
 
 function Navbar(props : any) {
 
-
+    
     const [show, setShow] = useState(true);
     const handleShow = () =>{
         if (window.pageYOffset >= 20){
@@ -40,7 +40,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
         <ClientContainer>
-            <AccountButton></AccountButton>
+            <AccountButton isLogged={localStorage.getItem("logged")}></AccountButton>
 
         </ClientContainer>
     </NavbarContainer>

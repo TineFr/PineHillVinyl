@@ -8,7 +8,6 @@ export const Authentication = () => {
     <>
     <SearchBar/>
     <AuthenticationGrid>login</AuthenticationGrid>
-    <Footer/>
     </>
   )
 }
