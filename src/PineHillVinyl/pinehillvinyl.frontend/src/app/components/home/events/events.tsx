@@ -10,7 +10,7 @@ const Events = () => {
             <img src={require('../../../../assets/images/event1.png')}></img>
             </Event>   
             <Event data-aos="fade-left" data-aos-delay="100" data-aos-once="true" data-aos-offset="500" side="left" >  <img src={require('../../../../assets/images/event2.png')}></img></Event> 
-            <Event data-aos="fade-right"side="right" data-aos-offset="500" data-aos-once="true"><img src={require('../../../../assets/images/event2.png')}></img></Event>
+            <Event data-aos="fade-right"side="right" data-aos-offset="500" data-aos-once="true"><img src={require('../../../../assets/images/event4.jpg')}></img></Event>
     </Container>
   )
 }

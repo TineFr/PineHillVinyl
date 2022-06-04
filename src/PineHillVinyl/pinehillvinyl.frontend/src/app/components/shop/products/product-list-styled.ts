@@ -8,6 +8,7 @@ display: flex;
 /* justify-content: center; */
 overflow: hidden;
 width:100%;
+position: relative;
 `
 
 export const ProductsWrapper = styled.div`
