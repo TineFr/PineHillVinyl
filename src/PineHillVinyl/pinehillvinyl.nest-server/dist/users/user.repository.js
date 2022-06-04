@@ -41,6 +41,10 @@ let UserRepository = class UserRepository {
         await this._model.findByIdAndUpdate(id, prd);
         return this._model.findById(id);
     }
+    async delete(id) {
+        return await this._model.findByIdAndDelete(id);
+    }
+    ;
 };
 UserRepository = __decorate([
     (0, common_1.Injectable)(),

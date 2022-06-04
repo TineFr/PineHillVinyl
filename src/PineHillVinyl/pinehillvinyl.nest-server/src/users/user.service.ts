@@ -50,6 +50,11 @@ export class UserService {
     return mappedResult;
   }
 
+  async delete(id: any): Promise<string> {
+    let product = await this._repository.delete(id);
+    if (product) return 'Record was successfully deleted'; 
+}
+
 }
 
 

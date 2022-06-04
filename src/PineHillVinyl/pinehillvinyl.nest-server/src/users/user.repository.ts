@@ -32,4 +32,8 @@ export class UserRepository {
         return this._model.findById(id);
     }
 
+    async delete(id :  any): Promise<UserDocument> {
+      return await this._model.findByIdAndDelete(id); 
+    };
+
 }

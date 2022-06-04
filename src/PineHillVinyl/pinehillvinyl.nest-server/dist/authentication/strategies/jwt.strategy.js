@@ -13,8 +13,6 @@ exports.JwtStrategy = void 0;
 const passport_jwt_1 = require("passport-jwt");
 const passport_1 = require("@nestjs/passport");
 const common_1 = require("@nestjs/common");
-const dotenv = require("dotenv");
-dotenv.config({ path: `${__dirname}/../../../.env` });
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
     constructor() {
         super({
@@ -24,7 +22,7 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
         });
     }
     async validate(payload) {
-        return { userId: payload.sub, username: payload.username };
+        return { Id: payload.sub, username: payload.username, email: payload.email };
     }
 };
 JwtStrategy = __decorate([

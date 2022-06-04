@@ -7,4 +7,5 @@ export declare class ProductRepository {
     getById(id: any): Promise<ProductDocument>;
     add(prd: Product): Promise<Product>;
     update(id: any, prd: Product): Promise<Product>;
+    delete(id: any): Promise<Product>;
 }

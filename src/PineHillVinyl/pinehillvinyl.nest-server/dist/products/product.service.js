@@ -42,6 +42,11 @@ let ProductService = class ProductService {
         const product = this._mapper.updateDtoToSchema(dto);
         return this._repository.update(id, product);
     }
+    async delete(id) {
+        let product = await this._repository.delete(id);
+        if (product)
+            return 'Record was successfully deleted';
+    }
 };
 ProductService = __decorate([
     (0, common_1.Injectable)(),

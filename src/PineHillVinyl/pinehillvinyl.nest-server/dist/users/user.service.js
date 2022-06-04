@@ -55,6 +55,11 @@ let UserService = class UserService {
         let mappedResult = this._mapper.schemaToResponse(result);
         return mappedResult;
     }
+    async delete(id) {
+        let product = await this._repository.delete(id);
+        if (product)
+            return 'Record was successfully deleted';
+    }
 };
 UserService = __decorate([
     (0, common_1.Injectable)(),
