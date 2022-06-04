@@ -1,5 +1,5 @@
-import { CreateUserDto, UpdateUserDto } from "../dtos/user.dto";
-import { User } from "../schemas/user.schema";
+import { CreateUserDto, ResponseUserDto, UpdateUserDto } from "../dtos";
+import { User, UserDocument } from "../schemas/user.schema";
 
 
 
@@ -19,6 +19,29 @@ export class UserMapper {
       newProduct.email = dto.email;
       newProduct.password = dto.password;
       return newProduct;
+
+    }
+
+    schemaToResponse(user : UserDocument):  ResponseUserDto {
+      const newProduct = new ResponseUserDto();
+      newProduct.id = user._id
+      newProduct.username = user.username;
+      newProduct.email = user.email;
+      return newProduct;
+
+    }
+
+    schemaListToResponse(users : UserDocument[]):  ResponseUserDto[] {
+
+      let mappedUsers = [];
+      users.forEach(x => {
+        const user = new ResponseUserDto();
+        user.id = x._id
+        user.username = x.username;
+        user.email = x.email;
+        mappedUsers.push(user);
+      });
+      return mappedUsers;
 
     }
   }

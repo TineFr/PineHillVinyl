@@ -1,7 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateUserDto, UpdateUserDto } from './dtos/user.dto';
+import { CreateUserDto, ResponseUserDto, UpdateUserDto } from './dtos';
 import { UserMapper } from './helpers/user-mapper.helper';
-import { User } from './schemas/user.schema';
 import { UserRepository } from './user.repository';
 
 
@@ -11,34 +10,44 @@ export class UserService {
   constructor(private readonly _repository :  UserRepository,
               private readonly _mapper : UserMapper) {}
 
-  async getAll(): Promise<User[]> {
+  async getAll(): Promise<ResponseUserDto[]> {
       let result = await this._repository.getAll();
       if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
-      return result;
+      let mappedResult = this._mapper.schemaListToResponse(result);
+      return mappedResult;
   }
 
-  async getById(id : any): Promise<User> {
+  async getById(id : any): Promise<ResponseUserDto> {
       let result = await this._repository.getById(id);
       if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
-      return result;
+      let mappedResult = this._mapper.schemaToResponse(result);
+      return mappedResult;
   }
 
-  async getByEmail(email : string): Promise<User> {
+  async getByEmail(email : string): Promise<ResponseUserDto> {
     let result = await this._repository.getByEmail(email);
-    return result;
+    if (result) {
+      let mappedResult = this._mapper.schemaToResponse(result);
+      return mappedResult;
+    }
+    return null;
 }
 
-  async add(dto: CreateUserDto): Promise<User> {
-      const product = this._mapper.createDtoToSchema(dto);
-      return this._repository.add(product);
+  async add(dto: CreateUserDto): Promise<ResponseUserDto> {
+      const mappedRequest = this._mapper.createDtoToSchema(dto);
+      let result = await this._repository.add(mappedRequest);
+      let mappedResult = this._mapper.schemaToResponse(result);
+      return mappedResult;
   }
 
-  async update(id: any, dto: UpdateUserDto): Promise<User> {
-    let result = await this._repository.getById(id);
-    if (!result) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
+  async update(id: any, dto: UpdateUserDto): Promise<ResponseUserDto> {
+    let product = await this._repository.getById(id);
+    if (!product) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
 
-    const product = this._mapper.updateDtoToSchema(dto);
-    return this._repository.update(id, product);
+    const mappedRequest = this._mapper.updateDtoToSchema(dto);
+    let result = await this._repository.update(id, mappedRequest);
+    let mappedResult = this._mapper.schemaToResponse(result);
+    return mappedResult;
   }
 
 }

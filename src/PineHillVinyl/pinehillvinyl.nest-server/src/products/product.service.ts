@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateProductDto, UpdateProductDto } from './dtos/product.dto';
+import { CreateProductDto, UpdateProductDto } from './dtos';
 import { ProductMapper } from './helpers/product-mapper.helper';
 import { ProductRepository } from './product.repository';
 import { Product } from './schemas/product.schema';
@@ -19,7 +19,8 @@ export class ProductService {
   async getById(id : any): Promise<Product> {
       let result = await this._repository.getById(id);
       if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
-      return result;
+      let mappedResult = this._mapper.schemaToResponse(result)
+      return mappedResult;
   }
 
   async add(dto: CreateProductDto): Promise<Product> {

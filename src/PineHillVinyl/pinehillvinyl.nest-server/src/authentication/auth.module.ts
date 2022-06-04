@@ -3,9 +3,9 @@ import { JwtModule, JwtService } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
 import { AuthService } from "./auth.service";
 import { LocalStrategy } from "./strategies/local.strategy";
-
 import * as dotenv from "dotenv";
 import { AuthController } from "./auth.controller";
+import { UserModule } from "../users/user.module";
 dotenv.config({ path: `${__dirname}/../../.env` });
 
 @Module({
@@ -18,4 +18,4 @@ dotenv.config({ path: `${__dirname}/../../.env` });
    providers: [AuthService, LocalStrategy, JwtService]
   
   })
-  export class UserModule {}
+  export class AuthModule {}

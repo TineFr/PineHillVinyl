@@ -8,12 +8,12 @@ import { Product, ProductDocument } from "./schemas/product.schema";
 export class ProductRepository {
   constructor(@InjectModel(Product.name) private _model: Model<ProductDocument>) {}
 
-    async getAll(): Promise<Product[]> {
+    async getAll(): Promise<ProductDocument[]> {
         let result =  await this._model.find();
         return result;
     }
 
-    async getById(id: any): Promise<Product> {
+    async getById(id: any): Promise<ProductDocument> {
         let result =  await this._model.findById(id); 
         return result;
     }
