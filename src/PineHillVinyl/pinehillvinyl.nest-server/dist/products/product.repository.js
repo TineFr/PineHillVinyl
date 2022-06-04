@@ -18,20 +18,24 @@ const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const product_schema_1 = require("./schemas/product.schema");
 let ProductRepository = class ProductRepository {
-    constructor(_repository) {
-        this._repository = _repository;
+    constructor(_model) {
+        this._model = _model;
     }
     async getAll() {
-        return await this._repository.find();
+        let result = await this._model.find();
+        return result;
     }
     async getById(id) {
-        return await this._repository.findById(id);
+        let result = await this._model.findById(id);
+        return result;
     }
-    async create(item) {
-        return this._repository.create(item);
+    async add(prd) {
+        return await this._model.create(prd);
     }
-    async update(id, item) {
-        return this._repository.findByIdAndUpdate(id, item);
+    ;
+    async update(id, prd) {
+        await this._model.findByIdAndUpdate(id, prd);
+        return this._model.findById(id);
     }
 };
 ProductRepository = __decorate([

@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
+const product_mapper_helper_1 = require("./helpers/product-mapper.helper");
 const product_controller_1 = require("./product.controller");
 const product_repository_1 = require("./product.repository");
 const product_service_1 = require("./product.service");
@@ -20,7 +21,7 @@ ProductModule = __decorate([
         imports: [mongoose_1.MongooseModule.forFeature([{ name: product_schema_1.Product.name, schema: product_schema_1.ProductSchema
                 }])],
         controllers: [product_controller_1.ProductsController],
-        providers: [product_service_1.ProductService, product_repository_1.ProductRepository]
+        providers: [product_service_1.ProductService, product_repository_1.ProductRepository, product_mapper_helper_1.ProductMapper]
     })
 ], ProductModule);
 exports.ProductModule = ProductModule;

@@ -18,16 +18,6 @@ export class UserRepository {
         return result;
     }
 
-    //  _getUserDetails(user : UserDocument) : UserDetails{
-    //   return  {
-    //     id : user._id,
-    //     name : user.username,
-    //     email: user.email,
-
-
-    //   }
-    // }
-
     async getByEmail(email: string): Promise<UserDocument> {
       let result =  await this._model.findOne({email:email}); 
       return result;

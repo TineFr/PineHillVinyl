@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "My application Name",
+            "name": "Pine Hill Server",
             "runtimeArgs": [
                 "--nolazy",
                 "-r",

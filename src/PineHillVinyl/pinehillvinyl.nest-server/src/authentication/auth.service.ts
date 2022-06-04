@@ -1,50 +1,62 @@
+const Crypto = require ("crypto-js")
+
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { UserService } from "../users/user.service";
-const Crypto = require ("crypto-js")
-// import * as dotenv from "dotenv";
 import { CreateUserDto, ResponseUserDto } from "src/users/dtos";
-// dotenv.config({ path: `${__dirname}/../../.env` });
+import {LoginRequestDto, LoginResponseDto} from './dtos'
+import { UserRepository } from "../users/user.repository";
+import { UserService } from "../users/user.service";
 
 @Injectable()
 export class AuthService {
-    constructor(private _userService : UserService,
+    constructor(private _userRepository: UserRepository,
+                private _userService: UserService,
                 private _jwtService: JwtService) {}
 
     async hashPassword(password: string) : Promise<string>{
         let key = process.env.PASSWORD;
-        let hashedPasword =  Crypto.AES.encrypt(password, key).toString();
-        return hashedPasword;
+        let hashedPassword =  Crypto.AES.encrypt(password, key).toString();
+        return hashedPassword;
     }            
 
-    async verifyUser(email: string, password: string) : Promise<any>{
-        const user = await this._userService.getByEmail(email);
+    async verifyUser(email: string, password: string) : Promise<ResponseUserDto>{
+        const user = await this._userRepository.getByEmail(email);
         if (user){
-            // const hashedPass = Crypto.AES.decrypt(user.password, process.env.PASSWORD);
-            // if (password === hashedPass){
-            //     const { password, ...result } = user;
-            //     return result;
-            // }
+            const key = process.env.PASSWORD;
+            const hashedPass = Crypto.AES.decrypt(user.password, key)
+                                         .toString(Crypto.enc.Utf8);
+                                          
+            if (password === hashedPass){
+              return {
+                id: user.id,
+                username: user.username,
+                email : user.email
+              }
+            }
             return null;
    
-        }
+        } else throw new HttpException('This email does not exist', HttpStatus.BAD_REQUEST);
     }
 
-    async login(user: any) {
-        const payload = { username: user.username, sub: user.id };
-        return {
-          access_token: this._jwtService.sign(payload),
-        };
+    async login(login: LoginRequestDto) : Promise<LoginResponseDto> {
+        const user = await this.verifyUser(login.email, login.password);
+        if (user){
+          const payload = { username: user.username, sub: user.id };
+          const jwt =  await this._jwtService.signAsync(payload);
+          return { 
+              jwt : jwt
+          };
+        }
+        else throw new HttpException('Wrong login credentials', HttpStatus.UNAUTHORIZED);
       }
 
       async register(dto : CreateUserDto) : Promise<ResponseUserDto> {
+
         const user = await this._userService.getByEmail(dto.email);
         if (user) throw new HttpException('This e-mail is already in use', HttpStatus.BAD_REQUEST);
         dto.password  = await this.hashPassword(dto.password);
         let newUser =  await this._userService.add(dto);
         return newUser;
-
-
       }
     
 

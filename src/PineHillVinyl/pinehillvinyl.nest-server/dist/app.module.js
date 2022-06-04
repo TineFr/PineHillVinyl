@@ -10,12 +10,18 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const product_module_1 = require("./products/product.module");
+const user_module_1 = require("./users/user.module");
+const dotenv = require("dotenv");
+const auth_module_1 = require("./authentication/auth.module");
+dotenv.config({ path: `${__dirname}/../.env` });
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://TineFranchois:OcdpolS9ReALm6mT@cluster0.2y0v4.mongodb.net/pinehillvinyl'),
-            product_module_1.ProductModule],
+        imports: [mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
+            product_module_1.ProductModule,
+            user_module_1.UserModule,
+            auth_module_1.AuthModule],
     })
 ], AppModule);
 exports.AppModule = AppModule;
