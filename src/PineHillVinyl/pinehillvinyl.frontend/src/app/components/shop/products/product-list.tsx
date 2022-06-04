@@ -20,6 +20,7 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
   useEffect( () =>{
     setIsBusy(true);
     axios.get<Product[]>("http://localhost:4000/api/v1/products")
+
     .then(res => {
       setProducts(res.data);
       setIsBusy(false);
