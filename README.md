@@ -3,8 +3,7 @@
 ## Project
 <img src="https://user-images.githubusercontent.com/71761516/154865538-8045a315-ef3a-43bb-9fd0-e00bae901997.png" width="250" height="auto">
 
-Aangezien ik mij graag zou focussen op een job als frontend developer, had ik graag wat geëxperimenteerd met verschillende javascript frameworks en libraries. Daar ik op mijn stage reeds in aanmerking zal komen met React, wens ik dit in mijn innovative project uit te breiden. Dit had ik graag gedaan in de vorm van een webshop voor lp’s of albums.
-Ik heb voor een muziekwinkel gekozen omdat dit mij de ruimte zal geven om er op het frontend gebied wat meer in te steken. Ik zou namelijk graag kennis maken met javascript libraries die gefocust zijn op creative coding, zoals three.js, anime.js en p5.js. Mijn doel is om (3D) animaties te maken die reageren op muziek. Eventueel in de vorm van een music visualizer. 
+Aangezien ik mij graag zou focussen op een job als frontend developer, had ik graag wat geëxperimenteerd met verschillende javascript frameworks en libraries. Daar ik op mijn stage reeds in aanmerking zal komen met Angular, wens ik mijn innovative project in React te maken. Dit had ik graag gedaan in de vorm van een webshop voor lp’s of albums. De backend zal ik maken in Nest JS, een framework voor het bouwen van efficiënte Node.js-webapplicaties. Als database gebruik ik MongoDB.
 
 
 
