@@ -1,8 +1,8 @@
-# Frontend
+# Styling
 
 ## Inhoudstafel
 
-- [Frontend](#frontend)
+- [Styling](#styling)
   - [Inhoudstafel](#inhoudstafel)
   - [1. Onderzochte technologieën <a name="technologieën"></a>](#1-onderzochte-technologieën-)
     - [1.1 SCSS <a name="scss"></a>](#11-scss-)
