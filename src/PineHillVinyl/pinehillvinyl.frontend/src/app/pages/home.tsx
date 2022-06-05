@@ -13,7 +13,6 @@ function Home() {
         <AvailableSoon/>
         <Events/>    
         <Spotlight/>
-      <Footer/>  
         </>
     );
 }

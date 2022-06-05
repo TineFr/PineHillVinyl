@@ -1,7 +1,7 @@
 import { RoomSharp } from '@material-ui/icons'
 import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components/macro'
-import {colors} from '../../../../../styles/variables'
+import {colors, screens} from '../../../../../styles/variables'
 
 
 interface Props{
@@ -20,19 +20,35 @@ justify-content: flex-start;
 height: 75px;
 width: 100%;
 z-index: 999;
+
+@media ${screens.laptop}{
+    display:flex;
+    justify-content: space-around;
+
+    
+}
+
 /* transition: all 0.1s ease-in-out; */
 
 `
 
 export const LogoContainer = styled.div`
 height: 75px;
-position: absolute;
+
+/* position: absolute;
 top: 0;
-left: 0;
+left: 0; */
  img{
      height: 80px;
      object-fit: cover;
  }
+
+
+ @media ${screens.laptop}{
+     grid-column: 1;
+
+}
+
 `
 
 export const NavbarList = styled.div<Props>`
@@ -40,7 +56,7 @@ display: ${props => props.$isMobile  ?  "none" : "flex"};
 /* display: flex; */
 justify-content: center;
 align-items: center;
-width: 100%;
+width: 700px;
 gap: 40px;
 overflow:hidden;
 `
@@ -55,6 +71,11 @@ a{
      text-decoration: underline;
      text-underline-offset: 0.5em;
  }
+
+ @media ${screens.laptop}{
+     grid-column: 2;
+
+}
 `
 
 export const BarsIcon = styled(FaBars)<Props>`
@@ -67,4 +88,8 @@ opacity: ${props =>  props.$isMobile || !props.$show ?  1 : 0};
 margin: 20px;
 transition: all 0.2s ease-in-out;
 z-index: 999;
+`
+
+export const ClientContainer = styled.div`
+
 `

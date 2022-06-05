@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
-import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon} from './navbar-styled'
+import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon, ClientContainer} from './navbar-styled'
+import AccountButton from './account-button/account-button.component';
 
 
 function Navbar(props : any) {
 
-
+    
     const [show, setShow] = useState(true);
     const handleShow = () =>{
         if (window.pageYOffset >= 20){
@@ -38,6 +39,10 @@ function Navbar(props : any) {
                 )             
                     })}
         </NavbarList>
+        <ClientContainer>
+            <AccountButton isLogged={localStorage.getItem("logged")}></AccountButton>
+
+        </ClientContainer>
     </NavbarContainer>
     <BarsIcon $show={show} $isMobile={props.isMobile} onClick={props.toggleBars}/>
     </>

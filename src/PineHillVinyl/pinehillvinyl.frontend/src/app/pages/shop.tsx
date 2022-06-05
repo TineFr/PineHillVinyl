@@ -13,7 +13,6 @@ const Shop = () => {
     {/* <Filter/>  */}
     <ShopGrid/>
     <Pagination pages={pages}/>
-    <Footer/>
     </>
   )
 }
