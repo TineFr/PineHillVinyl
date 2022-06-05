@@ -12,12 +12,11 @@ Ik heb voor een muziekwinkel gekozen omdat dit mij de ruimte zal geven om er op 
 ## Gebruikte technologiën
 
 - React
-- Three.js
-- Anime.js
-- p5.js
-- MySQL
-- ASP.NET Web API
-- NUnit
+- MongoDB
+- Node
+- Nest JS
+- Styled components
+
 
 ## Extra info
 Plaats hier de nodig informatie om het
