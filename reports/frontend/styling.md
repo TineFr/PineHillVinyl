@@ -257,6 +257,6 @@ Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor. https://
 Officiële Styled Components documentatie: <br>
 https://styled-components.com/docs <br>
 Scalable CSS, How to Create Global Styles with Styled Components <br>
-https://scalablecss.com/styled-components-global-styles/
+https://scalablecss.com/styled-components-global-styles/ <br>
 Nnamdi, C. (2020) 8 awesome features of styled-components <br>
 https://blog.logrocket.com/8-awesome-features-of-styled-components/
