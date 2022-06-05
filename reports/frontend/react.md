@@ -48,5 +48,5 @@ In tegenstelling tot vanilla JS wordt niet meer gewerlt met de DOM API in browse
 
 Officiële React documentatie: <br>
 https://reactjs.org/ <br>
-Programming with Mosh, What is react?
+Programming with Mosh, What is react? <br>
 https://www.youtube.com/watch?v=N3AkSS5hXMA
