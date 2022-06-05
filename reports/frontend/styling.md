@@ -2,22 +2,22 @@
 
 ## Inhoudstafel
 
-1. [Onderzochte technologieën](#introduction)
+1. [Onderzochte technologieën](#technologieën)
     1. [SCSS](#scss)
-       1. [Intro](#scss)
-       2. [Voordelen](#scss)
-       3. [Nadelen](#scss)
+       1. [Intro](#scssIntro)
+       2. [Voordelen](#scssVoordelen)
+       3. [Nadelen](#scssNadelen)
     2. [Styled components](#sc)
-       1. [Intro](#scss)
-       2. [Voordelen](#scss)
-       3. [Nadelen](#scss)
-    3. [Motivatie gekozen technologie](#sc)
-2. [Gekozen technologie: Styled components](#paragraph1)
-    1. [Installatie](#subparagraph1)
-    2. [Declaratie](#subparagraph1)
-    3. [Gebruik](#subparagraph1)
-       1. [Properties](#)
-       2. [Herbruikbaarheid](#)
+       1. [Intro](#scIntro)
+       2. [Voordelen](#scVoordelen)
+       3. [Nadelen](#scNadelen)
+    3. [Motivatie gekozen technologie](#motivatie)
+2. [Gekozen technologie: Styled components](#gekozenTechnologie)
+    1. [Installatie](#installatie)
+    2. [Declaratie](#declaratie)
+    3. [Gebruik](#gebruik)
+       1. [Properties](#properties)
+       2. [Herbruikbaarheid](#herbruikbaarheid)
        3. [Globale styling](#)
 
 3. 
@@ -27,8 +27,8 @@
 ## 1. Onderzochte technologieën <a name="technologieën"></a>
 
 ### 1.1 SCSS <a name="scss"></a>
-#### 1.1.1  Intro 
-<img src="../images/sass.png" alt="drawing" style="width:200px; margin:20px;"/>
+#### 1.1.1  Intro <a name="scssIntro"></a>
+<img src="./images/sass.png" alt="drawing" style="width:200px; margin:20px;"/>
 
 SASS, beter bekend als SCSS, staat voor Syntactisch Awesome Style Sheets. Kortom, het is een CSS-preprocessor, wat betekent dat het een scripttaal is die CSS uitbreidt door ontwikkelaars in staat te stellen code in één taal te schrijven en deze vervolgens in CSS te compileren. 
 
@@ -38,7 +38,7 @@ SASS maakt gebruik van 'indented syntax' en gebruikt een inspringing in plaats v
 
 Waar CSS wat in te kort schiet is organisatie. Styling files kunnen al snel heel groot en onoverzichtelijk worden. Hier komt SASS met de oplossing. Zaken als variabelen, geneste regels, inline imports en meer kunnen gebruikt worden. Het helpt om dingen georganiseerd te houden en stelt de gebruiker in staat om sneller stylesheets te maken.
 
-#### 1.1.2  Voordelen 
+#### 1.1.2  Voordelen <a name="scssVoordelen"></a>
 
 * <b>Variabelen :</b> Met een variabele kunt u een waarde of een reeks waarden opslaan en deze variabelen in uw SASS-bestanden zo vaak en waar u maar wilt opnieuw gebruiken.
 
@@ -53,7 +53,7 @@ Waar CSS wat in te kort schiet is organisatie. Styling files kunnen al snel heel
 * <b>Stabiel:</b> sinds de release in 2006 wordt Sass ondersteund door zowel zijn kernontwikkelaars als grote technologiebedrijven. Als gevolg hiervan kan Sass worden beschouwd als een volwassen en up-to-date taal.
 
 
-#### 1.1.3 Nadelen
+#### 1.1.3 Nadelen <a name="scssNadelen"></a>
 
 * <b>Verlies van devtools-voordelen:</b> het gebruik van Sass, en vooral mixins, kan ertoe leiden dat de voordelen van de ingebouwde elementinspecteur van de browser verloren gaan. Het is namelijk niet gemakkelijk terug te vinden waar de styling gebeurd.
 
@@ -66,12 +66,12 @@ Waar CSS wat in te kort schiet is organisatie. Styling files kunnen al snel heel
 
 ### 1.2 Styled components <a name="sc"></a>
 
-#### 1.2.1  Intro 
-<img src="../images/styledcomponentslogo.jfif" alt="drawing" style="width:200px; margin:20px;"/>
+#### 1.2.1  Intro  <a name="scIntro"></a>
+<img src="./images/styledcomponentslogo.jfif" alt="drawing" style="width:200px; margin:20px;"/>
 
 Styled components is een populaire bibliotheek die wordt gebruikt om React-applicaties te stylen. Hiermee kunt u aangepaste componenten bouwen door echte CSS in uw JavaScript te schrijven. Gestileerde componenten zijn gebaseerd op de CSS-in-JS-benadering. Dit betekent dat je elke prop aan hen kunt doorgeven en de stijl kunt veranderen.
 
-#### 1.2.2 Voordelen 
+#### 1.2.2 Voordelen <a name="scVoordelen"></a>
 
 * <b>Elimineert fouten in de klassenaam:</b> voor elk onderdeel wordt automatisch een unieke klassenaam gegenereerd. Dit voorkomt problemen met duplicaties en spelfouten
 
@@ -83,7 +83,7 @@ Styled components is een populaire bibliotheek die wordt gebruikt om React-appli
 
 * <b>Optimalisatie:</b> styled components hebben enkele optimalisatiefuncties, wat betekent dat ze alleen worden weergegeven wanneer ze nodig zijn. Er wordt bijegehouden welke componenten op een pagina worden weergegeven en enkel deze styling wordt automatisch geinjecteerd.
   
-#### 1.2.2 Nadelen
+#### 1.2.2 Nadelen <a name="scNadelen"></a>
 
 * <b>Extra leercurve:</b> omdat het een unieke en onconventionele manier van stylen is, hangt er wel een kleine leercurve aan vast.
 
@@ -91,7 +91,7 @@ Styled components is een populaire bibliotheek die wordt gebruikt om React-appli
 
 * <b>Onzekere Levensduur:</b> net als elke tool in het JS-ecosysteem, kunnen styled components op een dag verdwijnen, wat een refactoring van de codebasis noodzakelijk zou maken. Het is dus belangrijk om dat in gedachten te houden.
 
-### 1.3 Motivatie gekozen technologie
+### 1.3 Motivatie gekozen technologie <a name="motivatie"></a>
 
 Uit dit onderzoek kon ik concluderen dat beide goed zijn en dat er geen verkeerde keuze gemaakt kan worden. Wel kwam ik verdeelde meningen tegen, waarin stond dat javacript en CSS gescheiden moesten worden. Wat in lijn is met wat er in de lessen werd vermeld.
 
@@ -101,9 +101,9 @@ Ondanks deze controverse heb ik uiteindelijk besloten om toch met styled compone
 
 
 
-## 2. Gekozen technologie: Styled Components <a name="technologieën"></a>
+## 2. Gekozen technologie: Styled Components <a name="gekozenTechnologie"></a>
 
-### 2.1 Installatie
+### 2.1 Installatie <a name="installatie"></a>
 
 Met npm 
 
@@ -113,7 +113,7 @@ Met yarn
 
 yarn add styled-components
 
-### 2.2 Declaratie
+### 2.2 Declaratie <a name="declaratie"></a>
 
 voorbeeld:
 
@@ -142,9 +142,9 @@ Dit wordt gedeclareerd door styled. + 'tag-type : button'
 
 Dit component kan dan zoals een 'normaal' react component gebruikt worden. Dit voorbeeld maakt gebruik van een extensie 'vscode-styled-components' waardoor CSS IntelliSense wordt toegevoegd.
 
-### 2.3 Gebruik
+### 2.3 Gebruik <a name="gebruik"></a>
 
-#### 2.3.1 Properties
+#### 2.3.1 Properties <a name="properties"></a>
 
 Een van de kernen van styled components is het gebruik van properties om styling te veranderen.
 In het voorbeeld heeft het component Button een property 'thin'. Dit zal de margin gaan bepalen. Heeft thin de waarde 'true', is margin-top 7px. Is de waarde 'false', is de margin-top 10px.
@@ -160,7 +160,7 @@ voorbeeld
     margin: ${props => props.thin? '7px auto 0':'10px auto'};
 
 
-#### 2.3.1 Herbruikbaarheid
+#### 2.3.1 Herbruikbaarheid <a name="herbruikbaarheid"></a>
 
 Het kan voorkomen dat je een component wilt hergebruiken, maar deze enigszins wilt wijzigen. Nu zou je een geïnterpoleerde functie kunnen doorgeven en ze veranderen op basis van enkele props, maar dat is nogal wat moeite om de stijlen maar één keer te overschrijven.
 
