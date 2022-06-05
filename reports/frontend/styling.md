@@ -2,26 +2,25 @@
 
 ## Inhoudstafel
 
-1. [Onderzochte technologieën](#technologieën)
-    1. [SCSS](#scss)
-       1. [Intro](#scssIntro)
-       2. [Voordelen](#scssVoordelen)
-       3. [Nadelen](#scssNadelen)
-    2. [Styled components](#sc)
-       1. [Intro](#scIntro)
-       2. [Voordelen](#scVoordelen)
-       3. [Nadelen](#scNadelen)
-    3. [Motivatie gekozen technologie](#motivatie)
-2. [Gekozen technologie: Styled components](#gekozenTechnologie)
-    1. [Installatie](#installatie)
-    2. [Declaratie](#declaratie)
-    3. [Gebruik](#gebruik)
-       1. [Properties](#properties)
-       2. [Herbruikbaarheid](#herbruikbaarheid)
-       3. [Globale styling](#)
-
-3. 
-4. [Bronvermelding](#paragraph1)
+- [Frontend](#frontend)
+  - [Inhoudstafel](#inhoudstafel)
+  - [1. Onderzochte technologieën <a name="technologieën"></a>](#1-onderzochte-technologieën-)
+    - [1.1 SCSS <a name="scss"></a>](#11-scss-)
+      - [1.1.1  Intro <a name="scssIntro"></a>](#111--intro-)
+      - [1.1.2  Voordelen <a name="scssVoordelen"></a>](#112--voordelen-)
+      - [1.1.3 Nadelen <a name="scssNadelen"></a>](#113-nadelen-)
+    - [1.2 Styled components <a name="sc"></a>](#12-styled-components-)
+      - [1.2.1  Intro  <a name="scIntro"></a>](#121--intro--)
+      - [1.2.2 Voordelen <a name="scVoordelen"></a>](#122-voordelen-)
+      - [1.2.2 Nadelen <a name="scNadelen"></a>](#122-nadelen-)
+    - [1.3 Motivatie gekozen technologie <a name="motivatie"></a>](#13-motivatie-gekozen-technologie-)
+  - [2. Gekozen technologie: Styled Components <a name="gekozenTechnologie"></a>](#2-gekozen-technologie-styled-components-)
+    - [2.1 Installatie <a name="installatie"></a>](#21-installatie-)
+    - [2.2 Declaratie <a name="declaratie"></a>](#22-declaratie-)
+    - [2.3 Gebruik <a name="gebruik"></a>](#23-gebruik-)
+      - [2.3.1 Properties <a name="properties"></a>](#231-properties-)
+      - [2.3.2 Herbruikbaarheid <a name="herbruikbaarheid"></a>](#232-herbruikbaarheid-)
+      - [2.3.3 Globale styling <a name="globaleStyling"></a>](#233-globale-styling-)
 
 
 ## 1. Onderzochte technologieën <a name="technologieën"></a>
@@ -160,7 +159,7 @@ voorbeeld
     margin: ${props => props.thin? '7px auto 0':'10px auto'};
 
 
-#### 2.3.1 Herbruikbaarheid <a name="herbruikbaarheid"></a>
+#### 2.3.2 Herbruikbaarheid <a name="herbruikbaarheid"></a>
 
 Het kan voorkomen dat je een component wilt hergebruiken, maar deze enigszins wilt wijzigen. Nu zou je een geïnterpoleerde functie kunnen doorgeven en ze veranderen op basis van enkele props, maar dat is nogal wat moeite om de stijlen maar één keer te overschrijven.
 
@@ -182,3 +181,6 @@ In bepaalde gevallen, wil je dezelfde styling gebruiken, maar dan voor een ander
     };
 
 Dit werkt ook met eigen gemaakte of third-party components.
+
+#### 2.3.3 Globale styling <a name="globaleStyling"></a>
+
