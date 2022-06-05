@@ -20,7 +20,9 @@
     - [2.3 Gebruik <a name="gebruik"></a>](#23-gebruik-)
       - [2.3.1 Properties <a name="properties"></a>](#231-properties-)
       - [2.3.2 Herbruikbaarheid <a name="herbruikbaarheid"></a>](#232-herbruikbaarheid-)
-      - [2.3.3 Globale styling <a name="globaleStyling"></a>](#233-globale-styling-)
+      - [2.3.3 Animaties <a name="animaties"></a>](#233-animaties-)
+      - [2.3.4 Globale styling <a name="globaleStyling"></a>](#234-globale-styling-)
+  - [Bronvermelding](#bronvermelding)
 
 
 ## 1. Onderzochte technologieën <a name="technologieën"></a>
@@ -182,5 +184,79 @@ In bepaalde gevallen, wil je dezelfde styling gebruiken, maar dan voor een ander
 
 Dit werkt ook met eigen gemaakte of third-party components.
 
-#### 2.3.3 Globale styling <a name="globaleStyling"></a>
 
+Een andere manier om een gemeenschappelijke styling te hebben is de volgende:
+
+
+
+
+#### 2.3.3 Animaties <a name="animaties"></a>
+
+Voor animaties kan de 'keyframes' helper gebruikt worden.
+Deze helper werkt op een gelijkaardige manier als CSS keyframes.
+
+Keyframes
+
+    const rotate = keyframes`
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+    }
+    `;
+
+Styling
+
+    const Rotate = styled.div`
+    display: inline-block;
+    animation: ${rotate} 2s linear infinite;
+    padding: 2rem 1rem;
+    font-size: 1.2rem;
+    `;
+
+
+#### 2.3.4 Globale styling <a name="globaleStyling"></a>
+
+Het is ook mogelijk om een styling toe te kennen aan alle components aan de hand van global styling.
+
+voorbeeld
+
+    import { createGlobalStyle } from 'styled-components';
+    
+    const GlobalStyle = createGlobalStyle`
+    body {
+        margin: 0;
+        padding: 0;
+        background: teal;
+        font-family: Open-Sans, Helvetica, Sans-Serif;
+    }
+    `;
+    
+    export default GlobalStyle;
+
+Dit component wordt vervolgens in het hoofdcomponent geïmporteerd.
+
+    import GlobalStyle from "./globalStyles"
+
+    function App() {
+        return (
+            <GlobalStyle />
+            <AppTree />
+        )
+    }
+
+## Bronvermelding
+
+Officiële SASS documentatie: <br>
+ https://sass-lang.com/ <br>
+SASS guidelines: <br>
+ https://sass-guidelin.es/ <br>
+Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor. https://www.creativebloq.com/web-design/what-is-sass-111517618
+Officiële Styled Components documentatie: <br>
+https://styled-components.com/docs <br>
+Scalable CSS, How to Create Global Styles with Styled Components <br>
+https://scalablecss.com/styled-components-global-styles/
+Nnamdi, C. (2020) 8 awesome features of styled-components <br>
+https://blog.logrocket.com/8-awesome-features-of-styled-components/
