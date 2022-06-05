@@ -253,7 +253,8 @@ Officiële SASS documentatie: <br>
  https://sass-lang.com/ <br>
 SASS guidelines: <br>
  https://sass-guidelin.es/ <br>
-Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor. https://www.creativebloq.com/web-design/what-is-sass-111517618
+Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor. <br>
+ https://www.creativebloq.com/web-design/what-is-sass-111517618
 Officiële Styled Components documentatie: <br>
 https://styled-components.com/docs <br>
 Scalable CSS, How to Create Global Styles with Styled Components <br>
