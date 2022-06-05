@@ -253,11 +253,21 @@ Officiële SASS documentatie: <br>
  https://sass-lang.com/ <br>
 SASS guidelines: <br>
  https://sass-guidelin.es/ <br>
-Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor. <br>
+Coron, T. (2020) What is Sass? Your guide to this top CSS preprocessor: <br>
  https://www.creativebloq.com/web-design/what-is-sass-111517618 <br>
+Mauri, C (2018) 7 benefits of using SASS over conventional CSS: <br>
+https://www.mugo.ca/Blog/7-benefits-of-using-SASS-over-conventional-CSS<br>
+Mobio Solutions (2019) What is Sass CSS? Advantages & disadvantages of using Sass CSS. <br>
+https://mobiosolutions.medium.com/what-is-sass-css-advantages-disadvantages-of-using-sass-css-61a753d63a01 <br>
+Ribeiro, G (2019) Styled Components vs Sass in 2019<br>
+[https://styled-components-vs-sass](https://itnext.io/css-in-js-vs-pre-post-processors-in-2019-8b1e20c066ed#:~:text=through%20deep%20components.-,The%20main%20disadvantages%20are%3A,ready%20to%20work%20with%20app)<br>
 Officiële Styled Components documentatie: <br>
 https://styled-components.com/docs <br>
 Scalable CSS, How to Create Global Styles with Styled Components <br>
 https://scalablecss.com/styled-components-global-styles/ <br>
 Nnamdi, C. (2020) 8 awesome features of styled-components <br>
-https://blog.logrocket.com/8-awesome-features-of-styled-components/
+https://blog.logrocket.com/8-awesome-features-of-styled-components/ <br>
+Rusev, A (2019) Styled components – Pros and Cons <br>
+https://devrecipes.net/styled-components-pros-and-cons/ <br>
+Amsalem, L (2021) Styled Components — How to Use, When to Use, What Are The Pros and Cons <br>
+https://medium.com/@lior_amsalem/styled-components-how-to-use-when-to-use-what-are-the-pros-and-cons-68a58f12265f
