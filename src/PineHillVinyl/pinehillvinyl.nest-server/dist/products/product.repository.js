@@ -37,6 +37,10 @@ let ProductRepository = class ProductRepository {
         await this._model.findByIdAndUpdate(id, prd);
         return this._model.findById(id);
     }
+    async delete(id) {
+        return await this._model.findByIdAndDelete(id);
+    }
+    ;
 };
 ProductRepository = __decorate([
     (0, common_1.Injectable)(),

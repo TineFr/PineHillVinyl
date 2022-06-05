@@ -8,4 +8,5 @@ export declare class UserRepository {
     getByEmail(email: string): Promise<UserDocument>;
     add(prd: User): Promise<UserDocument>;
     update(id: any, prd: User): Promise<UserDocument>;
+    delete(id: any): Promise<UserDocument>;
 }

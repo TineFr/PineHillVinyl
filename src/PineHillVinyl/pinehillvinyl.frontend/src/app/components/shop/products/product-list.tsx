@@ -19,13 +19,14 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
   useEffect( () =>{
     setIsBusy(true);
-    axios.get<Product[]>("http://localhost:4000/api/v1/products")
+    axios.get<Product[]>("http://localhost:5000/api/v1/products")
 
     .then(res => {
       setProducts(res.data);
       setIsBusy(false);
     })
     .catch((err) => {
+
       setIsBusy(false);
     });;
   }, [])
@@ -35,17 +36,17 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
       <Spinner busy={isBusy} />
       <ProductsWrapper>
 
-      {data!.map((product : any, index) => {
-                    return (
-                      <ProductListItem key={index} product={product}/>
-                    )             
-                })}
-
-{/* {products!.map((product : Product, index) => {
+      {/* {data!.map((product : any, index) => {
                     return (
                       <ProductListItem key={index} product={product}/>
                     )             
                 })} */}
+
+{products!.map((product : Product, index) => {
+                    return (
+                      <ProductListItem key={index} product={product}/>
+                    )             
+                })}
 
 </ProductsWrapper>
 

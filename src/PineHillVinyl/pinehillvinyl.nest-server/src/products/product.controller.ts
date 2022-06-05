@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { CreateProductDto, UpdateProductDto } from './dtos';
 import { ProductService } from './product.service';
@@ -21,7 +21,7 @@ export class ProductsController {
   }
 
   @Post()
-  async addProduct(@Body() dto: CreateProductDto) {
+  async addProduct(@Body() dto: CreateProductDto) : Promise<Product> {
     return this._service.add(dto);
   }
 
@@ -29,8 +29,13 @@ export class ProductsController {
   async updateProduct(
     @Param('id') id: any,
     @Body() dto: UpdateProductDto,
-  ) {
+  ) : Promise<Product> {
     return this._service.update(id, dto);
+  }
+
+  @Delete(':id')
+  async deleteProduct(@Param('id') id: any) : Promise<string> {
+    return this._service.delete(id);
   }
 
 

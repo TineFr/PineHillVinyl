@@ -7,4 +7,5 @@ export declare class UsersController {
     findOne(id: any): Promise<ResponseUserDto>;
     addProduct(dto: CreateUserDto): Promise<ResponseUserDto>;
     updateProduct(id: any, dto: UpdateUserDto): Promise<ResponseUserDto>;
+    deleteProduct(id: any): Promise<string>;
 }
