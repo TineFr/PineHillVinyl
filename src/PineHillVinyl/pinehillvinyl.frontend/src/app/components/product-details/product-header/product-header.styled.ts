@@ -3,9 +3,10 @@ import {colors, screens} from '@styles/variables'
 export const Container = styled.div`
 @media ${screens.laptop} {
     display:grid;
+
     grid-template-columns: 1fr  1fr;
     grid-template-rows: 1px auto auto auto;
-    margin: 0px 100px 100px 100px;
+    margin: 50px 100px 100px 100px;
 }
 `
 

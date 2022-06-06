@@ -1,7 +1,4 @@
-
-
-import { DoubleArrow } from '@material-ui/icons';
-import {Container, Title, Circle, Tags , Tag, Wrapper, Letter} from './hero-styled';
+import {Container, Title, Circle, Tags , Tag, Wrapper, Letter} from './hero.styled';
 import {useEffect, useState} from 'react'
 
 function Hero() {
@@ -21,7 +18,7 @@ function Hero() {
                     <Tag tagBGC="#B83737" delay={1.4} loaded={loaded}><span>WHERE</span></Tag>                        
                     <Tag tagBGC="#A9A9A9" delay={1.8} loaded={loaded}><span>WORDS</span></Tag>  
                     <Tag tagBGC="black" delay={2.2} loaded={loaded}><span>FAIL ,</span></Tag>  
-                    <Tag tagBGC="#B83737" delay={3} loaded={loaded}><span>MUSIC SPEAKS</span></Tag>  
+                    <Tag tagBGC="#B83737" delay={2.6} loaded={loaded}><span>MUSIC SPEAKS</span></Tag>  
                     </Tags>
                     </Circle>
                 </Wrapper>

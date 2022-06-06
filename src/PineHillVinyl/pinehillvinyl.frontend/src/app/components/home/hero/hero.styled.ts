@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components/macro'
-import {colors, screens}  from '../../../../styles/variables'
+import {colors, screens}  from '@styles/variables'
 
 interface Props{
 
@@ -18,7 +18,7 @@ const vinylAnimation = keyframes`
   }
 
   to {
-    -webkit-transform:rotate(360deg);
+   -webkit-transform:rotate(360deg);
    -moz-transform:rotate(360deg);
    -o-transform:rotate(360deg);
    opacity:1
@@ -26,14 +26,18 @@ const vinylAnimation = keyframes`
 `;
 
 export const Container = styled.div`
-height: 90vh;
+height: 60vh;
+min-height:300px;
 width: 100%;
 background-color: ${colors.black};
 position: relative;
-transition: all 0.3s ease-in;
 display:flex;
 align-items: space-between;
 flex-direction: column;
+
+ @media ${screens.tablet}{
+    height: 90vh;
+ }
 
 `
 
@@ -42,19 +46,16 @@ color: ${colors.red};
 font-size:calc(19px + 18vw);
 font-weight: normal;
 text-align: center;
-
+bottom: 0;
+position: absolute;
+width: 100%;
     @media ${screens.laptop}{
-        position: absolute;
-        bottom: 0;
         margin-left: 50px;
         text-align: start;
     }
 `
 
-export const Letter = styled.div<Props>`
-color: ${colors.red};
-font-size:calc(19px + 18vw);
-font-weight: normal;
+export const Letter = styled.span<Props>`
 display: inline-block;
 transition: opacity 1s; 
 transition-delay: ${props => props.delay}s;
@@ -78,12 +79,11 @@ width: 80vw;
 aspect-ratio: 1 / 1;
 border-radius: 50%;
 background-color: ${colors.grey};
-transition: all 0.3s ease-in;
 max-width: 400px;
 position: relative;
 object-fit: contain;
 background:  linear-gradient(30deg, transparent 40%, rgba(42, 41, 40, .85) 40%) no-repeat 100% 0, linear-gradient(60deg, rgba(42, 41, 40, .85) 60%, transparent 60%) no-repeat 0 100%, repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
-    background-size: 50% 100%, 100% 50%, 100% 100%;
+background-size: 50% 100%, 100% 50%, 100% 100%;
 animation: ${vinylAnimation} 1s linear;
 
 &::after{
@@ -147,7 +147,7 @@ display:none;
     }
 `
 export const Tag = styled.div<Props>`
-color: white;
+color: ${colors.white};
 transform: skew( -.600rad);
 font-size:calc(10px + 1vw); 
 margin-bottom: 10px;
@@ -163,6 +163,7 @@ opacity: ${props => props.loaded ? 1 : 0};
         margin-left: 40px;
         font-size: 35px;
     }
+
     &::after{
      content:"";
      height: 35px;

@@ -68,3 +68,11 @@ export const Title = styled.h1`
 font-size: 3rem;
 letter-spacing: .05em;
 `
+
+export const Error = styled.h1`
+margin: 2rem 0rem;
+/* background-color: black; */
+color: ${colors.red};
+/* border: 1px solid ${colors.red}; */
+font-size: 1.6rem;
+`

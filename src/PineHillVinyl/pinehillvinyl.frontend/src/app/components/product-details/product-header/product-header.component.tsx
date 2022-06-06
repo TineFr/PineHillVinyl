@@ -1,21 +1,38 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Product } from '../../../models/interfaces';
 import {Container, Header, Artist, Title, ImageContainer, ProductDetails, Price, Description, Specifications,TrackList, Test} from './product-header.styled'
 
 const ProductHeader = () => {
+  const [product, setProduct] = useState<Product>();
+  let { id } = useParams();
+  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+  useEffect( () =>{
+    axios.get<Product>("http://localhost:5000/api/v1/products/" + id)
+    .then(res => {
+      setProduct(res.data);
+    })
+    .catch((err) => {
+    });;
+  }, [])
+  
     return (
-      <Container>
+      <Container data-aos="fade-up">
         <Header>
-          <Artist>Guns n Roses</Artist>
-          <Title>Use your Illusion 2 (2LP-NEW)</Title>
+          <Artist>{product?.artist}</Artist>
+          <Title>{product?.title}</Title>
         </Header>
         <Test></Test>
         <ImageContainer>
-      <img src={process.env.PUBLIC_URL + "/records/record1.jpg"}  loading="lazy"/>
+      <img src={process.env.PUBLIC_URL + product?.image}  loading="lazy"/>
       </ImageContainer>
       <ProductDetails>
-        <Price>€29</Price>
+        <Price>€{product?.price}</Price>
         <Description>
           <h1>Description</h1>
-         <span> efge,rjgcsdjfgksnjd vegjkldwcnjfkvlnjvhgkvnjscejkrknjfgk csl,dkgjvlsdkjgklrjg lkergjvlrnkgjl ernfjgkl,jgk sjrfkglnjrtklgnjkldrttjgkrenrv  erltntgjenlrvtkgj rlntjerlfktngjl ertngjertkgjl jgrkletgevlrthk</span> </Description>
+         <span>{product?.description || 'test'}</span> </Description>
         <Specifications>
         <h1>Specifications</h1>
               <p>Label: sdfg</p>
@@ -26,14 +43,11 @@ const ProductHeader = () => {
       </ProductDetails>
       <TrackList>
       <h1>Tracklist</h1>
-      <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
-              <p>Label: sdfg</p>
+      {product?.trackList.map((track : string, index) => {
+                    return (
+                      <p key={index}>{track}</p>
+                    )             
+                })}
 
       </TrackList>
 

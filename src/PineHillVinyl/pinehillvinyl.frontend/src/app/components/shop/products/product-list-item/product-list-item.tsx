@@ -1,10 +1,10 @@
-import {Product} from '../../../../interfaces/index'
+import {Product} from '../../../../models/interfaces/index'
 import {ProductsItem, ImageContainer, InfoContainer } from './product-list-item-styled'
 
 const ProductListItem = (props: any) => {
   const {product} = props;
   return (
-    <ProductsItem>
+    <ProductsItem to={'/product/' + product._id}>
     <ImageContainer>
       <img src={process.env.PUBLIC_URL + product.image}  loading="lazy" alt={product.title}/>
       </ImageContainer>

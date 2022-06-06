@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
-import {Container, Form, Input, Submit, Title, FormGroup, Label} from '../authentication-form.styled'
+import {Container, Form, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const LoginComponent = () => {
@@ -10,9 +11,15 @@ const LoginComponent = () => {
 
     const submitHandler =  (e : any) => {
       e.preventDefault();
-      console.log(user);
-      sessionStorage.setItem("logged", "true");
-      navigate(-1);
+      axios.post("http://localhost:5000/api/v1/auth/login", user)
+      .then(res => {
+        sessionStorage.setItem("jwt", res.data.jwt);
+        console.log(sessionStorage.getItem("jwt"))
+        navigate('/account');
+      })
+      .catch((err) => {
+        setError(err.response.data.message);
+        });;
     }
 
   return (
@@ -27,6 +34,7 @@ const LoginComponent = () => {
             <Label htmlFor="password">Password</Label>  
             <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password}/><br/>
           </FormGroup>  
+          <Error>{error}</Error>
           <Submit type="submit" value="login">Sign in</Submit>
         </form>
     </Container>
