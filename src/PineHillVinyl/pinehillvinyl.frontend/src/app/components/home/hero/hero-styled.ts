@@ -27,6 +27,7 @@ const vinylAnimation = keyframes`
 
 export const Container = styled.div`
 height: 90vh;
+min-height:200px;
 width: 100%;
 background-color: ${colors.black};
 position: relative;

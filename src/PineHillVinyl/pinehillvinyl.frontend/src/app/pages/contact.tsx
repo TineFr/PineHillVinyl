@@ -5,10 +5,10 @@ import Footer from '../components/shared/footer/footer';
 function Contact()  {
     return (
         <>   
- <Hero title={'Contact'}/>
- <Message/>
- <ContactForm/>
- <FindUs/>
+            <Hero title={'Contact'}/>
+            <Message/>
+            <ContactForm/>
+            <FindUs/>
         </>
     );
 }

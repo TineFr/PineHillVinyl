@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-import RouterComponent from './components/main/navigation/router';
 import { useEffect } from 'react';
+import RouterComponent from './components/shared/navigation/router';
 
 
 function App() {

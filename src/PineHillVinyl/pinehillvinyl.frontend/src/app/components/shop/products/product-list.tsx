@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import {ProductsContainer, ProductsWrapper } from './product-list-styled'
-import {Product} from '../../../interfaces/index'
+import {Product} from '../../../models/interfaces/index'
 import ProductListItem from './product-list-item/product-list-item'
 import Spinner from '../../shared/spinner/spinner.component';
 import {Products as data} from '../../../../data/shopProducts'
