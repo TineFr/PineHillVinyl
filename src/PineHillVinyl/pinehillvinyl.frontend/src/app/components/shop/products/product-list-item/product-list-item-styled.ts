@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro'
 import {colors, screens} from '@styles/variables'
+import { Link } from 'react-router-dom'
 
-export const ProductsItem = styled.div`
+export const ProductsItem = styled(Link)`
 display: flex;
 flex-direction: column;
 height: auto;
 width: 90%;
 cursor: pointer;
+text-decoration: none;
 `
 export const ImageContainer = styled.div`
 width: 100%;

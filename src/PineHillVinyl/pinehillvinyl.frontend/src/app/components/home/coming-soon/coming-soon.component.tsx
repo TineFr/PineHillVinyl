@@ -1,18 +1,15 @@
-import {Container, Title, PreOrder, ProductsWrapper, Product, MarqueeContainer} from './available-soon-styled'
+import {Container, Title, PreOrder, ProductsWrapper, Product, MarqueeContainer} from './coming-soon.styled'
 import {Products as data} from '../../../../data/products'
-import { useState, useEffect} from "react";
-import Marquee from 'react-fast-marquee';
 
 
-
-const AvailableSoon = () => {
+const ComingSoon = () => {
 
   return (
 
     <Container data-aos="fade-up" data-aos-once="true">
         <Title><span>Coming Soon</span></Title>
         <PreOrder><span>Pre order now</span></PreOrder>
-        <MarqueeContainer speed={60}> 
+        <MarqueeContainer speed={50}> 
         <ProductsWrapper>
 {data.map((item, index) => {
                     return (
@@ -31,4 +28,4 @@ const AvailableSoon = () => {
   )
 }
 
-export default AvailableSoon
+export default ComingSoon

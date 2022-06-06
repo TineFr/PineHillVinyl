@@ -172,6 +172,14 @@ export const MarqueeContainer = styled(Marquee)`
     min-width: initial !important;
     
 }
+
+.overlay::after{
+    width: 4vmin !important;
+}
+
+.overlay::before{
+    width: 4vmin !important;
+}
 `
 export const Container = styled.div`
 height: auto;

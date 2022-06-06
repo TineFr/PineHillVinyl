@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components/macro'
-import {colors, screens}  from '../../../../styles/variables'
+import {colors, screens}  from '@styles/variables'
 
 interface Props{
 
@@ -35,7 +35,7 @@ display:flex;
 align-items: space-between;
 flex-direction: column;
 
- @media ${screens.mobileL}{
+ @media ${screens.tablet}{
     height: 90vh;
  }
 
