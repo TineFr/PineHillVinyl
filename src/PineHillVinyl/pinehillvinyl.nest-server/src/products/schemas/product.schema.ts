@@ -18,9 +18,15 @@ export class Product{
     @Prop()
     releaseDate: Date;
     @Prop()
+    size: number;
+    @Prop()
+    label: string;
+    @Prop()
     genres: string[];
     @Prop({ required: true })
     price: number;
+    @Prop({ required: true })
+    quantity: number;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
