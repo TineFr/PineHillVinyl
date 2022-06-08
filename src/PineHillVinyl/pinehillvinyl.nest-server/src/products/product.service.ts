@@ -1,5 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { PaginationParameters } from 'src/shared-models/pagination.model';
 import { CreateProductDto, UpdateProductDto } from './dtos';
+import { FilterProductDto } from './dtos/product-filter.dto';
 import { ProductMapper } from './helpers/product-mapper.helper';
 import { ProductRepository } from './product.repository';
 import { Product } from './schemas/product.schema';
@@ -10,11 +12,12 @@ export class ProductService {
   constructor(private readonly _repository :  ProductRepository,
               private readonly _mapper : ProductMapper) {}
 
-  async getAll(): Promise<Product[]> {
-      let result = await this._repository.getAll();
-      if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
-      return result;
-  }
+  async getAllPaginated(pagination: PaginationParameters, filter: FilterProductDto): Promise<Product[]> {
+    let result = await this._repository.getAllPaginated(pagination, filter);
+    if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
+    let mappedResult = this._mapper.schemaListToResponse(result)
+    return mappedResult;
+}
 
   async getById(id : any): Promise<Product> {
       let result = await this._repository.getById(id);

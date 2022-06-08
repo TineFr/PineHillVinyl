@@ -1,6 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
+import { PaginationParameters } from "src/shared-models/pagination.model";
+import { FilterProductDto } from "./dtos/product-filter.dto";
 import { Product, ProductDocument } from "./schemas/product.schema";
 
 
@@ -8,8 +10,8 @@ import { Product, ProductDocument } from "./schemas/product.schema";
 export class ProductRepository {
   constructor(@InjectModel(Product.name) private _model: Model<ProductDocument>) {}
 
-    async getAll(): Promise<ProductDocument[]> {
-        let result =  await this._model.find();
+    async getAllPaginated(pagination : PaginationParameters, filter : FilterProductDto): Promise<ProductDocument[]> {
+        let result =  await this._model.find().skip(pagination.skips).limit(pagination.limit);
         return result;
     }
 
