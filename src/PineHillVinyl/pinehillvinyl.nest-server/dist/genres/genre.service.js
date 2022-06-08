@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductService = void 0;
+exports.GenreService = void 0;
 const common_1 = require("@nestjs/common");
-const product_mapper_helper_1 = require("./helpers/product-mapper.helper");
-const product_repository_1 = require("./product.repository");
-let ProductService = class ProductService {
+const genre_repository_1 = require("./genre.repository");
+const genre_mapper_helper_1 = require("./helpers/genre-mapper.helper");
+let GenreService = class GenreService {
     constructor(_repository, _mapper) {
         this._repository = _repository;
         this._mapper = _mapper;
     }
-    async getAllPaginated(pagination, filter) {
-        let result = await this._repository.getAllPaginated(pagination, filter);
+    async getAllPaginated(pagination) {
+        let result = await this._repository.getAllPaginated(pagination);
         if (!result)
             throw new common_1.HttpException('No results found', common_1.HttpStatus.NOT_FOUND);
         let mappedResult = this._mapper.schemaListToResponse(result);
@@ -46,13 +46,13 @@ let ProductService = class ProductService {
     async delete(id) {
         let product = await this._repository.delete(id);
         if (product)
-            return 'Record was successfully deleted';
+            return 'Item was successfully deleted';
     }
 };
-ProductService = __decorate([
+GenreService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [product_repository_1.ProductRepository,
-        product_mapper_helper_1.ProductMapper])
-], ProductService);
-exports.ProductService = ProductService;
-//# sourceMappingURL=product.service.js.map
+    __metadata("design:paramtypes", [genre_repository_1.GenreRepository,
+        genre_mapper_helper_1.GenreMapper])
+], GenreService);
+exports.GenreService = GenreService;
+//# sourceMappingURL=genre.service.js.map

@@ -13,6 +13,7 @@ const product_module_1 = require("./products/product.module");
 const user_module_1 = require("./users/user.module");
 const dotenv = require("dotenv");
 const auth_module_1 = require("./authentication/auth.module");
+const genre_module_1 = require("./genres/genre.module");
 dotenv.config({ path: `${__dirname}/../.env` });
 let AppModule = class AppModule {
 };
@@ -21,6 +22,7 @@ AppModule = __decorate([
         imports: [mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
             product_module_1.ProductModule,
             user_module_1.UserModule,
+            genre_module_1.GenreModule,
             auth_module_1.AuthModule],
     })
 ], AppModule);

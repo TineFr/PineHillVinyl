@@ -12,16 +12,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductRepository = void 0;
+exports.GenreRepository = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const product_schema_1 = require("./schemas/product.schema");
-let ProductRepository = class ProductRepository {
+const genre_schema_1 = require("./schemas/genre.schema");
+let GenreRepository = class GenreRepository {
     constructor(_model) {
         this._model = _model;
     }
-    async getAllPaginated(pagination, filter) {
+    async add(genre) {
+        return await this._model.create(genre);
+    }
+    ;
+    async update(id, genre) {
+        await this._model.findByIdAndUpdate(id, genre);
+        return this._model.findById(id);
+    }
+    async delete(id) {
+        return await this._model.findByIdAndDelete(id);
+    }
+    ;
+    async getAllPaginated(pagination) {
         let result = await this._model.find().skip(pagination.skips).limit(pagination.limit);
         return result;
     }
@@ -29,23 +41,11 @@ let ProductRepository = class ProductRepository {
         let result = await this._model.findById(id);
         return result;
     }
-    async add(prd) {
-        return await this._model.create(prd);
-    }
-    ;
-    async update(id, prd) {
-        await this._model.findByIdAndUpdate(id, prd);
-        return this._model.findById(id);
-    }
-    async delete(id) {
-        return await this._model.findByIdAndDelete(id);
-    }
-    ;
 };
-ProductRepository = __decorate([
+GenreRepository = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(product_schema_1.Product.name)),
+    __param(0, (0, mongoose_1.InjectModel)(genre_schema_1.Genre.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], ProductRepository);
-exports.ProductRepository = ProductRepository;
-//# sourceMappingURL=product.repository.js.map
+], GenreRepository);
+exports.GenreRepository = GenreRepository;
+//# sourceMappingURL=genre.repository.js.map

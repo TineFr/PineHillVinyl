@@ -12,22 +12,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductsController = void 0;
+exports.GenresController = void 0;
 const common_1 = require("@nestjs/common");
-const pagination_model_1 = require("../shared-models/pagination.model");
 const dtos_1 = require("./dtos");
-const product_service_1 = require("./product.service");
-const product_filter_dto_1 = require("./dtos/product-filter.dto");
-let ProductsController = class ProductsController {
+const genre_service_1 = require("./genre.service");
+let GenresController = class GenresController {
     constructor(_service) {
         this._service = _service;
-    }
-    async findAll(page, limit, artist) {
-        let result = await this._service.getAllPaginated(new pagination_model_1.PaginationParameters(page, limit), new product_filter_dto_1.FilterProductDto(artist));
-        return result;
-    }
-    async findOne(id) {
-        return await this._service.getById(id);
     }
     async addProduct(dto) {
         return this._service.add(dto);
@@ -40,46 +31,30 @@ let ProductsController = class ProductsController {
     }
 };
 __decorate([
-    (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)('page')),
-    __param(1, (0, common_1.Query)("limit")),
-    __param(2, (0, common_1.Query)("artist")),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Number, String]),
-    __metadata("design:returntype", Promise)
-], ProductsController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], ProductsController.prototype, "findOne", null);
-__decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dtos_1.CreateProductDto]),
+    __metadata("design:paramtypes", [dtos_1.CreateGenreDto]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "addProduct", null);
+], GenresController.prototype, "addProduct", null);
 __decorate([
     (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, dtos_1.UpdateProductDto]),
+    __metadata("design:paramtypes", [Object, dtos_1.UpdateGenreDto]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "updateProduct", null);
+], GenresController.prototype, "updateProduct", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "deleteProduct", null);
-ProductsController = __decorate([
-    (0, common_1.Controller)('products'),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
-], ProductsController);
-exports.ProductsController = ProductsController;
-//# sourceMappingURL=product.controller.js.map
+], GenresController.prototype, "deleteProduct", null);
+GenresController = __decorate([
+    (0, common_1.Controller)('genres'),
+    __metadata("design:paramtypes", [genre_service_1.GenreService])
+], GenresController);
+exports.GenresController = GenresController;
+//# sourceMappingURL=genre.controller.js.map

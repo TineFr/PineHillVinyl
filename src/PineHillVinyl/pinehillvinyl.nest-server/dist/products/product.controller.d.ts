@@ -4,7 +4,7 @@ import { Product } from './schemas/product.schema';
 export declare class ProductsController {
     private readonly _service;
     constructor(_service: ProductService);
-    findAll(): Promise<Product[]>;
+    findAll(page: number, limit: number, artist: string): Promise<Product[]>;
     findOne(id: any): Promise<Product>;
     addProduct(dto: CreateProductDto): Promise<Product>;
     updateProduct(id: any, dto: UpdateProductDto): Promise<Product>;
