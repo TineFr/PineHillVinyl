@@ -1,16 +1,23 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { PaginationParameters } from '../shared-models/pagination.model';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { CreateProductDto, UpdateProductDto } from './dtos';
 import { ProductService } from './product.service';
 import { Product } from './schemas/product.schema';
+import { FilterProductDto } from './dtos/product-filter.dto';
 
 @Controller('products')
 export class ProductsController {
   constructor(private readonly _service: ProductService) {}
 
-  @Get('')
-   async findAll(): Promise<Product[]> {
-    let result =  await this._service.getAll();
+  @Get()
+   async findAll(
+    @Query('page') page : number,
+    @Query("limit") limit : number,
+    @Query("artist") artist : string
+   ): Promise<Product[]> {
+    let result =  await this._service.getAllPaginated(new PaginationParameters(page,limit), 
+                                                      new FilterProductDto(artist));
     return result;
   }
 
@@ -24,7 +31,6 @@ export class ProductsController {
   async addProduct(@Body() dto: CreateProductDto) : Promise<Product> {
     return this._service.add(dto);
   }
-
   @Put(':id')
   async updateProduct(
     @Param('id') id: any,

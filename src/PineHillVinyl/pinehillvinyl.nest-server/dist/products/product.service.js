@@ -18,11 +18,12 @@ let ProductService = class ProductService {
         this._repository = _repository;
         this._mapper = _mapper;
     }
-    async getAll() {
-        let result = await this._repository.getAll();
+    async getAllPaginated(pagination, filter) {
+        let result = await this._repository.getAllPaginated(pagination, filter);
         if (!result)
             throw new common_1.HttpException('No results found', common_1.HttpStatus.NOT_FOUND);
-        return result;
+        let mappedResult = this._mapper.schemaListToResponse(result);
+        return mappedResult;
     }
     async getById(id) {
         let result = await this._repository.getById(id);

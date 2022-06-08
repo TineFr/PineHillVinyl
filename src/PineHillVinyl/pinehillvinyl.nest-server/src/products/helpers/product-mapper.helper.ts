@@ -46,4 +46,24 @@ export class ProductMapper {
       return response;
 
     }
+
+    schemaListToResponse(users : ProductDocument[]):  ResponseProductDto[] {
+
+      let mappedUsers = [];
+      users.forEach(product => {
+        const response = new ResponseProductDto();
+        response.id = product._id
+        response.artist = product.artist;
+        response.title = product.title;
+        response.image = product.image;
+        response.trackList = product.trackList;
+        response.description = product.description;
+        response.price = product.price;
+        response.genres = product.genres;
+        response.releaseDate = product.releaseDate;
+        mappedUsers.push(response);
+      });
+      return mappedUsers;
+
+    }
   }

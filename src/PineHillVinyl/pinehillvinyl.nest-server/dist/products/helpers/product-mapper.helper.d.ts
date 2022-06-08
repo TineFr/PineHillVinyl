@@ -4,4 +4,5 @@ export declare class ProductMapper {
     createDtoToSchema(dto: CreateProductDto): Product;
     updateDtoToSchema(dto: UpdateProductDto): Product;
     schemaToResponse(product: ProductDocument): ResponseProductDto;
+    schemaListToResponse(users: ProductDocument[]): ResponseProductDto[];
 }
