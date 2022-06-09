@@ -4,6 +4,7 @@ import {Badge} from '@material-ui/core'
 
 export const Amount = styled(Badge)`
 color:${colors.white};
+cursor: pointer;
 .MuiBadge-colorPrimary{
     background-color: ${colors.red};
 }

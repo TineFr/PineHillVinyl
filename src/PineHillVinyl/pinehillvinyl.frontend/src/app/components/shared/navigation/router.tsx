@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes , Route} from 'react-router-dom' 
-import {Home, Contact, About, ProductDetails, Shop, Authentication, Account} from '../../../pages'
+import {Home, Contact, About, ProductDetails, Shop, Authentication, Account, CartPage} from '../../../pages'
 
 import ScrollBack from './scroll-back';
 import ErrorPage from '../../../error';
@@ -19,8 +19,6 @@ function RouterComponent() {
     const toggle = () =>{
         setShowMenu(!showMenu);
     }
-
-
         return (
          <Router>
              <SideNavBar show={showMenu} toggle={toggle}/>
@@ -28,6 +26,7 @@ function RouterComponent() {
              <ScrollBack>
             <Routes>  
                 <Route path="/" element={<Home/>}></Route>
+                <Route path="/checkout" element={<CartPage/>}></Route>
                 <Route path="/login" element={<Authentication/>}></Route>
                 <Route path="/account" element={<Account/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
