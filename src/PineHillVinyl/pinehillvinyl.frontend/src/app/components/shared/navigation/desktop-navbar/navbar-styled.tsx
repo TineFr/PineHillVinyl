@@ -10,7 +10,7 @@ interface Props{
 
 
 export const NavbarContainer = styled.div<Props>`
-position:  "sticky" ;
+position: sticky ;
 top: 0;
 left: 0;
 background-color: ${colors.black};
@@ -21,10 +21,11 @@ width: 100%;
 z-index: 999;
 display:flex;
 justify-content: space-around;
+padding: 0px 20px;  
 
 @media ${screens.tablet}{
-    position: "initial";
-    padding: 0px 20px;  
+    position: initial;
+
 }
 
 
@@ -98,8 +99,10 @@ z-index: 999;
 
 export const ClientContainer = styled.div`
 display:flex;
-width: 100px;
 justify-content: space-around;
-padding-right: 70px;
 gap: 5px;
+padding-right:70px;
+@media ${screens.mobileM}{
+    padding-right: 20px;
+}
 `
