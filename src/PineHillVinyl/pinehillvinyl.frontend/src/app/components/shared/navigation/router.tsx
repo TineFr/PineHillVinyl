@@ -12,7 +12,7 @@ import Footer from '../../shared/footer/footer';
 
 function RouterComponent() {
 
-    const [isMobile, setIsMobileNav] = useState(false);
+
     const [showMenu, setShowMenu] = useState(false);
 
 
@@ -20,25 +20,11 @@ function RouterComponent() {
         setShowMenu(!showMenu);
     }
 
-    const handleResize = () =>{
-        if (window.innerWidth >= 700){
-            setIsMobileNav(false);
-             }
-            else {
-                setIsMobileNav(true);
-            }
-        };
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResize)
-        window.addEventListener("load", handleResize)
-      });
-
 
         return (
          <Router>
              <SideNavBar show={showMenu} toggle={toggle}/>
-             <Navbar isMobile={isMobile} toggleBars={toggle}/>
+             <Navbar toggleBars={toggle}/>
              <ScrollBack>
             <Routes>  
                 <Route path="/" element={<Home/>}></Route>

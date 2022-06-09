@@ -36,17 +36,17 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
       <Spinner busy={isBusy} />
       <ProductsWrapper>
 
-      {/* {data!.map((product : any, index) => {
-                    return (
-                      <ProductListItem key={index} product={product}/>
-                    )             
-                })} */}
-
-{products!.map((product : Product, index) => {
+      {data!.map((product : any, index) => {
                     return (
                       <ProductListItem key={index} product={product}/>
                     )             
                 })}
+
+{/* {products!.map((product : Product, index) => {
+                    return (
+                      <ProductListItem key={index} product={product}/>
+                    )             
+                })} */}
 
 </ProductsWrapper>
 

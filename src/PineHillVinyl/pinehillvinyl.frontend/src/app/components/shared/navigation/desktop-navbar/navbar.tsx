@@ -3,6 +3,7 @@ import { NavbarItems } from '../navbar-items'
 import { NavLink } from 'react-router-dom'
 import {NavbarContainer, LogoContainer, NavbarList, NavbarItem, BarsIcon, ClientContainer} from './navbar-styled'
 import AccountButton from './account-button/account-button.component';
+import CartButton from './cart-button/cart-button.component';
 
 
 function Navbar(props : any) {
@@ -26,11 +27,11 @@ function Navbar(props : any) {
 
         return (
             <>
-    <NavbarContainer $show={show} $isMobile={props.isMobile} >
+    <NavbarContainer $show={show} >
     <LogoContainer>
         <img src={require('../../../../../assets/icons/logo-transparent.png')} />
     </LogoContainer>
-        <NavbarList $isMobile={props.isMobile}>
+        <NavbarList>
         {NavbarItems.map((item, index) => {
                 return (
                     <NavbarItem key={index}>
@@ -41,10 +42,10 @@ function Navbar(props : any) {
         </NavbarList>
         <ClientContainer>
             <AccountButton isLogged={localStorage.getItem("logged")}></AccountButton>
-
+            <CartButton></CartButton>
         </ClientContainer>
     </NavbarContainer>
-    <BarsIcon $show={show} $isMobile={props.isMobile} onClick={props.toggleBars}/>
+    <BarsIcon $show={show} onClick={props.toggleBars}/>
     </>
     );
 
