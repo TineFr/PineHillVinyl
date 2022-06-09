@@ -9,6 +9,7 @@ height: auto;
 width: 90%;
 cursor: pointer;
 text-decoration: none;
+flex-grow: 1;
 `
 export const ImageContainer = styled.div`
 width: 100%;
