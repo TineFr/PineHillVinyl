@@ -40,7 +40,7 @@ width: 100%;
 z-index: 200;
 
 
-@media ${screens.laptop} {
+@media ${screens.tablet} {
 margin-top: 0px;
 position: initial;
 }

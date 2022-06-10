@@ -6,12 +6,11 @@ import {colors, screens} from '../../../../../styles/variables'
 
 interface Props{
   $show? : boolean
-  $isMobile? : boolean
 }
 
 
 export const NavbarContainer = styled.div<Props>`
-position: ${props => props.$isMobile ?  "sticky" : "initial"};
+position: sticky ;
 top: 0;
 left: 0;
 background-color: ${colors.black};
@@ -20,24 +19,22 @@ justify-content: flex-start;
 height: 75px;
 width: 100%;
 z-index: 999;
+display:flex;
+justify-content: space-around;
+padding: 0px 20px;  
 
-@media ${screens.laptop}{
-    display:flex;
-    justify-content: space-around;
+@media ${screens.tablet}{
+    position: initial;
 
-    
 }
 
-/* transition: all 0.1s ease-in-out; */
 
 `
 
 export const LogoContainer = styled.div`
 height: 75px;
+padding-right: 7vmin;
 
-/* position: absolute;
-top: 0;
-left: 0; */
  img{
      height: 80px;
      object-fit: cover;
@@ -52,13 +49,18 @@ left: 0; */
 `
 
 export const NavbarList = styled.div<Props>`
-display: ${props => props.$isMobile  ?  "none" : "flex"};
-/* display: flex; */
+display: none;
 justify-content: center;
 align-items: center;
 width: 700px;
 gap: 40px;
 overflow:hidden;
+
+@media ${screens.laptop} {
+    display: flex;
+    
+}
+
 `
 export const NavbarItem = styled.div`
 margin: 10px;
@@ -84,12 +86,23 @@ font-size: 30px;
 position: fixed;
 right: 0;
 top: 0;
-opacity: ${props =>  props.$isMobile || !props.$show ?  1 : 0};
 margin: 20px;
 transition: all 0.2s ease-in-out;
 z-index: 999;
+
+@media ${screens.laptop}{
+    opacity: ${props =>  props.$show ?  0 : 1};
+
+}
+
 `
 
 export const ClientContainer = styled.div`
-
+display:flex;
+justify-content: space-around;
+gap: 5px;
+padding-right:70px;
+@media ${screens.mobileM}{
+    padding-right: 20px;
+}
 `

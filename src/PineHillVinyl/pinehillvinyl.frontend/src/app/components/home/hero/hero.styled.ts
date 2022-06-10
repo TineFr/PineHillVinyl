@@ -113,19 +113,19 @@ animation: ${vinylAnimation} 1s linear;
     background:${colors.black};
     content: '';
 }
-    @media (max-height: 750px){
+@media ${screens.mobileM}{
         max-width: 300px;
     }
 
-    @media ${screens.laptop} and (min-height: 700px){
+    @media ${screens.tablet} and (min-height: 700px){
         max-width: 500px;
         margin-left: 250px; 
     }
-
+ 
     @media ${screens.laptop} and (min-height: 900px){
         max-width: 600px;
         margin-left: 300px; 
-    }
+    } 
 
     @media ${screens.desktop}{
         max-width: 830px;

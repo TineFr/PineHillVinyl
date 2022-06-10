@@ -15,7 +15,7 @@ place-self: end;
 z-index: 20;
 width: 100%;
 background-color: white;
-@media ${screens.laptop}{
+@media ${screens.tablet}{
     position: initial;
 }
 `

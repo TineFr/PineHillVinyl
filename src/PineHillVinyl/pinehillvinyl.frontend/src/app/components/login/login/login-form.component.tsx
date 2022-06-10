@@ -10,7 +10,7 @@ const LoginComponent = () => {
     const [error, setError] = useState("");
 
     const submitHandler =  (e : any) => {
-      e.preventDefault();
+      // e.preventDefault();
       axios.post("http://localhost:5000/api/v1/auth/login", user)
       .then(res => {
         sessionStorage.setItem("jwt", res.data.jwt);

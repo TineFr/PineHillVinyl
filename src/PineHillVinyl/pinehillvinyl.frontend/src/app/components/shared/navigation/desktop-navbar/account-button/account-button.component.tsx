@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
-import {Button} from './account-button.styled'
+import {AccountIcon, Button} from './account-button.styled'
 
 
 const AccountButton = (props: any) => {
@@ -31,8 +31,9 @@ const handleAccount =  () =>{
 
 
         button = <Button onClick={() => handleSignIn()}>
- 
-        Sign in</Button>;
+                        <AccountIcon/>
+                        <span>Sign in</span>
+                </Button>;
       }
       
       return (
