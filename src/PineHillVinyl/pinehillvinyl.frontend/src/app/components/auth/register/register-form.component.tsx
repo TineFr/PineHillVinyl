@@ -1,12 +1,30 @@
-import {useState, useEffect} from 'react'
-import {Container, Form, Input, Submit, Title, FormGroup, Label} from '../authentication-form.styled'
 
+import {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
+import {Container, Form, Input, Submit, Title, FormGroup, Label} from '../authentication-form.styled'
+import {register, reset} from '../../../redux/slices/authSlice'
 
 
 const RegisterComponent = () => {
 
     const [user, setUser] = useState({email: "", password: ""})
     const [error, setError] = useState("");
+    
+    const dispatch = useAppDispatch();
+    const {isLoading, isSuccess, isError} = useAppSelector((state) => state.auth);
+    const navigate = useNavigate();
+
+    useEffect(() =>{
+      if (isSuccess){
+        dispatch(reset());
+        navigate('/login');
+      }
+
+
+    }, [isSuccess, dispatch])
+  
+
 
   return (
     <Container className='right-panel'>

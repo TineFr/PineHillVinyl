@@ -9,30 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = exports.User = void 0;
+exports.AddressSchema = exports.Address = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const user_address_schema_1 = require("./user-address.schema");
-let User = class User {
+let Address = class Address {
 };
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], User.prototype, "username", void 0);
+], Address.prototype, "country", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, unique: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Address.prototype, "street", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], Address.prototype, "number", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [user_address_schema_1.AddressSchema] }),
-    __metadata("design:type", Array)
-], User.prototype, "addresses", void 0);
-User = __decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Address.prototype, "city", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Address.prototype, "zip", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Boolean)
+], Address.prototype, "isMainAddress", void 0);
+Address = __decorate([
     (0, mongoose_1.Schema)()
-], User);
-exports.User = User;
-exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
-//# sourceMappingURL=user.schema.js.map
+], Address);
+exports.Address = Address;
+exports.AddressSchema = mongoose_1.SchemaFactory.createForClass(Address);
+//# sourceMappingURL=user-address.schema.js.map

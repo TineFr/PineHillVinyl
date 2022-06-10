@@ -9,30 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = exports.User = void 0;
+exports.OrderSchema = exports.Order = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const user_address_schema_1 = require("./user-address.schema");
-let User = class User {
+const product_order_schema_1 = require("../../products/schemas/product-order.schema");
+const user_address_schema_1 = require("../../users/schemas/user-address.schema");
+let Order = class Order {
 };
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "username", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: true, unique: true }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Order.prototype, "userId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], Order.prototype, "paymentStatus", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [user_address_schema_1.AddressSchema] }),
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", String)
+], Order.prototype, "status", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: product_order_schema_1.ProductOrderSchema }),
     __metadata("design:type", Array)
-], User.prototype, "addresses", void 0);
-User = __decorate([
+], Order.prototype, "items", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: user_address_schema_1.AddressSchema }),
+    __metadata("design:type", user_address_schema_1.Address)
+], Order.prototype, "shippingAddress", void 0);
+Order = __decorate([
     (0, mongoose_1.Schema)()
-], User);
-exports.User = User;
-exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
-//# sourceMappingURL=user.schema.js.map
+], Order);
+exports.Order = Order;
+exports.OrderSchema = mongoose_1.SchemaFactory.createForClass(Order);
+//# sourceMappingURL=order.schema.js.map

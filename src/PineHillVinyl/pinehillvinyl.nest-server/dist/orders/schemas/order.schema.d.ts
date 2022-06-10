@@ -20,12 +20,14 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
-import { Address } from './user-address.schema';
-export declare type UserDocument = User & Document;
-export declare class User {
-    username: string;
-    email: string;
-    password: string;
-    addresses: Address[];
+import { ProductOrder } from 'src/products/schemas/product-order.schema';
+import { Address } from 'src/users/schemas/user-address.schema';
+export declare type OrderDocument = Order & Document;
+export declare class Order {
+    userId: string;
+    paymentStatus: string;
+    status: string;
+    items: ProductOrder[];
+    shippingAddress: Address;
 }
-export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any>, {}, {}, any>;
+export declare const OrderSchema: import("mongoose").Schema<Order, import("mongoose").Model<Order, any, any, any>, {}, {}, any>;

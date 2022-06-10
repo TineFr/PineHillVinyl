@@ -1,4 +1,4 @@
-import {Product} from '../../../../models/interfaces/index'
+import {ProductModel} from '../../../../models'
 import {ProductsItem, ImageContainer, InfoContainer } from './product-list-item-styled'
 
 const ProductListItem = (props: any) => {

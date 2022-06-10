@@ -19,13 +19,13 @@
 /// <reference types="mongoose/types/types" />
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
-import { Document } from 'mongoose';
-import { Address } from './user-address.schema';
-export declare type UserDocument = User & Document;
-export declare class User {
-    username: string;
-    email: string;
-    password: string;
-    addresses: Address[];
+/// <reference types="mongoose" />
+export declare class Address {
+    country: string;
+    street: string;
+    number: string;
+    city: string;
+    zip: string;
+    isMainAddress: boolean;
 }
-export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any>, {}, {}, any>;
+export declare const AddressSchema: import("mongoose").Schema<Address, import("mongoose").Model<Address, any, any, any>, {}, {}, any>;

@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PaginationParameters } from 'src/shared-models/pagination.model';
-import { CreateProductDto, UpdateProductDto } from './dtos';
+import { CreateProductDto, ResponseProductDto, UpdateProductDto } from './dtos';
 import { FilterProductDto } from './dtos/product-filter.dto';
 import { ProductMapper } from './helpers/product-mapper.helper';
 import { ProductRepository } from './product.repository';
@@ -12,31 +12,35 @@ export class ProductService {
   constructor(private readonly _repository :  ProductRepository,
               private readonly _mapper : ProductMapper) {}
 
-  async getAllPaginated(pagination: PaginationParameters, filter: FilterProductDto): Promise<Product[]> {
+  async getAllPaginated(pagination: PaginationParameters, filter: FilterProductDto): Promise<ResponseProductDto[]> {
     let result = await this._repository.getAllPaginated(pagination, filter);
     if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
     let mappedResult = this._mapper.schemaListToResponse(result)
     return mappedResult;
 }
 
-  async getById(id : any): Promise<Product> {
+  async getById(id : any): Promise<ResponseProductDto> {
       let result = await this._repository.getById(id);
       if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
       let mappedResult = this._mapper.schemaToResponse(result)
       return mappedResult;
   }
 
-  async add(dto: CreateProductDto): Promise<Product> {
+  async add(dto: CreateProductDto): Promise<ResponseProductDto> {
       const product = this._mapper.createDtoToSchema(dto);
-      return this._repository.add(product);
+      let result = await this._repository.add(product);
+      let mappedResult = this._mapper.schemaToResponse(result)
+      return mappedResult;
   }
 
-  async update(id: any, dto: UpdateProductDto): Promise<Product> {
-    let result = await this._repository.getById(id);
-    if (!result) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
+  async update(id: any, dto: UpdateProductDto): Promise<ResponseProductDto> {
+    let product = await this._repository.getById(id);
+    if (!product) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
 
-    const product = this._mapper.updateDtoToSchema(dto);
-    return this._repository.update(id, product);
+    const updatedProduct = this._mapper.updateDtoToSchema(dto);
+    const result = await this._repository.update(id, product);
+    let mappedResult = this._mapper.schemaToResponse(result)
+    return mappedResult;
   }
 
   async delete(id: any): Promise<string> {

@@ -34,14 +34,18 @@ let ProductService = class ProductService {
     }
     async add(dto) {
         const product = this._mapper.createDtoToSchema(dto);
-        return this._repository.add(product);
+        let result = await this._repository.add(product);
+        let mappedResult = this._mapper.schemaToResponse(result);
+        return mappedResult;
     }
     async update(id, dto) {
-        let result = await this._repository.getById(id);
-        if (!result)
+        let product = await this._repository.getById(id);
+        if (!product)
             throw new common_1.HttpException(`Item with id ${id} does not exist`, common_1.HttpStatus.NOT_FOUND);
-        const product = this._mapper.updateDtoToSchema(dto);
-        return this._repository.update(id, product);
+        const updatedProduct = this._mapper.updateDtoToSchema(dto);
+        const result = await this._repository.update(id, product);
+        let mappedResult = this._mapper.schemaToResponse(result);
+        return mappedResult;
     }
     async delete(id) {
         let product = await this._repository.delete(id);

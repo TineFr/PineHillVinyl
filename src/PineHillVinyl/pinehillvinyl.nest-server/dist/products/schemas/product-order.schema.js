@@ -9,30 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = exports.User = void 0;
+exports.ProductOrderSchema = exports.ProductOrder = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const user_address_schema_1 = require("./user-address.schema");
-let User = class User {
+let ProductOrder = class ProductOrder {
 };
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "username", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: true, unique: true }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], ProductOrder.prototype, "title", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], ProductOrder.prototype, "artist", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [user_address_schema_1.AddressSchema] }),
-    __metadata("design:type", Array)
-], User.prototype, "addresses", void 0);
-User = __decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", String)
+], ProductOrder.prototype, "image", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], ProductOrder.prototype, "quantity", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], ProductOrder.prototype, "price", void 0);
+ProductOrder = __decorate([
     (0, mongoose_1.Schema)()
-], User);
-exports.User = User;
-exports.UserSchema = mongoose_1.SchemaFactory.createForClass(User);
-//# sourceMappingURL=user.schema.js.map
+], ProductOrder);
+exports.ProductOrder = ProductOrder;
+exports.ProductOrderSchema = mongoose_1.SchemaFactory.createForClass(ProductOrder);
+//# sourceMappingURL=product-order.schema.js.map

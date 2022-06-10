@@ -28,7 +28,10 @@ export declare class Product {
     trackList: string[];
     description: string;
     releaseDate: Date;
+    size: number;
+    label: string;
     genres: string[];
     price: number;
+    quantity: number;
 }
 export declare const ProductSchema: import("mongoose").Schema<Product, import("mongoose").Model<Product, any, any, any>, {}, {}, any>;

@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Product } from '../../../models/interfaces';
+import { ProductModel } from '../../../models';
 import {Container, Header, Artist, Title, ImageContainer, ProductDetails, Price, Description, Specifications,TrackList, Test} from './product-header.styled'
 
 const ProductHeader = () => {
-  const [product, setProduct] = useState<Product>();
+  const [product, setProduct] = useState<ProductModel>();
   let { id } = useParams();
   axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
   useEffect( () =>{
-    axios.get<Product>("http://localhost:5000/api/v1/products/" + id)
+    axios.get<ProductModel>("http://localhost:5000/api/v1/products/" + id)
     .then(res => {
       setProduct(res.data);
     })

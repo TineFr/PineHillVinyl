@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import {Container, Form, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks/redux/hooks';
+import { login, reset } from '../../../../app/redux/slices/authSlice';
 
 
 const LoginComponent = () => {
@@ -9,18 +11,41 @@ const LoginComponent = () => {
     const [user, setUser] = useState({email: "", password: ""})
     const [error, setError] = useState("");
 
-    const submitHandler =  (e : any) => {
-      // e.preventDefault();
-      axios.post("http://localhost:5000/api/v1/auth/login", user)
-      .then(res => {
-        sessionStorage.setItem("jwt", res.data.jwt);
-        console.log(sessionStorage.getItem("jwt"))
+
+    const dispatch = useAppDispatch();
+    const {isLoading, isSuccess, isAuthenticated} = useAppSelector((state) => state.auth);
+
+
+    useEffect(() =>{
+      if (isSuccess){
+        dispatch(reset());
+      }
+    }, [isSuccess, dispatch])
+
+    useEffect(() =>{
+      if (isAuthenticated){
         navigate('/account');
-      })
-      .catch((err) => {
-        setError(err.response.data.message);
-        });;
+      }
+    }, [isAuthenticated])
+
+    const submitHandler =  (e : any) => {
+      e.preventDefault();
+      dispatch(login(user));
+
     }
+
+    // const submitHandler =  (e : any) => {
+    //   // e.preventDefault();
+    //   axios.post("http://localhost:5000/api/v1/auth/login", user)
+    //   .then(res => {
+    //     sessionStorage.setItem("jwt", res.data.jwt);
+    //     console.log(sessionStorage.getItem("jwt"))
+    //     navigate('/account');
+    //   })
+    //   .catch((err) => {
+    //     setError(err.response.data.message);
+    //     });;
+    // }
 
   return (
     <Container>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import {ProductsContainer, ProductsWrapper } from './product-list-styled'
-import {Product} from '../../../models/interfaces/index'
+import {ProductModel} from '../../../models'
 import ProductListItem from './product-list-item/product-list-item'
 import Spinner from '../../shared/spinner/spinner.component';
 import {Products as data} from '../../../../data/shopProducts'
@@ -12,14 +12,14 @@ import {Products as data} from '../../../../data/shopProducts'
 
 export const Products =  () => {
   
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductModel[]>([]);
   const [isBusy, setIsBusy] = useState(false);
 
 
 
   useEffect( () =>{
     setIsBusy(true);
-    axios.get<Product[]>("http://localhost:5000/api/v1/products")
+    axios.get<ProductModel[]>("http://localhost:5000/api/v1/products")
 
     .then(res => {
       setProducts(res.data);
