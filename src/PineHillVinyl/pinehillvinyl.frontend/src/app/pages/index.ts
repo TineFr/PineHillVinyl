@@ -6,4 +6,5 @@ import Shop from './shop'
 import Account from './account'
 import { Authentication } from './authentication'
 import CartPage  from './cart'
-export {About, Home, Contact, ProductDetails, Shop, Authentication, Account, CartPage}
+import CheckoutPage  from './checkout'
+export {About, Home, Contact, ProductDetails, Shop, Authentication, Account, CartPage, CheckoutPage}

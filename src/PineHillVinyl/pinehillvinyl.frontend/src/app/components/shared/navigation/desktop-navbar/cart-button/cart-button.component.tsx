@@ -5,7 +5,7 @@ import {Amount} from './cart-button.styled'
 const CartButton = () => {
   const navigate = useNavigate();
   const handleNavigation =  () =>{
-    navigate('/checkout');
+    navigate('/cart');
   
   }
   return (
