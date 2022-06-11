@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import authService from 'src/app/services/auth.service';
-import { isNullishCoalesce } from 'typescript';
-import { JwtModel, LoginModel, RegisterModel, UserModel } from '../../models';
-import { RootState, store } from '../store';
+import { JwtModel, LoginModel, RegisterModel } from '../../models';
+import { AuthState } from '../interfaces/auth-state.interface';
+import { RootState } from '../store';
 
 
 // const storedUser: string | null = localStorage.getItem('user');
@@ -13,19 +13,7 @@ import { RootState, store } from '../store';
 
 
 
-interface AsyncState{
-    isLoading: boolean;
-    isSuccess : boolean;
-    isError : boolean;
-}
 
-interface AuthState extends AsyncState{
-    user?: UserModel | null;
-    jwt? : JwtModel | null;
-    isAuthenticated? : boolean;
-
-
-}
 
 const initialState: AuthState = {
     isLoading: false,
@@ -33,7 +21,10 @@ const initialState: AuthState = {
     isError : false,
     user: null,
     jwt: null,
-    isAuthenticated: false, 
+    isAuthenticated: false,
+    loginError : null,
+    registerError : null
+      
 }
 
 export const register = createAsyncThunk(
@@ -42,8 +33,8 @@ export const register = createAsyncThunk(
         try {
             return await authService.register(user);
             
-        } catch (error) {
-            return thunkApi.rejectWithValue('Something went wrong')
+        } catch (err : any) {
+            return thunkApi.rejectWithValue(err.response.data.message)
         }
     }
 )
@@ -54,8 +45,8 @@ export const login = createAsyncThunk(
         try {
             return await authService.login(user);
             
-        } catch (error) {
-            return thunkApi.rejectWithValue('Something went wrong')
+        } catch (err : any) {
+            return thunkApi.rejectWithValue(err.response.data.message)
         }
     }
 )
@@ -76,8 +67,9 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = false;
             state.isError = false;
+            state.loginError = null;
+            state.registerError = null;
         }
-
     },
     extraReducers: (builder) =>{
         builder
@@ -95,6 +87,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.isError = true;
             state.user = null;
+            state.registerError = action.payload;
         })
 
 
@@ -108,11 +101,12 @@ export const authSlice = createSlice({
             state.jwt = action.payload;
             state.isAuthenticated = true;
         })
-        .addCase(login.rejected, (state) =>{
+        .addCase(login.rejected, (state, action) =>{
             state.isLoading = false;
             state.isError = true;
             state.user = null;
             state.isAuthenticated = false;
+            state.loginError = action.payload;
         })
 
         //logout

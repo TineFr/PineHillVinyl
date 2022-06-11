@@ -9,11 +9,11 @@ import { login, reset } from '../../../../app/redux/slices/authSlice';
 const LoginComponent = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({email: "", password: ""})
-    const [error, setError] = useState("");
+    const [apiError, setError] = useState("");
 
 
     const dispatch = useAppDispatch();
-    const {isLoading, isSuccess, isAuthenticated} = useAppSelector((state) => state.auth);
+    const {isLoading, isSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
 
 
     useEffect(() =>{
@@ -28,11 +28,18 @@ const LoginComponent = () => {
       }
     }, [isAuthenticated])
 
+    useEffect(() =>{
+      if (loginError){
+        setError(loginError);
+      }
+    }, [loginError])
+
     const submitHandler =  (e : any) => {
       e.preventDefault();
-      dispatch(login(user));
+      dispatch(login(user))
+  };
 
-    }
+    
 
     // const submitHandler =  (e : any) => {
     //   // e.preventDefault();
@@ -59,7 +66,7 @@ const LoginComponent = () => {
             <Label htmlFor="password">Password</Label>  
             <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password}/><br/>
           </FormGroup>  
-          <Error>{error}</Error>
+          <Error>{apiError}</Error>
           <Submit type="submit" value="login">Sign in</Submit>
         </form>
     </Container>

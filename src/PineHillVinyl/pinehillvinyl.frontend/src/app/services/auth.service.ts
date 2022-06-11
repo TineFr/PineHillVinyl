@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 
 
 const register = async (model : RegisterModel) : Promise<UserModel | null> =>{
-    const response = await axios.post(`${process.env.BASE_URL}/auth/register`, model);
+    const response = await axios.post('http://localhost:4000/api/v1/auth/register', model);
     return response.data;
 }
 

@@ -7,7 +7,7 @@ const ProductDetails = () => {
   return (
     <>
     <SearchBar></SearchBar>
-    {/* <BuyBlock></BuyBlock> */}
+    <BuyBlock></BuyBlock>
     <ProductHeader/>
     </>
   )

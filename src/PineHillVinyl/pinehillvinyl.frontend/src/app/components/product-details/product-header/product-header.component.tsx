@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProductModel } from '../../../models';
+import BuyBlock from '../buy-block/buy-block-component';
 import {Container, Header, Artist, Title, ImageContainer, ProductDetails, Price, Description, Specifications,TrackList, Test} from './product-header.styled'
 
 const ProductHeader = () => {
@@ -19,6 +20,8 @@ const ProductHeader = () => {
   }, [])
   
     return (
+      <>
+
       <Container data-aos="fade-up">
         <Header>
           <Artist>{product?.artist}</Artist>
@@ -52,6 +55,7 @@ const ProductHeader = () => {
       </TrackList>
 
       </Container>
+      </>
     )
   }
   
