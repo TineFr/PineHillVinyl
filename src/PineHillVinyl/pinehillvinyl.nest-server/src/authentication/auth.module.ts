@@ -7,10 +7,11 @@ import { UserModule } from "..//users/user.module";
 import { JwtStrategy } from "./strategies/jwt.strategy";
 import { JwtGuard } from "./guards/jwt.guard";
 import * as dotenv from "dotenv";
+import { CartModule } from "../carts/cart.module";
 dotenv.config({ path: `${__dirname}/../../.env` });
 
 @Module({
-   imports: [UserModule,  PassportModule,
+   imports: [UserModule, PassportModule,
       JwtModule.registerAsync( { useFactory : () => ({
          secret: process.env.JWT,
          signOptions: { expiresIn: '3600s' },

@@ -1,4 +1,5 @@
 import { IsString, IsNotEmpty, IsEmail, IsDate, IsArray } from 'class-validator';
+import { Address } from './user-address.dto';
 
 export class UpdateUserDto {
     @IsString()
@@ -7,4 +8,6 @@ export class UpdateUserDto {
     email: string;
     @IsString()
     password: string;
+    @IsArray()
+    address: Address[]
 }

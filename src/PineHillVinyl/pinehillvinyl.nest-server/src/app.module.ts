@@ -5,6 +5,7 @@ import { UserModule } from './users/user.module';
 import * as dotenv from "dotenv";
 import { AuthModule } from './authentication/auth.module';
 import { GenreModule } from './genres/genre.module';
+import { CartModule } from './carts/cart.module';
 dotenv.config({ path: `${__dirname}/../.env` });
 
 
@@ -13,6 +14,7 @@ dotenv.config({ path: `${__dirname}/../.env` });
   ProductModule,
   UserModule,
   GenreModule,
-  AuthModule],
+  AuthModule,
+  CartModule],
 })
 export class AppModule {}
