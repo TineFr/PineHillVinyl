@@ -13,14 +13,14 @@ const LoginComponent = () => {
 
 
     const dispatch = useAppDispatch();
-    const {isSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
+    const {loginIsSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
 
 
     useEffect(() =>{
-      if (isSuccess){
+      if (loginIsSuccess){
         dispatch(reset());   
       }
-    }, [isSuccess, dispatch])
+    }, [loginIsSuccess, dispatch])
 
     useEffect(() =>{
       if (isAuthenticated){

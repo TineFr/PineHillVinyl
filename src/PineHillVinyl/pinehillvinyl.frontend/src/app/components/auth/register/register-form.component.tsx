@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
 import {Container, Form, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
-import {register, reset} from '../../../redux/slices/authSlice'
+import {login, register, reset} from '../../../redux/slices/authSlice'
 import { RegisterModel } from '../../../../app/models';
 
 
@@ -13,16 +13,16 @@ const RegisterComponent = () => {
     const [apiError, setError] = useState("");
     
     const dispatch = useAppDispatch();
-    const {isLoading, isSuccess, registerError} = useAppSelector((state) => state.auth);
+    const {isLoading, registerIsSuccess, registerError} = useAppSelector((state) => state.auth);
     const navigate = useNavigate();
 
     useEffect(() =>{
-      if (isSuccess){
+      if (registerIsSuccess){
         dispatch(reset());
-        navigate('/login');
+        dispatch(login({email: user.email, password: user.password}))
       }
 
-    }, [isSuccess, dispatch])
+    }, [registerIsSuccess, dispatch])
 
     useEffect(() =>{
       if (registerError)

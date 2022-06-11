@@ -6,7 +6,10 @@ export interface AuthState extends BaseState{
     jwt? : JwtModel | null;
     isAuthenticated? : boolean;
     loginError : any;
-    registerError : any
+    registerError : any;
+    loginIsSuccess : boolean;
+    registerIsSuccess : boolean
+
 
 
 }

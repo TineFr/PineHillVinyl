@@ -23,7 +23,10 @@ const initialState: AuthState = {
     jwt: null,
     isAuthenticated: false,
     loginError : null,
-    registerError : null
+    registerError : null,
+    loginIsSuccess : false,
+    registerIsSuccess : false
+
       
 }
 
@@ -80,7 +83,7 @@ export const authSlice = createSlice({
         })
         .addCase(register.fulfilled, (state, action) =>{
             state.isLoading = false;
-            state.isSuccess = true;
+            state.registerIsSuccess = true;
             state.user = action.payload;
         })
         .addCase(register.rejected, (state, action) =>{
@@ -105,7 +108,7 @@ export const authSlice = createSlice({
         })
         .addCase(login.rejected, (state, action) =>{
             state.isLoading = false;
-            state.isError = true;
+            state.loginIsSuccess = true;
             state.user = null;
             state.isAuthenticated = false;
             state.loginError = action.payload;
