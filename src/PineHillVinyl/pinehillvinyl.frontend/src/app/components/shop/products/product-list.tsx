@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import {ProductsContainer, ProductsWrapper } from './product-list-styled'
-import {Product} from '../../../models/interfaces/index'
+import {ProductModel} from '../../../models'
 import ProductListItem from './product-list-item/product-list-item'
 import Spinner from '../../shared/spinner/spinner.component';
 import {Products as data} from '../../../../data/shopProducts'
+import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
+import { getProducts } from 'src/app/redux/slices/productSlice';
 
  
 
@@ -12,41 +14,36 @@ import {Products as data} from '../../../../data/shopProducts'
 
 export const Products =  () => {
   
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isBusy, setIsBusy] = useState(false);
+  const [data, setData] = useState<ProductModel[]>([]);
+  const dispatch = useAppDispatch();
+  const {products, isLoading} = useAppSelector((state) => state.product);
 
+  useEffect(() =>{
+    if(products){
+      setData(products)
+    }     
+  }, [products])
 
+  useEffect(() =>{
+      dispatch(getProducts(1));  
 
-  useEffect( () =>{
-    setIsBusy(true);
-    axios.get<Product[]>("http://localhost:5000/api/v1/products")
-
-    .then(res => {
-      setProducts(res.data);
-      setIsBusy(false);
-    })
-    .catch((err) => {
-
-      setIsBusy(false);
-    });;
-  }, [])
-  
+    }, []) 
   return (   
     <ProductsContainer>
-      <Spinner busy={isBusy} />
+      <Spinner busy={isLoading} /> 
       <ProductsWrapper>
 
-      {data!.map((product : any, index) => {
-                    return (
-                      <ProductListItem key={index} product={product}/>
-                    )             
-                })}
-
-{/* {products!.map((product : Product, index) => {
+      {/* {data!.map((product : any, index) => {
                     return (
                       <ProductListItem key={index} product={product}/>
                     )             
                 })} */}
+
+{data!.map((product : ProductModel, index) => {
+                    return (
+                      <ProductListItem key={index} product={product}/>
+                    )             
+                })}
 
 </ProductsWrapper>
 

@@ -7,7 +7,7 @@ export declare class ProductRepository {
     constructor(_model: Model<ProductDocument>);
     getAllPaginated(pagination: PaginationParameters, filter: FilterProductDto): Promise<ProductDocument[]>;
     getById(id: any): Promise<ProductDocument>;
-    add(prd: Product): Promise<Product>;
-    update(id: any, prd: Product): Promise<Product>;
-    delete(id: any): Promise<Product>;
+    add(prd: Product): Promise<ProductDocument>;
+    update(id: any, prd: Product): Promise<ProductDocument>;
+    delete(id: any): Promise<ProductDocument>;
 }

@@ -1,6 +1,6 @@
 import { Prop,  Schema,  SchemaFactory } from '@nestjs/mongoose';
 import {Document} from 'mongoose';
-import { Address, AddressSchema } from './user-address.schema';
+import { Address } from '../dtos/user-address.dto';
 
 export type UserDocument = User & Document;
 
@@ -12,7 +12,7 @@ export class User{
     email: string;
     @Prop({ required: true })
     password: string;
-    @Prop({ type: [AddressSchema] })
+    @Prop()
     addresses: Address[];
 
 }

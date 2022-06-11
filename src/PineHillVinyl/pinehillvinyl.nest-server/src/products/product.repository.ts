@@ -20,16 +20,16 @@ export class ProductRepository {
         return result;
     }
 
-    async add(prd :  Product): Promise<Product> {
+    async add(prd :  Product): Promise<ProductDocument> {
       return await this._model.create(prd);  
     };
 
-    async update(id : any, prd :  Product): Promise<Product> {
+    async update(id : any, prd :  Product): Promise<ProductDocument> {
         await this._model.findByIdAndUpdate(id, prd);  
         return this._model.findById(id);
     }
 
-    async delete(id :  any): Promise<Product> {
+    async delete(id :  any): Promise<ProductDocument> {
       return await this._model.findByIdAndDelete(id); 
     };
 

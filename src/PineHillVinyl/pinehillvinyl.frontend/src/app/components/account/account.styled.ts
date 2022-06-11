@@ -11,3 +11,9 @@ export const Orders = styled.div`
 export const AccountDetails = styled.div`
 
 `
+
+
+export const LogoutButton = styled.div`
+
+
+`

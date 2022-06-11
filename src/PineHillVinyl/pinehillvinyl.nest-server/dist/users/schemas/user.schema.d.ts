@@ -20,10 +20,12 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
+import { Address } from './user-address.schema';
 export declare type UserDocument = User & Document;
 export declare class User {
     username: string;
     email: string;
     password: string;
+    addresses: Address[];
 }
 export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any>, {}, {}, any>;

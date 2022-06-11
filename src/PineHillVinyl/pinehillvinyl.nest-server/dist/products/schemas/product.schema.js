@@ -39,12 +39,24 @@ __decorate([
 ], Product.prototype, "releaseDate", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], Product.prototype, "size", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Product.prototype, "label", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Array)
 ], Product.prototype, "genres", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", Number)
 ], Product.prototype, "price", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", Number)
+], Product.prototype, "quantity", void 0);
 Product = __decorate([
     (0, mongoose_1.Schema)()
 ], Product);
