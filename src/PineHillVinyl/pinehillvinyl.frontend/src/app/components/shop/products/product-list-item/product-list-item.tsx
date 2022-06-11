@@ -4,7 +4,7 @@ import {ProductsItem, ImageContainer, InfoContainer } from './product-list-item-
 const ProductListItem = (props: any) => {
   const {product} = props;
   return (
-    <ProductsItem to={'/product/' + product._id}>
+    <ProductsItem to={'/product/' + product.id}>
     <ImageContainer>
       <img src={process.env.PUBLIC_URL + product.image}  loading="lazy" alt={product.title}/>
       </ImageContainer>

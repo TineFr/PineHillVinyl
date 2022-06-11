@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { ProductCartModel } from 'src/app/models';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux/hooks';
 import {Container, ProductCart, RemoveButton, ImageContainer, Title, Price, Amount, ProductWrapper, DetailsWrapper } from './products-in-cart.styled'
 
 const ProductsInCart = () => {
 
-  const {cart} = useAppSelector((state) => state.cart);
+  const {cart, } = useAppSelector((state) => state.cart);
 
   return (
     <Container>

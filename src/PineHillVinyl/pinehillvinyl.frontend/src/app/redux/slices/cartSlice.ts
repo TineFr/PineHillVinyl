@@ -6,6 +6,7 @@ import { RootState } from '../store';
 
 
 const initialState: CartState = {
+
     products: null,
     amountOfProducts : 0,
     totalPrice : 0,
@@ -37,6 +38,7 @@ export const updateCart = createAsyncThunk(
         }
     }
 )
+
 
 export const cartSlice = createSlice({
     name: 'cart',

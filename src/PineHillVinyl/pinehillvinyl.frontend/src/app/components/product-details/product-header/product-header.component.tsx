@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
+import { getProductById } from 'src/app/redux/slices/productSlice';
 import { ProductModel } from '../../../models';
 import BuyBlock from '../buy-block/buy-block-component';
 import {Container, Header, Artist, Title, ImageContainer, ProductDetails, Price, Description, Specifications,TrackList, Test} from './product-header.styled'
@@ -8,17 +10,22 @@ import {Container, Header, Artist, Title, ImageContainer, ProductDetails, Price,
 const ProductHeader = () => {
   const [product, setProduct] = useState<ProductModel>();
   let { id } = useParams();
-  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
-  useEffect( () =>{
-    axios.get<ProductModel>("http://localhost:5000/api/v1/products/" + id)
-    .then(res => {
-      setProduct(res.data);
-    })
-    .catch((err) => {
-    });;
-  }, [])
-  
+  const dispatch = useAppDispatch();
+  const {singleProduct} = useAppSelector((state) => state.product);
+
+  useEffect(() =>{
+      dispatch(getProductById(id));   
+
+  }, [dispatch])
+
+  useEffect(() =>{
+    if(singleProduct){
+      setProduct(singleProduct);
+    }  
+
+}, [singleProduct])
+
     return (
       <>
 
