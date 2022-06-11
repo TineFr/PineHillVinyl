@@ -1,15 +1,15 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import authService from 'src/app/services/auth.service';
-import { JwtModel, LoginModel, RegisterModel } from '../../models';
+import { JwtModel, LoginModel, RegisterModel, UserModel } from '../../models';
 import { AuthState } from '../interfaces/auth-state.interface';
 import { RootState } from '../store';
 
 
-// const storedUser: string | null = localStorage.getItem('user');
-// const user : UserModel | null = !!storedUser ?  JSON.parse(storedUser) : null;
+const storedUser: string | null = localStorage.getItem('user');
+const user : UserModel | null =  storedUser ?  JSON.parse(storedUser) : null;
 
-// const storedJWT: string | null = localStorage.getItem('jwt');
-// const token : JwtModel | null = !!storedJWT ?  JSON.parse(storedJWT) : null;
+const storedJWT: string | null = localStorage.getItem('jwt');
+const token : JwtModel | null = !!storedJWT ? JSON.parse(JSON.stringify(storedJWT)) : null;
 
 
 
@@ -87,6 +87,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.isError = true;
             state.user = null;
+            state.jwt = null;
             state.registerError = action.payload;
         })
 
@@ -98,7 +99,8 @@ export const authSlice = createSlice({
         .addCase(login.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.jwt = action.payload;
+            state.user = user;
+            state.jwt = action.payload
             state.isAuthenticated = true;
         })
         .addCase(login.rejected, (state, action) =>{

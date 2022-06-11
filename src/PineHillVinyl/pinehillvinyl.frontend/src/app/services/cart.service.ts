@@ -1,33 +1,20 @@
 import axios from "axios";
-import { DecodedJwtModel, JwtModel, LoginModel, ProductModel, RegisterModel, UserModel } from "../models";
-import jwt_decode from "jwt-decode";
 import { CartModel } from "../models/cart/cart.model";
 
 
-
-
-const addProduct = async (model : ProductModel) : Promise<CartModel | null>  =>{
-    // const response = await axios.post('http://localhost:4000/api/v1/auth/register', model);
-    // return response.data;
- return null;
-}
-
-const removeProduct = async (model : ProductModel) : Promise<JwtModel | null> =>{
-    const response = await axios.post('http://localhost:4000/api/v1/auth/login', model);
-    if (response.data){
-        localStorage.setItem("jwt", response.data.jwt)
-        // const decodedJwt : DecodedJwtModel = jwt_decode(response.data.jwt)
-        // localStorage.setItem('user', decodedJwt.user.email)
-    }
+const getByUser = async (id : string) : Promise<CartModel | null>  =>{
+    const response = await axios.get('http://localhost:4000/api/v1/carts/' + id);
     return response.data;
 }
 
-
-
+const update = async (id: string, model : CartModel) : Promise<CartModel | null>  =>{
+    const response = await axios.put('http://localhost:4000/api/v1/carts/' + {id}, model);
+    return response.data;
+}
 
 const cartService = {
-addProduct,
-removeProduct,
+update,
+getByUser
 }
 
 export default cartService;

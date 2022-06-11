@@ -41,7 +41,7 @@ function Navbar(props : any) {
                     })}
         </NavbarList>
         <ClientContainer>
-            <AccountButton isLogged={localStorage.getItem("logged")}></AccountButton>
+            <AccountButton></AccountButton>
             <CartButton></CartButton>
         </ClientContainer>
     </NavbarContainer>

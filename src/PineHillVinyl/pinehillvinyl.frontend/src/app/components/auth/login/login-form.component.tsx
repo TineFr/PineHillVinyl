@@ -13,18 +13,18 @@ const LoginComponent = () => {
 
 
     const dispatch = useAppDispatch();
-    const {isLoading, isSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
+    const {isSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
 
 
     useEffect(() =>{
       if (isSuccess){
-        dispatch(reset());
+        dispatch(reset());   
       }
     }, [isSuccess, dispatch])
 
     useEffect(() =>{
       if (isAuthenticated){
-        navigate('/account');
+        navigate(-1);
       }
     }, [isAuthenticated])
 
@@ -38,21 +38,6 @@ const LoginComponent = () => {
       e.preventDefault();
       dispatch(login(user))
   };
-
-    
-
-    // const submitHandler =  (e : any) => {
-    //   // e.preventDefault();
-    //   axios.post("http://localhost:5000/api/v1/auth/login", user)
-    //   .then(res => {
-    //     sessionStorage.setItem("jwt", res.data.jwt);
-    //     console.log(sessionStorage.getItem("jwt"))
-    //     navigate('/account');
-    //   })
-    //   .catch((err) => {
-    //     setError(err.response.data.message);
-    //     });;
-    // }
 
   return (
     <Container>

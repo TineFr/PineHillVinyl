@@ -12,9 +12,11 @@ const login = async (model : LoginModel) : Promise<JwtModel | null> =>{
     const response = await axios.post('http://localhost:4000/api/v1/auth/login', model);
     if (response.data){
         localStorage.setItem("jwt", response.data.jwt)
-        // const decodedJwt : DecodedJwtModel = jwt_decode(response.data.jwt)
-        // localStorage.setItem('user', decodedJwt.user.email)
+        const decodedJwt : DecodedJwtModel = jwt_decode(response.data.jwt)
+        localStorage.setItem('user', JSON.stringify(decodedJwt))    
+           
     }
+
     return response.data;
 }
 

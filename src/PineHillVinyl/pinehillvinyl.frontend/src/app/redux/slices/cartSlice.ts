@@ -1,10 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import cartService from 'src/app/services/cart.service';
-import { ProductModel } from '../../models';
+import { CartModel, ProductModel } from '../../models';
 import { CartState } from '../interfaces/cart-state.interface';
 import { RootState } from '../store';
-
-
 
 
 const initialState: CartState = {
@@ -14,32 +12,31 @@ const initialState: CartState = {
     isLoading: false,
     isSuccess : false,
     isError : false,
-    error : undefined   
+    error : undefined,
+    cart : null 
 }
 
-export const addProductToCart = createAsyncThunk(
-    'cart/add',
-    async (product: ProductModel, thunkApi) =>{
+export const getUserCart = createAsyncThunk(
+    'cart/getByUser',
+    async (id: string, thunkApi) =>{
         try {
-            return await cartService.addProduct(product);          
+            return await cartService.getByUser(id);          
         } catch (err : any) {
             return thunkApi.rejectWithValue(err.response.data.message)
         }
     }
 )
 
-export const removeProductFromCart = createAsyncThunk(
-    'cart/remove',
-    async (product: ProductModel, thunkApi) =>{
+export const updateCart = createAsyncThunk(
+    'cart/update',
+    async (cart: CartModel, thunkApi) =>{
         try {
-            return await cartService.removeProduct(product);          
-            
+            return await cartService.update(cart.id, cart);          
         } catch (err : any) {
             return thunkApi.rejectWithValue(err.response.data.message)
         }
     }
 )
-
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -56,41 +53,20 @@ export const cartSlice = createSlice({
     extraReducers: (builder) =>{
         builder
 
-        //register
-        .addCase(addProductToCart.pending, (state) =>{
+        //addProduct
+        .addCase(getUserCart.pending, (state) =>{
             state.isLoading = true;
         })
-        .addCase(addProductToCart.fulfilled, (state, action) =>{
+        .addCase(getUserCart.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.amountOfProducts! += 1
-            state.products = action.payload?.products
-            state.totalPrice = action.payload?.totalPrice
+            state.cart = action.payload
         })
-        .addCase(addProductToCart.rejected, (state, action) =>{
+        .addCase(getUserCart.rejected, (state, action) =>{
             state.isLoading = false;
             state.isError = true;
             state.error = action.payload;
         })
-
-
-        // //login
-        // .addCase(login.pending, (state) =>{
-        //     state.isLoading = true;
-        // })
-        // .addCase(login.fulfilled, (state, action) =>{
-        //     state.isLoading = false;
-        //     state.isSuccess = true;
-        //     state.jwt = action.payload;
-        //     state.isAuthenticated = true;
-        // })
-        // .addCase(login.rejected, (state, action) =>{
-        //     state.isLoading = false;
-        //     state.isError = true;
-        //     state.user = null;
-        //     state.isAuthenticated = false;
-        //     state.loginError = action.payload;
-        // })
 
     }
 });
