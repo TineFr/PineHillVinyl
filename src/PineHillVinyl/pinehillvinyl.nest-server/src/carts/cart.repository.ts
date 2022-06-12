@@ -9,10 +9,10 @@ import { Cart, CartDocument } from "./schemas/cart.schema";
 export class CartRepository {
   constructor(@InjectModel(Cart.name) private _model: Model<CartDocument>) {}
 
-    async getAll(): Promise<CartDocument[]> {
-        let result =  await this._model.find();
-        return result;
-    }
+    // async getAll(): Promise<CartDocument[]> {
+    //     let result =  await this._model.find();
+    //     return result;
+    // }
 
     async getById(id: any): Promise<CartDocument> {
         let result =  await this._model.findById(id); 
@@ -21,11 +21,6 @@ export class CartRepository {
 
     async getByUserId(id: any): Promise<CartDocument[]> {
       let result =  await this._model.find({userId : id});
-      return result;
-  }
-
-    async getByEmail(email: string): Promise<CartDocument> {
-      let result =  await this._model.findOne({email:email}); 
       return result;
   }
 
@@ -38,8 +33,8 @@ export class CartRepository {
         return this._model.findById(id);
     }
 
-    async delete(id :  any): Promise<CartDocument> {
-      return await this._model.findByIdAndDelete(id); 
-    };
+    // async delete(id :  any): Promise<CartDocument> {
+    //   return await this._model.findByIdAndDelete(id); 
+    // };
 
 }

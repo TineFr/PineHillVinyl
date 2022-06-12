@@ -8,13 +8,10 @@ import { Cart } from './schemas/cart.schema';
 export class CartsController {
   constructor(private readonly _service: CartService) {}
 
-
-
   @Get(':id')
   async findByUserId(@Param('id') id:any): Promise<ResponseCartDto> {
     return await this._service.getByUserId(id);
   }
-
 
   @Put(':id')
   async updateCart(

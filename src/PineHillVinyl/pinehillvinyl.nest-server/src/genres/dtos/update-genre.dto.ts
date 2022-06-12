@@ -5,5 +5,4 @@ export class UpdateGenreDto{
     @IsString()
     name: string;
 
-
 }

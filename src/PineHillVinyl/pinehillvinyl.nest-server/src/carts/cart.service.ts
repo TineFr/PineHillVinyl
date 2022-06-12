@@ -18,20 +18,20 @@ export class CartService {
   }
 
   async update(id : any, dto: UpdateCartDto): Promise<ResponseCartDto> {
-    let cart = await this._repository.getById(id);
-    if (!cart) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
+      let cart = await this._repository.getById(id);
+      if (!cart) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
 
-    const updatedCart = this._mapper.updateDtoToSchema(dto);
-    const result = await this._repository.update(id, updatedCart);
-    let mappedResult = this._mapper.schemaToResponse(result)
-    return mappedResult;
+      const updatedCart = this._mapper.updateDtoToSchema(dto);
+      const result = await this._repository.update(id, updatedCart);
+      let mappedResult = this._mapper.schemaToResponse(result)
+      return mappedResult;
 }
 
-async add(dto: CreateCartDto): Promise<ResponseCartDto> {
-  const mappedRequest = this._mapper.createDtoToSchema(dto);
-  let result = await this._repository.add(mappedRequest);
-  let mappedResult = this._mapper.schemaToResponse(result);
-  return mappedResult;
+  async add(dto: CreateCartDto): Promise<ResponseCartDto> {
+      const mappedRequest = this._mapper.createDtoToSchema(dto);
+      let result = await this._repository.add(mappedRequest);
+      let mappedResult = this._mapper.schemaToResponse(result);
+      return mappedResult;
 }
 
 

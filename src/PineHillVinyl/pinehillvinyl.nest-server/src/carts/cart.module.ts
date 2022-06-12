@@ -6,10 +6,6 @@ import { CartService } from './cart.service';
 import { CartMapper } from './helpers/cart-mapper.helper';
 import { Cart, CartSchema } from './schemas/cart.schema';
 
-
-
-
-
 @Module({
   imports: [MongooseModule.forFeature([{ name: Cart.name, schema: CartSchema
 }])],

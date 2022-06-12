@@ -1,6 +1,4 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
-import { PaginationParameters } from '../shared-models/pagination.model';
-import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { Genre } from './schemas/genre.schema';
 import { CreateGenreDto, UpdateGenreDto } from './dtos';
 import { GenreService } from './genre.service';

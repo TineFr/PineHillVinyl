@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { PaginationParameters } from "src/shared-models/pagination.model";
+import { PaginationParameters } from "src/pagination/pagination-parameters.model";
 import { Genre, GenreDocument } from "./schemas/genre.schema";
 
 
