@@ -12,10 +12,8 @@ export class GenreService {
   constructor(private readonly _repository :  GenreRepository,
               private readonly _mapper : GenreMapper) {}
 
-
-
-    async getAllPaginated(pagination: PaginationParameters): Promise<Genre[]> {
-        let result = await this._repository.getAllPaginated(pagination);
+    async getAllPaginated(pagination: PaginationParameters): Promise<ResponseGenreDto[]> {
+        let result = await this._repository.getAll();
         if(!result) throw new HttpException('No results found', HttpStatus.NOT_FOUND)
         let mappedResult = this._mapper.schemaListToResponse(result)
         return mappedResult;
