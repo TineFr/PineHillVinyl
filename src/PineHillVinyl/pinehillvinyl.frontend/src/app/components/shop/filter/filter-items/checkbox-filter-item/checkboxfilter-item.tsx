@@ -1,7 +1,8 @@
 import {Container, Title, Selection } from './checkboxfilter-item-styled'
 
-const CheckboxFilterItem = (props:any) => {
+const CheckboxFilterItem = () => {
   return (
+
     <Container>
         <Title>Test</Title>
         <Selection>
