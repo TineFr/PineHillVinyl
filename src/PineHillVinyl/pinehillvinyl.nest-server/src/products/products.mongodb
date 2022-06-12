@@ -1,0 +1,194 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+use('pinehillvinyl');
+db.products.drop();
+// Select the database to use.
+
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+
+use('pinehillvinyl');
+// Insert a few documents into the sales collection.
+db.products.insertMany([
+  { 'title': 'Igor', 
+    'artist': 'Tyler the Creator', 
+    'image': 'https://media.s-bol.com/KrG3lzQVgOOY/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2019-10-01T09:00:00Z'), 
+    'size' :  12,
+    'label' : 'Columbia', 
+    'genres' : [
+      "62a086c6f997b17707063a3b",
+      "62a6088b86915e02db23fe2a"
+    ], 
+    'price' : 25, 
+    'quantity' : 200},
+
+      { 'title': 'Uitzinnig', 
+    'artist': 'Froukje', 
+    'image': 'https://media.s-bol.com/PrPlxOPE16Aw/vl7MmG8/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2022-03-01T09:00:00Z'), 
+    'size' :  12,
+    'label' : 'Top notch', 
+    'genres' : [
+      "62a08710f997b17707063a43",
+      "62a6088b86915e02db23fe2a"
+    ], 
+    'price' : 23.95, 
+    'quantity' : 200},
+
+      { 'title': 'Vince Staples', 
+    'artist': 'Vince Staples', 
+    'image': 'https://media.s-bol.com/mMVAqyD4DwR3/D9xAJkY/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2021-12-01T09:00:00Z'), 
+    'size' :  12,
+    'label' : 'umg', 
+    'genres' : [
+      "62a086c6f997b17707063a3b",
+      "62a6088b86915e02db23fe2a"
+    ], 
+    'price' : 24.95, 
+    'quantity' : 100},
+
+
+          { 'title': 'High Voltage', 
+    'artist': 'AC/DC', 
+    'image': 'https://media.s-bol.com/BNN1EX61KRKY/1200x1091.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('1976-12-01T09:00:00Z'), 
+    'size' :  12,
+    'label' : 'columbia', 
+    'genres' : [
+      "62a60ec944c7f2df67fc241d",
+    ], 
+    'price' : 22.95, 
+    'quantity' : 100},
+
+    
+    { 'title': 'Catch A Fire', 
+    'artist': 'Bob Marley & The Wailers', 
+    'image': 'https://media.s-bol.com/RgMky4k9GL7E/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'island records', 
+    'genres' : [
+      "62a6088b86915e02db23fe29",
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+]);
+
+
+const createFilter = (id : any) =>{
+    const test ={genres : id}
+    return test;
+
+}
+
+const testtest = createFilter("62a086c6f997b17707063a3b");
+
+
+
+
+use('pinehillvinyl');
+const test = {genres : "62a086c6f997b17707063a3b"}
+db.products.find(test)
+
+
+
+// Run a find command to view items sold on April 4th, 2014.
+db.sales.find({ genre: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
+
+// Build an aggregation to view total sales for each product in 2014.
+const aggregation = [
+  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+  { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
+];
+
+// Run the aggregation and open a cursor to the results.
+// Use toArray() to exhaust the cursor to return the whole result set.
+// You can use hasNext()/next() to iterate through the cursor page by page.
+db.sales.aggregate(aggregation);

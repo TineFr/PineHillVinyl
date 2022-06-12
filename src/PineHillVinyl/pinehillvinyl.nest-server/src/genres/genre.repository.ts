@@ -24,6 +24,11 @@ export class GenreRepository {
       return await this._model.findByIdAndDelete(id); 
     };
 
+    async getAll(): Promise<GenreDocument[]> {
+      let result =  await this._model.find();
+      return result;
+  }
+
     
     async getAllPaginated(pagination : PaginationParameters): Promise<GenreDocument[]> {
         let result =  await this._model.find().skip(pagination.skips).limit(pagination.limit);

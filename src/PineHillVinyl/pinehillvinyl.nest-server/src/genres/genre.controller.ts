@@ -2,14 +2,22 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } fro
 import { PaginationParameters } from '../shared-models/pagination.model';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { Genre } from './schemas/genre.schema';
-import { CreateGenreDto, UpdateGenreDto } from './dtos';
+import { CreateGenreDto, ResponseGenreDto, UpdateGenreDto } from './dtos';
 import { GenreService } from './genre.service';
+import { get } from 'http';
 
 
 
 @Controller('genres')
 export class GenresController {
   constructor(private readonly _service: GenreService) {}
+
+  @Get()
+   async findAll(
+   ): Promise<ResponseGenreDto[]> {
+    let result =  await this._service.getAllPaginated(null);
+    return result;
+  }
 
   @Post()
   async addProduct(@Body() dto: CreateGenreDto) : Promise<Genre> {
