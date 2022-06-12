@@ -7,7 +7,6 @@ import { UserModule } from "..//users/user.module";
 import { JwtStrategy } from "./strategies/jwt.strategy";
 import { JwtGuard } from "./guards/jwt.guard";
 import * as dotenv from "dotenv";
-import { CartModule } from "../carts/cart.module";
 dotenv.config({ path: `${__dirname}/../../.env` });
 
 @Module({

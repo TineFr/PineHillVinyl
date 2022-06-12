@@ -1,25 +1,46 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
-import { PaginationParameters } from '../shared-models/pagination.model';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req } from '@nestjs/common';
+import { PaginationParameters } from '../pagination/pagination-parameters.model';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { CreateProductDto, ResponseProductDto, UpdateProductDto } from './dtos';
 import { ProductService } from './product.service';
 import { Product } from './schemas/product.schema';
 import { FilterProductDto } from './dtos/product-filter.dto';
+import {Request} from 'express';
+import { PaginationService } from '../pagination/pagination.service';
+import { PaginationMeta } from '../pagination/pagination-meta.model';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly _service: ProductService) {}
+  constructor(private readonly _service: ProductService,
+              private readonly _paginationService: PaginationService<ResponseProductDto>) {}
+
+  // @Get()
+  //  async findAll(
+  //   @Query('page') page : number,
+  //   @Query("limit") limit : number,
+  //   @Query("sort") artist : string
+  //  ): Promise<ResponseProductDto[]> {
+  //   let result =  await this._service.getAllPaginated(new PaginationParameters(page,limit), 
+  //                                                     new FilterProductDto(artist));
+  //   return result;
+  // }
 
   @Get()
-   async findAll(
+  async get(
     @Query('page') page : number,
     @Query("limit") limit : number,
-    @Query("artist") artist : string
-   ): Promise<ResponseProductDto[]> {
-    let result =  await this._service.getAllPaginated(new PaginationParameters(page,limit), 
-                                                      new FilterProductDto(artist));
-    return result;
-  }
+    @Query("search") search : string,
+  ){
+  
+   let result = await this._service.get(search);
+   let pagination = new PaginationMeta(page, result.length, limit);
+   let paginationParam = new PaginationParameters(page, limit);
+   let data = this._paginationService.paginate(paginationParam, result);
+   return{
+    data,
+    pagination
+   }
+ }
 
   // @UseGuards(JwtGuard)
   @Get(':id')
