@@ -49,7 +49,7 @@ export class ProductService {
     if (!product) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
 
     const updatedProduct = this._mapper.updateDtoToSchema(dto);
-    const result = await this._repository.update(id, product);
+    const result = await this._repository.update(id, updatedProduct);
     let mappedResult = this._mapper.schemaToResponse(result)
     return mappedResult;
   }

@@ -1,5 +1,5 @@
 
-import { CartModel, ProductCartModel } from "../../models";
+import { CartModel, ProductCartModel } from "src/app/models";
 import { BaseState } from "./base-state.interface";
 
 export interface CartState extends BaseState{

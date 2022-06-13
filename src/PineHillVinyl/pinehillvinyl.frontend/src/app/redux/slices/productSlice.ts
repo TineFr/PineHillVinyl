@@ -2,8 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import cartService from 'src/app/services/cart.service';
 import productService from 'src/app/services/product.service';
 import { CartModel, ProductModel } from '../../models';
-import { CartState } from '../interfaces/cart-state.interface';
-import { ProductState } from '../interfaces/product-state.interface';
+import { ProductState } from '../interfaces/states/product-state.interface';
 import { RootState } from '../store';
 
 
@@ -27,16 +26,16 @@ export const getProducts = createAsyncThunk(
     }
 )
 
-// export const getProductsFiltered = createAsyncThunk(
-//     'product/getProducts',
-//     async (request: Object, thunkApi) =>{
-//         try {
-//             return await productService.(request);          
-//         } catch (err : any) {
-//             return thunkApi.rejectWithValue(err.response.data.message)
-//         }
-//     }
-// )
+export const getProductsSearch = createAsyncThunk(
+    'product/getProducts',
+    async ({search, page}: {search: any, page: any}, thunkApi) =>{
+        try {
+            return await productService.getProductsSearch(search, page);          
+        } catch (err : any) {
+            return thunkApi.rejectWithValue(err.response.data.message)
+        }
+    }
+)
 
 export const getProductById = createAsyncThunk(
     'product/getProductById',
@@ -76,7 +75,7 @@ export const productSlice = createSlice({
         .addCase(getProducts.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.products = action.payload
+            state.products = action.payload?.data
         })
         .addCase(getProducts.rejected, (state, action) =>{
             state.isLoading = false;

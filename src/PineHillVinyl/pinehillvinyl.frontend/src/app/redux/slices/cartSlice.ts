@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import cartService from 'src/app/services/cart.service';
 import { CartModel, ProductModel } from '../../models';
-import { CartState } from '../interfaces/cart-state.interface';
+import { CartState } from '../interfaces/states/cart-state.interface';
 import { RootState } from '../store';
 
 

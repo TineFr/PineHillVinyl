@@ -3,9 +3,7 @@ import cartService from 'src/app/services/cart.service';
 import genreService from 'src/app/services/genre.service';
 import productService from 'src/app/services/product.service';
 import { CartModel, ProductModel } from '../../models';
-import { CartState } from '../interfaces/cart-state.interface';
-import { GenreState } from '../interfaces/genre-state.interface';
-import { ProductState } from '../interfaces/product-state.interface';
+import { GenreState } from '../interfaces/states/genre-state.interface';
 import { RootState } from '../store';
 
 

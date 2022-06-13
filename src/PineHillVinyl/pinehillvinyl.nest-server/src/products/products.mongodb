@@ -42,7 +42,7 @@ db.products.insertMany([
     'price' : 25, 
     'quantity' : 200},
 
-      { 'title': 'Uitzinnig', 
+    { 'title': 'Uitzinnig', 
     'artist': 'Froukje', 
     'image': 'https://media.s-bol.com/PrPlxOPE16Aw/vl7MmG8/1200x1200.jpg', 
     'trackList': [
@@ -71,7 +71,7 @@ db.products.insertMany([
     'price' : 23.95, 
     'quantity' : 200},
 
-      { 'title': 'Vince Staples', 
+    { 'title': 'Vince Staples', 
     'artist': 'Vince Staples', 
     'image': 'https://media.s-bol.com/mMVAqyD4DwR3/D9xAJkY/550x550.jpg', 
     'trackList': [
@@ -101,7 +101,7 @@ db.products.insertMany([
     'quantity' : 100},
 
 
-          { 'title': 'High Voltage', 
+    { 'title': 'High Voltage', 
     'artist': 'AC/DC', 
     'image': 'https://media.s-bol.com/BNN1EX61KRKY/1200x1091.jpg', 
     'trackList': [
@@ -159,7 +159,23 @@ db.products.insertMany([
     'quantity' : 100},
 
 
+
+
+
+
+    
 ]);
+
+
+
+
+
+
+
+
+
+
+
 
 
 const createFilter = (id : any) =>{
@@ -168,27 +184,3 @@ const createFilter = (id : any) =>{
 
 }
 
-const testtest = createFilter("62a086c6f997b17707063a3b");
-
-
-
-
-use('pinehillvinyl');
-const test = {genres : "62a086c6f997b17707063a3b"}
-db.products.find(test)
-
-
-
-// Run a find command to view items sold on April 4th, 2014.
-db.sales.find({ genre: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
-
-// Build an aggregation to view total sales for each product in 2014.
-const aggregation = [
-  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
-  { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
-];
-
-// Run the aggregation and open a cursor to the results.
-// Use toArray() to exhaust the cursor to return the whole result set.
-// You can use hasNext()/next() to iterate through the cursor page by page.
-db.sales.aggregate(aggregation);

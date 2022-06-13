@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PaginationParameters } from 'src/pagination/pagination-parameters.model';
-import { CreateGenreDto, UpdateGenreDto } from './dtos';
+import { CreateGenreDto, ResponseGenreDto, UpdateGenreDto } from './dtos';
 import { GenreRepository } from './genre.repository';
 import { GenreMapper } from './helpers/genre-mapper.helper';
 import { Genre } from './schemas/genre.schema';
