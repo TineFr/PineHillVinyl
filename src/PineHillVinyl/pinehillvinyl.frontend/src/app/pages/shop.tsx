@@ -10,7 +10,6 @@ const Shop = () => {
     <>
     <SearchBar/>
     <ShopGrid/>
-    <Pagination pages={pages}/>
     </>
   )
 }

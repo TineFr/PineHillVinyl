@@ -1,9 +1,6 @@
 export const SortCategories = [
 
     {
-        name: "Best Selling"
-    },
-    {
         name: "Price: Low-High"
     },
     {

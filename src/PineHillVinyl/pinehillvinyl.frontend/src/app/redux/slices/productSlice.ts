@@ -13,6 +13,7 @@ const initialState: ProductState = {
     isError : false,
     error : undefined,
     singleProduct : null ,
+    pagination : null,
 }
 
 export const getProducts = createAsyncThunk(
@@ -36,6 +37,19 @@ export const getProductsSearch = createAsyncThunk(
         }
     }
 )
+
+export const sortProducts = createAsyncThunk(
+    'product/sortProducts',
+    async ({sortOption, products}: {sortOption: string, products: any}, thunkApi) =>{
+        try {
+            return await productService.sortProducts(sortOption, products);          
+        } catch (err : any) {
+            return thunkApi.rejectWithValue(err.response.data.message)
+        }
+    }
+)
+
+
 
 export const getProductById = createAsyncThunk(
     'product/getProductById',
@@ -76,6 +90,8 @@ export const productSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = true;
             state.products = action.payload?.data
+            state.pagination = action.payload?.pagination
+            
         })
         .addCase(getProducts.rejected, (state, action) =>{
             state.isLoading = false;
@@ -108,6 +124,22 @@ export const productSlice = createSlice({
             state.singleProduct = action.payload
         })
         .addCase(getProductById.rejected, (state, action) =>{
+            state.isLoading = false;
+            state.isError = true;
+            state.error = action.payload;
+        })
+
+        //sortProducts
+
+        .addCase(sortProducts.pending, (state) =>{
+            state.isLoading = true;
+        })
+        .addCase(sortProducts.fulfilled, (state, action) =>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.products = action.payload
+        })
+        .addCase(sortProducts.rejected, (state, action) =>{
             state.isLoading = false;
             state.isError = true;
             state.error = action.payload;

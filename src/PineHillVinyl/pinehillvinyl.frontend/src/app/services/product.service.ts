@@ -11,6 +11,31 @@ const getAllProducts = async (page : number) : Promise<ApiResponseList<ProductMo
     return response.data;
 }
 
+const sortProducts = async (sortOption : string, products : ProductModel[]) : Promise<ProductModel[]>  =>{
+    let test : ProductModel[] =  [];
+    let testtest = [...products]
+    switch (sortOption) {
+
+        case 'Price: Low-High':
+            test = testtest.sort((a, b) => a.title.localeCompare(b.title))
+            break;
+        case 'Price: High-Low':
+            test =testtest.sort((a, b) => a.title.localeCompare(b.title))
+            break;
+        case 'Alphabetically: A-Z':
+            test =testtest.sort((a, b) => a.title.localeCompare(b.title))
+        break;
+        case 'Alphabetically: Z-A':
+            test = testtest.sort((a, b) => b.title.localeCompare(a.title))
+            break;
+
+      
+    }
+    return test;
+
+
+}
+
 const getProductsSearch = async (search : string, page:number) : Promise<ApiResponseList<ProductModel> | null> =>{
     const response = await axios.get(allProductsUrl + page + '&search=' + search);
     return response.data;
@@ -25,7 +50,8 @@ const getProductById = async (id : string) : Promise<ProductModel | null> =>{
 const productService = {
     getAllProducts,
     getProductById,
-    getProductsSearch
+    getProductsSearch,
+    sortProducts
     
 }
 

@@ -1,5 +1,5 @@
 import {Grid} from './shop-grid-component-styled'
-import {Products, SortProducts, Filter} from '../index'
+import {Products, SortProducts, Filter, Pagination} from '../index'
 import GenreFilter from '../filter/filter-component'
 const ShopGrid = () => {
   return (
@@ -7,6 +7,7 @@ const ShopGrid = () => {
         <SortProducts></SortProducts>
         <GenreFilter></GenreFilter>
         <Products/>
+        <Pagination/>
     </Grid>
   )
 }
