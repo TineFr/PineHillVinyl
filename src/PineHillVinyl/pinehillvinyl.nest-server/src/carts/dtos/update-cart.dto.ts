@@ -1,7 +1,8 @@
 import { IsString, IsNotEmpty, IsEmail, IsDate, IsArray } from 'class-validator';
-import { ProductCart } from '../../products/dtos/product-cart.dto';
+import { CartItem } from './cart-item.dto';
+
 
 export class UpdateCartDto {
     @IsArray()
-    products: ProductCart[];
+    items: CartItem[];
 }

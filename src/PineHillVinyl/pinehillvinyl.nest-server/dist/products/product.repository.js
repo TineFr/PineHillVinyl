@@ -22,7 +22,7 @@ let ProductRepository = class ProductRepository {
         this._model = _model;
     }
     async get() {
-        let result = await this._model.find().exec();
+        let result = await this._model.find().sort({ title: 1 }).exec();
         return result;
     }
     async getById(id) {

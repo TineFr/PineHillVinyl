@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ProductCartModel } from 'src/app/models';
+import { CartItem } from 'src/app/models/cart/cart-item.model';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux/hooks';
 import {Container, ProductCart, RemoveButton, ImageContainer, Title, Price, Amount, ProductWrapper, DetailsWrapper } from './products-in-cart.styled'
 
@@ -9,17 +10,17 @@ const ProductsInCart = () => {
 
   return (
     <Container>
-{cart!.products.map((product : ProductCartModel, index) => {
+{cart!.items.map((item: CartItem, index : number) => {
                     return (
                       <ProductCart key={index}>
                       <RemoveButton/>
                         <ImageContainer>
-                        <img src={process.env.PUBLIC_URL + product.image}  loading="lazy"/>
+                        <img src={process.env.PUBLIC_URL + item.product.image}  loading="lazy"/>
                         </ImageContainer>
-                        <Title>{product.artist} - {product.title}</Title>
+                        <Title>{item.product.artist} - {item.product.title}</Title>
                         <DetailsWrapper>
-                        <Price>{product.price}</Price>
-                        <Amount></Amount>
+                        <Price>€{item.product.price}</Price>
+                        <Amount>{item.quantity}</Amount>
                         </DetailsWrapper>
                     </ProductCart>
                     )             
