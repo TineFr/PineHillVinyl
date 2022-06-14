@@ -1,4 +1,5 @@
-import { IsString, IsNotEmpty, IsEmail, IsDate, IsArray } from 'class-validator';
+import { IsString, IsNotEmpty, IsEmail, IsDate, IsArray, IsObject } from 'class-validator';
+import { Address } from './user-address.dto';
 
 export class ResponseUserDto {
     @IsString()
@@ -7,4 +8,6 @@ export class ResponseUserDto {
     username: string;
     @IsEmail()
     email: string;
+    @IsObject()
+    addresses : Address[]
 }

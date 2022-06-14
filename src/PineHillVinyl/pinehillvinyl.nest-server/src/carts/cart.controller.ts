@@ -13,14 +13,6 @@ export class CartsController {
     return await this._service.getByUserId(id);
   }
 
-  @Put(':id')
-  async updateCart(
-    @Param('id') id: any,
-    @Body() dto: UpdateCartDto,
-  ) {
-    return this._service.update(id, dto);
-  }
-
   @Put(':id/addProduct')
   async addProduct(
     @Param('id') id:any,
@@ -29,10 +21,26 @@ export class CartsController {
     return this._service.addProduct(id, body);
   }
 
-  // @Delete(':id')
-  // async deleteProduct(@Param('id') id: any) : Promise<string> {
-  //   return this._service.delete(id);
-  // }
+  @Put(':id/removeProduct')
+  async removeProduct(
+    @Param('id') id:any,
+    @Body() dto: UpdateCartDto,
+  ) {
+    return this._service.removeProduct(id, dto);
+  }
+
+  @Put(':id')
+  async update(
+    @Param('id') id:any,
+    @Body() dto: any,
+  ) {
+    return this._service.update(id, dto);
+  }
+
+  @Delete(':id')
+  async deleteProduct(@Param('id') id: any) : Promise<string> {
+    return this._service.delete(id);
+  }
 
 
 }
