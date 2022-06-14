@@ -25,5 +25,9 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "password", void 0);
+__decorate([
+    (0, class_validator_1.IsArray)(),
+    __metadata("design:type", Array)
+], UpdateUserDto.prototype, "address", void 0);
 exports.UpdateUserDto = UpdateUserDto;
 //# sourceMappingURL=update-user.dto.js.map

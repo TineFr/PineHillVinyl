@@ -20,13 +20,14 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
-import { ProductOrder } from 'src/products/schemas/product-order.schema';
-import { Address } from 'src/users/schemas/user-address.schema';
+import { ProductOrder } from 'src/products/dtos/product-order.dto';
+import { Address } from 'src/users/dtos/user-address.dto';
 export declare type OrderDocument = Order & Document;
 export declare class Order {
     userId: string;
     paymentStatus: string;
     status: string;
+    amount: number;
     items: ProductOrder[];
     shippingAddress: Address;
 }

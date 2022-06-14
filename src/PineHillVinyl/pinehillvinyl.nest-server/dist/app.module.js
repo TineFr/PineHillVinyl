@@ -14,6 +14,8 @@ const user_module_1 = require("./users/user.module");
 const dotenv = require("dotenv");
 const auth_module_1 = require("./authentication/auth.module");
 const genre_module_1 = require("./genres/genre.module");
+const cart_module_1 = require("./carts/cart.module");
+const product_module_2 = require("./pagination/product.module");
 dotenv.config({ path: `${__dirname}/../.env` });
 let AppModule = class AppModule {
 };
@@ -23,7 +25,10 @@ AppModule = __decorate([
             product_module_1.ProductModule,
             user_module_1.UserModule,
             genre_module_1.GenreModule,
-            auth_module_1.AuthModule],
+            auth_module_1.AuthModule,
+            cart_module_1.CartModule,
+            product_module_2.PaginationModule],
+        providers: []
     })
 ], AppModule);
 exports.AppModule = AppModule;

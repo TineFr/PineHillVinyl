@@ -14,17 +14,25 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsController = void 0;
 const common_1 = require("@nestjs/common");
-const pagination_model_1 = require("../shared-models/pagination.model");
+const pagination_parameters_model_1 = require("../pagination/pagination-parameters.model");
 const dtos_1 = require("./dtos");
 const product_service_1 = require("./product.service");
-const product_filter_dto_1 = require("./dtos/product-filter.dto");
+const pagination_service_1 = require("../pagination/pagination.service");
+const pagination_meta_model_1 = require("../pagination/pagination-meta.model");
 let ProductsController = class ProductsController {
-    constructor(_service) {
+    constructor(_service, _paginationService) {
         this._service = _service;
+        this._paginationService = _paginationService;
     }
-    async findAll(page, limit, artist) {
-        let result = await this._service.getAllPaginated(new pagination_model_1.PaginationParameters(page, limit), new product_filter_dto_1.FilterProductDto(artist));
-        return result;
+    async get(page, limit, search) {
+        let result = await this._service.get(search);
+        let pagination = new pagination_meta_model_1.PaginationMeta(page, result.length, limit);
+        let paginationParam = new pagination_parameters_model_1.PaginationParameters(page, limit);
+        let data = this._paginationService.paginate(paginationParam, result);
+        return {
+            data,
+            pagination
+        };
     }
     async findOne(id) {
         return await this._service.getById(id);
@@ -43,11 +51,11 @@ __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('page')),
     __param(1, (0, common_1.Query)("limit")),
-    __param(2, (0, common_1.Query)("artist")),
+    __param(2, (0, common_1.Query)("search")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number, String]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "findAll", null);
+], ProductsController.prototype, "get", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
@@ -79,7 +87,8 @@ __decorate([
 ], ProductsController.prototype, "deleteProduct", null);
 ProductsController = __decorate([
     (0, common_1.Controller)('products'),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
+    __metadata("design:paramtypes", [product_service_1.ProductService,
+        pagination_service_1.PaginationService])
 ], ProductsController);
 exports.ProductsController = ProductsController;
 //# sourceMappingURL=product.controller.js.map

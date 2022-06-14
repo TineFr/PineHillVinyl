@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderSchema = exports.Order = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const product_order_schema_1 = require("../../products/schemas/product-order.schema");
-const user_address_schema_1 = require("../../users/schemas/user-address.schema");
+const product_order_dto_1 = require("../../products/dtos/product-order.dto");
+const user_address_dto_1 = require("../../users/dtos/user-address.dto");
 let Order = class Order {
 };
 __decorate([
@@ -20,20 +20,24 @@ __decorate([
     __metadata("design:type", String)
 ], Order.prototype, "userId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Order.prototype, "paymentStatus", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Order.prototype, "status", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: product_order_schema_1.ProductOrderSchema }),
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Number)
+], Order.prototype, "amount", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: product_order_dto_1.ProductOrder }),
     __metadata("design:type", Array)
 ], Order.prototype, "items", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: user_address_schema_1.AddressSchema }),
-    __metadata("design:type", user_address_schema_1.Address)
+    (0, mongoose_1.Prop)({ type: user_address_dto_1.AddressSchema }),
+    __metadata("design:type", user_address_dto_1.Address)
 ], Order.prototype, "shippingAddress", void 0);
 Order = __decorate([
     (0, mongoose_1.Schema)()

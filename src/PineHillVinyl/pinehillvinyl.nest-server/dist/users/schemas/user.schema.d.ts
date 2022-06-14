@@ -20,7 +20,7 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
-import { Address } from './user-address.schema';
+import { Address } from '../dtos/user-address.dto';
 export declare type UserDocument = User & Document;
 export declare class User {
     username: string;

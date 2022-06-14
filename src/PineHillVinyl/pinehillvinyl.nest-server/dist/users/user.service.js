@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
+const cart_service_1 = require("../carts/cart.service");
 const user_mapper_helper_1 = require("./helpers/user-mapper.helper");
 const user_repository_1 = require("./user.repository");
 let UserService = class UserService {
-    constructor(_repository, _mapper) {
+    constructor(_repository, _cartService, _mapper) {
         this._repository = _repository;
+        this._cartService = _cartService;
         this._mapper = _mapper;
     }
     async getAll() {
@@ -43,6 +45,8 @@ let UserService = class UserService {
     async add(dto) {
         const mappedRequest = this._mapper.createDtoToSchema(dto);
         let result = await this._repository.add(mappedRequest);
+        if (result != null)
+            await this._cartService.add({ userId: result._id });
         let mappedResult = this._mapper.schemaToResponse(result);
         return mappedResult;
     }
@@ -64,6 +68,7 @@ let UserService = class UserService {
 UserService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [user_repository_1.UserRepository,
+        cart_service_1.CartService,
         user_mapper_helper_1.UserMapper])
 ], UserService);
 exports.UserService = UserService;

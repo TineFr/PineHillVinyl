@@ -17,10 +17,10 @@ const sortProducts = async (sortOption : string, products : ProductModel[]) : Pr
     switch (sortOption) {
 
         case 'Price: Low-High':
-            test = testtest.sort((a, b) => a.title.localeCompare(b.title))
+            test = testtest.sort((a, b) => a.price - b.price)
             break;
         case 'Price: High-Low':
-            test =testtest.sort((a, b) => a.title.localeCompare(b.title))
+            test =testtest.sort((a, b) => b.price - a.price)
             break;
         case 'Alphabetically: A-Z':
             test =testtest.sort((a, b) => a.title.localeCompare(b.title))
@@ -28,8 +28,6 @@ const sortProducts = async (sortOption : string, products : ProductModel[]) : Pr
         case 'Alphabetically: Z-A':
             test = testtest.sort((a, b) => b.title.localeCompare(a.title))
             break;
-
-      
     }
     return test;
 
