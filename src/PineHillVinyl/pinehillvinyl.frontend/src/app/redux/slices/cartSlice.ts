@@ -63,6 +63,7 @@ export const cartSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = true;
             state.cart = action.payload
+            state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
         })
         .addCase(getUserCart.rejected, (state, action) =>{
             state.isLoading = false;

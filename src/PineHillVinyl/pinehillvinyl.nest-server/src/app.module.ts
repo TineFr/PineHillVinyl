@@ -6,7 +6,6 @@ import * as dotenv from "dotenv";
 import { AuthModule } from './authentication/auth.module';
 import { GenreModule } from './genres/genre.module';
 import { CartModule } from './carts/cart.module';
-import { PaginationService } from './pagination/pagination.service';
 import { PaginationModule } from './pagination/product.module';
 import { StripeModule } from './stripe/stripe.module';
 dotenv.config({ path: `${__dirname}/../.env` });

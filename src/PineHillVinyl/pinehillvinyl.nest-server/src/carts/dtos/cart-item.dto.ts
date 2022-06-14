@@ -1,14 +1,10 @@
 import { Prop,  Schema,  SchemaFactory } from '@nestjs/mongoose';
 import {Document, SchemaType} from 'mongoose';
+import { CartProduct } from './cart-product.dto';
 
 
-export interface ProductCart{
-    id : string
-    title: string;
-    artist: string;
-    image: string;
+export class CartItem{
+    product : CartProduct
     quantity: number;
-    price: number;
-
 }
 

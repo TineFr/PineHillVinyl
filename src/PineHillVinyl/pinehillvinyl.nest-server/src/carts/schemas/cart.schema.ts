@@ -1,6 +1,7 @@
 import { Prop,  Schema,  SchemaFactory } from '@nestjs/mongoose';
 import {Document} from 'mongoose';
-import { ProductCart } from '../../products/dtos/product-cart.dto';
+import { CartItem } from '../dtos';
+
 
 
 
@@ -11,7 +12,7 @@ export class Cart{
     @Prop({ required: true })
     userId: string;
     @Prop()
-    products: ProductCart[];
+    items: CartItem[];
 }
 
 export const CartSchema = SchemaFactory.createForClass(Cart);

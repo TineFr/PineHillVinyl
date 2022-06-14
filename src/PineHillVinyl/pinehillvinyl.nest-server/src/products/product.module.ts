@@ -12,7 +12,8 @@ import { Product, ProductSchema } from './schemas/product.schema';
   imports: [MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema
 }]), PaginationModule],
  controllers: [ProductsController],
- providers: [ProductService, ProductRepository, ProductMapper]
+ providers: [ProductService, ProductRepository, ProductMapper],
+ exports: [ProductRepository]
 
 })
 export class ProductModule {}
