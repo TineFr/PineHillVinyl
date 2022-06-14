@@ -21,8 +21,8 @@ let ProductRepository = class ProductRepository {
     constructor(_model) {
         this._model = _model;
     }
-    async getAllPaginated(pagination, filter) {
-        let result = await this._model.find().skip(pagination.skips).limit(pagination.limit);
+    async get() {
+        let result = await this._model.find().exec();
         return result;
     }
     async getById(id) {

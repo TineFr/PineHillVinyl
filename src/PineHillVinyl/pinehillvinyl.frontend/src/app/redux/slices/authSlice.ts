@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import authService from 'src/app/services/auth.service';
 import { JwtModel, LoginModel, RegisterModel, UserModel } from '../../models';
-import { AuthState } from '../interfaces/auth-state.interface';
+import { AuthState } from '../interfaces/states/auth-state.interface';
 import { RootState } from '../store';
 
 

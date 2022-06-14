@@ -1,4 +1,4 @@
-import { JwtModel, UserModel } from "../../models";
+import { JwtModel, UserModel } from "../../../models";
 import { BaseState } from "./base-state.interface";
 
 export interface AuthState extends BaseState{

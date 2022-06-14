@@ -12,7 +12,7 @@ export class ProductRepository {
 
 
     async get(): Promise<ProductDocument[]> {
-      let result =  await this._model.find().exec();
+      let result =  await this._model.find().sort({ title: 1 }).exec();
       return result;
   }
 

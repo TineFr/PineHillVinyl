@@ -27,7 +27,6 @@ export const SearchIcon = styled(VscSearch)`
 cursor: pointer;
 `
 
-
 export const Container = styled.div`
 display: flex;
 justify-content: center;

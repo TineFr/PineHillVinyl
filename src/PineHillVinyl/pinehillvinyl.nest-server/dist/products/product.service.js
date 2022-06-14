@@ -18,10 +18,17 @@ let ProductService = class ProductService {
         this._repository = _repository;
         this._mapper = _mapper;
     }
-    async getAllPaginated(pagination, filter) {
-        let result = await this._repository.getAllPaginated(pagination, filter);
+    async get(search) {
+        let result = await this._repository.get();
         if (!result)
             throw new common_1.HttpException('No results found', common_1.HttpStatus.NOT_FOUND);
+        if (search) {
+            result = result.filter(function (f) {
+                return (f.title.toLowerCase().includes(search)
+                    || f.artist.toLowerCase().includes(search)
+                    || f.description.toLowerCase().includes(search));
+            });
+        }
         let mappedResult = this._mapper.schemaListToResponse(result);
         return mappedResult;
     }
@@ -43,7 +50,7 @@ let ProductService = class ProductService {
         if (!product)
             throw new common_1.HttpException(`Item with id ${id} does not exist`, common_1.HttpStatus.NOT_FOUND);
         const updatedProduct = this._mapper.updateDtoToSchema(dto);
-        const result = await this._repository.update(id, product);
+        const result = await this._repository.update(id, updatedProduct);
         let mappedResult = this._mapper.schemaToResponse(result);
         return mappedResult;
     }

@@ -20,6 +20,10 @@ let GenresController = class GenresController {
     constructor(_service) {
         this._service = _service;
     }
+    async findAll() {
+        let result = await this._service.getAllPaginated(null);
+        return result;
+    }
     async addProduct(dto) {
         return this._service.add(dto);
     }
@@ -30,6 +34,12 @@ let GenresController = class GenresController {
         return this._service.delete(id);
     }
 };
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], GenresController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

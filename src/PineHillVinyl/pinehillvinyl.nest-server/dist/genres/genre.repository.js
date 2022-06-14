@@ -33,6 +33,10 @@ let GenreRepository = class GenreRepository {
         return await this._model.findByIdAndDelete(id);
     }
     ;
+    async getAll() {
+        let result = await this._model.find();
+        return result;
+    }
     async getAllPaginated(pagination) {
         let result = await this._model.find().skip(pagination.skips).limit(pagination.limit);
         return result;

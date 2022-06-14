@@ -19,7 +19,7 @@ let GenreService = class GenreService {
         this._mapper = _mapper;
     }
     async getAllPaginated(pagination) {
-        let result = await this._repository.getAllPaginated(pagination);
+        let result = await this._repository.getAll();
         if (!result)
             throw new common_1.HttpException('No results found', common_1.HttpStatus.NOT_FOUND);
         let mappedResult = this._mapper.schemaListToResponse(result);

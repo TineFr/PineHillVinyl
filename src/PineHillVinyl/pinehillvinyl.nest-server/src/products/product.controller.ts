@@ -14,16 +14,6 @@ export class ProductsController {
   constructor(private readonly _service: ProductService,
               private readonly _paginationService: PaginationService<ResponseProductDto>) {}
 
-  // @Get()
-  //  async findAll(
-  //   @Query('page') page : number,
-  //   @Query("limit") limit : number,
-  //   @Query("sort") artist : string
-  //  ): Promise<ResponseProductDto[]> {
-  //   let result =  await this._service.getAllPaginated(new PaginationParameters(page,limit), 
-  //                                                     new FilterProductDto(artist));
-  //   return result;
-  // }
 
   @Get()
   async get(
@@ -36,6 +26,8 @@ export class ProductsController {
    let pagination = new PaginationMeta(page, result.length, limit);
    let paginationParam = new PaginationParameters(page, limit);
    let data = this._paginationService.paginate(paginationParam, result);
+   
+
    return{
     data,
     pagination
