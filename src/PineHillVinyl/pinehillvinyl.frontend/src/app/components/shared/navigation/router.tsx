@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes , Route} from 'react-router-dom' 
-import {Home, Contact, About, ProductDetails, Shop, Authentication, Account, CartPage, CheckoutPage} from '../../../pages'
+import {Home, Contact, About, ProductDetails, Shop, Authentication, Account, CartPage, CheckoutPage, PaymentPage} from '../../../pages'
 
 import ScrollBack from './scroll-back';
 import ErrorPage from '../../../error';
@@ -31,7 +31,7 @@ function RouterComponent() {
                 <Route path="/account" element={<Account/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
                 <Route path="/shop" element={<Shop/>}></Route>
-                <Route path="/checkout" element={<CheckoutPage/>}></Route>
+                <Route path="/checkout" element={<PaymentPage/>}></Route>
                 <Route path="/shop" element={<Shop/>}></Route>
                 <Route path="/product/:id" element={<ProductDetails/>}></Route>
                 <Route path="/contact" element={<Contact/>}></Route>
