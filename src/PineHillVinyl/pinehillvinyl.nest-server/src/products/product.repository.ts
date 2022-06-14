@@ -1,8 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { PaginationParameters } from "src/pagination/pagination-parameters.model";
-import { FilterProductDto } from "./dtos/product-filter.dto";
 import { Product, ProductDocument } from "./schemas/product.schema";
 
 

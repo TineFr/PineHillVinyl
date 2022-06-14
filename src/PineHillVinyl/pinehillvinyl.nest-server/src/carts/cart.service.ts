@@ -24,7 +24,7 @@ export class CartService {
           item.product  = productItem;
         } else {
           test.items.splice(index, 1);
-          //functie om product te verwijderen;
+          this.removeProduct(test.id, product )
         } 
       });
       let mappedResult = this._mapper.schemaToResponse(test);
@@ -39,15 +39,30 @@ export class CartService {
 
   };
 
-  async update(id : any, dto: UpdateCartDto): Promise<ResponseCartDto> {
-      let cart = await this._repository.getById(id);
-      if (!cart) throw new HttpException(`Item with id ${id} does not exist`, HttpStatus.NOT_FOUND)
+  async update(id: any, dto :  any): Promise<ResponseCartDto> {
+    let cart = await this._repository.getById(id);
+    if (!cart) throw new HttpException(`Cart with id ${id} does not exist`, HttpStatus.NOT_FOUND)
 
-      const updatedCart = this._mapper.updateDtoToSchema(dto);
-      const result = await this._repository.update(id, updatedCart);
-      let mappedResult = this._mapper.schemaToResponse(result)
-      return mappedResult;
-}
+    const mappedRequest = this._mapper.updateDtoToSchema(dto);
+    let result = await this._repository.update(id, mappedRequest);
+    let mappedResult = this._mapper.schemaToResponse(result);
+    return mappedResult;
+
+  };
+
+  async removeProduct(id: any, prd :  any): Promise<ResponseCartDto> {
+    await this._repository.removeProduct(id, prd)
+    let result = await this._repository.getById(id);
+    let mappedResult = this._mapper.schemaToResponse(result);
+    return mappedResult;
+
+  };
+
+  async delete(id: any): Promise<string> {
+   let cart= await this._repository.delete(id)
+   if (cart) return 'Cart is successfully deleted';
+  
+  };
 
   async add(dto: CreateCartDto): Promise<ResponseCartDto> {
       const mappedRequest = this._mapper.createDtoToSchema(dto);
@@ -55,8 +70,6 @@ export class CartService {
       let mappedResult = this._mapper.schemaToResponse(result);
       return mappedResult;
 }
-
-
 
 }
 
