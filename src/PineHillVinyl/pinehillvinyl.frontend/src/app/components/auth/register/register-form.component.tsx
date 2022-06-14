@@ -31,7 +31,12 @@ const RegisterComponent = () => {
   
     const submitHandler =  (e : any) => {
       e.preventDefault();
-      dispatch(register(user))
+      if (user.password != user.confirmPassword){
+        setError("Passwords must be the same")
+      }else{
+        dispatch(register(user))
+      }
+
   };
 
   return (
@@ -41,19 +46,19 @@ const RegisterComponent = () => {
         <form onSubmit={submitHandler}>  
         <FormGroup>      
             <Label htmlFor="username">Username</Label>  
-            <Input type='text' name='username' onChange={e => setUser({...user, username:e.target.value})} value={user.username}/><br/>
+            <Input type='text' name='username' onChange={e => setUser({...user, username:e.target.value})} value={user.username} required/><br/>
           </FormGroup>
           <FormGroup>      
             <Label htmlFor="email">E-mail</Label>  
-            <Input type='email' name='email' onChange={e => setUser({...user, email:e.target.value})} value={user.email}/><br/>
+            <Input type='email' name='email' onChange={e => setUser({...user, email:e.target.value})} value={user.email} required/><br/>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password</Label>  
-            <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password}/><br/>
+            <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password} required/><br/>
           </FormGroup>  
           <FormGroup>
             <Label htmlFor="password">Confirm password</Label>  
-            <Input type='password' name='confirmPassword' onChange={e => setUser({...user, confirmPassword:e.target.value})} value={user.confirmPassword}/><br/>
+            <Input type='password' name='confirmPassword' onChange={e => setUser({...user, confirmPassword:e.target.value})} value={user.confirmPassword} required/><br/>
           </FormGroup>  
           <Error>{apiError}</Error>
           <Submit type="submit" value="login">Register</Submit>

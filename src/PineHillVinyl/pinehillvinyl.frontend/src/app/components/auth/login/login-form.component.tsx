@@ -45,11 +45,13 @@ const LoginComponent = () => {
         <form onSubmit={submitHandler}>  
           <FormGroup>      
             <Label htmlFor="email">E-mail</Label>  
-            <Input type='email' name='email' onChange={e => setUser({...user, email:e.target.value})} value={user.email}/><br/>
+            <Input type='email' name='email' onChange={e => setUser({...user, email:e.target.value})} value={user.email} required/><br/>
+            <span></span>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password</Label>  
-            <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password}/><br/>
+            <Input type='password' name='password' onChange={e => setUser({...user, password:e.target.value})} value={user.password} required/><br/>
+            <span></span>
           </FormGroup>  
           <Error>{apiError}</Error>
           <Submit type="submit" value="login">Sign in</Submit>

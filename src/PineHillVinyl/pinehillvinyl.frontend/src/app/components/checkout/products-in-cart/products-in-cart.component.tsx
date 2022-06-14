@@ -10,6 +10,7 @@ const ProductsInCart = () => {
 
   return (
     <Container>
+
 {cart!.items.map((item: CartItem, index : number) => {
                     return (
                       <ProductCart key={index}>
