@@ -7,6 +7,7 @@ dotenv.config({ path: `${__dirname}/../.env` });
 
 @Module({
   controllers: [StripeController],
-  providers: [StripeService]
+  providers: [StripeService],
+  exports : [StripeService]
 })
 export class StripeModule {}

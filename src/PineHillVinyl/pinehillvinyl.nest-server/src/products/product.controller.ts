@@ -34,7 +34,6 @@ export class ProductsController {
    }
  }
 
-  // @UseGuards(JwtGuard)
   @Get(':id')
   async findOne(@Param('id') id:any): Promise<ResponseProductDto> {
     return await this._service.getById(id);

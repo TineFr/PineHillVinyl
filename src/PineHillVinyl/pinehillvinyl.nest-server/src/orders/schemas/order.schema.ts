@@ -1,6 +1,6 @@
 import { Prop,  Schema,  SchemaFactory } from '@nestjs/mongoose';
 import {Document, SchemaType} from 'mongoose';
-import { ProductOrder} from 'src/products/dtos/product-order.dto';
+import { ProductOrder} from 'src/orders/dtos/product-order.dto';
 import { Product, ProductSchema } from 'src/products/schemas/product.schema';
 import { Address, AddressSchema } from 'src/users/dtos/user-address.dto';
 export type OrderDocument = Order & Document;

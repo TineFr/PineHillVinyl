@@ -8,6 +8,7 @@ import { GenreModule } from './genres/genre.module';
 import { CartModule } from './carts/cart.module';
 import { PaginationModule } from './pagination/product.module';
 import { StripeModule } from './stripe/stripe.module';
+import { OrderModule } from './orders/order.module';
 dotenv.config({ path: `${__dirname}/../.env` });
 
 
@@ -19,7 +20,8 @@ dotenv.config({ path: `${__dirname}/../.env` });
   AuthModule,
   CartModule,
   PaginationModule,
-  StripeModule],
+  StripeModule,
+  OrderModule],
   providers: []
 })
 export class AppModule {}
