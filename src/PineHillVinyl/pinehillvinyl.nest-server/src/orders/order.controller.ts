@@ -1,10 +1,10 @@
 import { Body, Controller, Request, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
-import { Cart } from '../carts/schemas/cart.schema';
+import { Cart } from '../stripe/cart.model';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { OrderService } from './order.service';
 
 
-@Controller('order')
+@Controller('orders')
 export class OrderController {
   constructor(private readonly _service: OrderService) {}
 
@@ -13,7 +13,7 @@ export class OrderController {
         @Post('stripe')
         createOrder(@Body() body : {cart : Cart},
         @Request() req: any ){
-            return this._service.add(req.user, body);
+            return this._service.add(req.user, body.cart);
         }
 
 

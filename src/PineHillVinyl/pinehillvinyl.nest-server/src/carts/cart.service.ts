@@ -58,6 +58,12 @@ export class CartService {
 
   };
 
+  async resetItems(id: any): Promise<ResponseCartDto> {
+    let cart = await this._repository.resetItems(id);
+    let mappedResult = this._mapper.schemaToResponse(cart);
+    return mappedResult;
+  };
+
   async removeProduct(id: any, prd :  any): Promise<ResponseCartDto> {
     await this._repository.removeProduct(id, prd)
     let result = await this._repository.getById(id);
