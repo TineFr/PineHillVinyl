@@ -7,10 +7,14 @@ import { CartState } from '../interfaces/states/cart-state.interface';
 import { RootState } from '../store';
 
 let totalCount = 0;
-  JSON.parse(localStorage.getItem('items') || '{}')
-.forEach((element : any) => {
-    totalCount += element.product.price * element.quantity}
-);
+
+if (localStorage.getItem('items')){
+    JSON.parse(localStorage.getItem('items') || '{}')
+    .forEach((element : any) => {
+        totalCount += element.product.price * element.quantity}
+    );
+}
+
 
 const initialState: CartState = {
 
@@ -86,7 +90,6 @@ export const cartSlice = createSlice({
         })
         .addCase(getUserCart.fulfilled, (state, action) =>{
             state.isLoading = false;
-            state.isSuccess = true;
             state.cart = action.payload
             state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
         })

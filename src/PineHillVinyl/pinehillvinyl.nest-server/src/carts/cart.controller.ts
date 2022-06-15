@@ -21,6 +21,14 @@ export class CartsController {
     return this._service.addProduct(id, body);
   }
 
+  @Put(':id/addMultiple')
+  async addMultiple(
+    @Param('id') id:any,
+    @Body() body : {dto : CartItem []},
+  ) {
+    return this._service.addMultiple(id, body);
+  }
+
   @Put(':id/removeProduct')
   async removeProduct(
     @Param('id') id:any,

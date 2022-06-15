@@ -39,6 +39,14 @@ export class CartService {
 
   };
 
+  async addMultiple(id: any, prd :  any): Promise<ResponseCartDto> {
+    await this._repository.addMultiple(id, prd)
+    let result = await this._repository.getById(id);
+    let mappedResult = this._mapper.schemaToResponse(result);
+    return mappedResult;
+
+  };
+
   async update(id: any, dto :  any): Promise<ResponseCartDto> {
     let cart = await this._repository.getById(id);
     if (!cart) throw new HttpException(`Cart with id ${id} does not exist`, HttpStatus.NOT_FOUND)

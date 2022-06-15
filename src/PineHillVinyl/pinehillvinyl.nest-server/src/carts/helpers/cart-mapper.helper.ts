@@ -26,6 +26,7 @@ export class CartMapper {
       const responseCart = new ResponseCartDto();
       responseCart.userId = cart.userId;
       responseCart.items = cart.items;
+      responseCart.id = cart.id;
       return responseCart;
 
     }
