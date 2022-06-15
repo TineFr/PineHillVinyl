@@ -1,4 +1,4 @@
-import { ProductCart } from '../../products/dtos/product-cart.dto';
+import { CartItem } from './cart-item.dto';
 export declare class UpdateCartDto {
-    products: ProductCart[];
+    items: CartItem[];
 }

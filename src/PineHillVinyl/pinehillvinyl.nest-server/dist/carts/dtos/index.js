@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./create-cart.dto"), exports);
 __exportStar(require("./response-cart.dto"), exports);
 __exportStar(require("./update-cart.dto"), exports);
+__exportStar(require("./cart-item.dto"), exports);
 //# sourceMappingURL=index.js.map

@@ -39,6 +39,7 @@ export class UserMapper {
         user.id = x._id
         user.username = x.username;
         user.email = x.email;
+        user.addresses = x.addresses;
         mappedUsers.push(user);
       });
       return mappedUsers;

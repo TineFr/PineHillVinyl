@@ -9,7 +9,7 @@ export declare class AuthService {
     private _jwtService;
     constructor(_userRepository: UserRepository, _userService: UserService, _jwtService: JwtService);
     hashPassword(password: string): Promise<string>;
-    verifyUser(email: string, password: string): Promise<ResponseUserDto>;
+    verifyUser(email: string, password: string): Promise<any>;
     login(login: LoginRequestDto): Promise<LoginResponseDto>;
     register(dto: CreateUserDto): Promise<ResponseUserDto>;
 }

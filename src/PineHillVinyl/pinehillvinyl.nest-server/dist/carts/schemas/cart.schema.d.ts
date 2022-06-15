@@ -20,10 +20,10 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
-import { ProductCart } from '../../products/dtos/product-cart.dto';
+import { CartItem } from '../dtos';
 export declare type CartDocument = Cart & Document;
 export declare class Cart {
     userId: string;
-    products: ProductCart[];
+    items: CartItem[];
 }
 export declare const CartSchema: import("mongoose").Schema<Cart, import("mongoose").Model<Cart, any, any, any>, {}, {}, any>;

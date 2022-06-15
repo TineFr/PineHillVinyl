@@ -17,6 +17,7 @@ const genre_module_1 = require("./genres/genre.module");
 const cart_module_1 = require("./carts/cart.module");
 const product_module_2 = require("./pagination/product.module");
 const stripe_module_1 = require("./stripe/stripe.module");
+const order_module_1 = require("./orders/order.module");
 dotenv.config({ path: `${__dirname}/../.env` });
 let AppModule = class AppModule {
 };
@@ -24,12 +25,14 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
             product_module_1.ProductModule,
+            order_module_1.OrderModule,
             user_module_1.UserModule,
             genre_module_1.GenreModule,
             auth_module_1.AuthModule,
             cart_module_1.CartModule,
             product_module_2.PaginationModule,
-            stripe_module_1.StripeModule],
+            stripe_module_1.StripeModule,
+        ],
         providers: []
     })
 ], AppModule);

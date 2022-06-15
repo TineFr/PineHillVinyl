@@ -1,5 +1,4 @@
 import { Body, Controller, Request, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { Cart } from '../carts/schemas/cart.schema';
 import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { OrderService } from './order.service';
@@ -14,7 +13,7 @@ export class OrderController {
         @Post('stripe')
         createOrder(@Body() body : {cart : Cart},
         @Request() req: any ){
-            return this._service.add(req.user, body.cart);
+            return this._service.add(req.user, body);
         }
 
 

@@ -15,6 +15,7 @@ dotenv.config({ path: `${__dirname}/../.env` });
 @Module({
   imports: [MongooseModule.forRoot(process.env.MONGO_URL),
   ProductModule,
+  OrderModule,
   UserModule,
   GenreModule,
   AuthModule,

@@ -29,14 +29,31 @@ let CartRepository = class CartRepository {
         let result = await this._model.find({ userId: id });
         return result;
     }
-    async add(prd) {
-        return await this._model.create(prd);
+    async addProduct(id, prd) {
+        return await this._model.findByIdAndUpdate(id, { $push: { items: Object.assign({}, prd) } });
+    }
+    ;
+    async removeProduct(id, prd) {
+        return await this._model.findByIdAndUpdate(id, { $pull: { items: Object.assign({}, prd) } });
     }
     ;
     async update(id, prd) {
         await this._model.findByIdAndUpdate(id, prd);
         return this._model.findById(id);
     }
+    ;
+    async resetItems(id) {
+        return await this._model.findByIdAndUpdate(id, { $set: { 'items': [] } });
+    }
+    ;
+    async add(prd) {
+        return await this._model.create(prd);
+    }
+    ;
+    async delete(id) {
+        return await this._model.findByIdAndDelete(id);
+    }
+    ;
 };
 CartRepository = __decorate([
     (0, common_1.Injectable)(),

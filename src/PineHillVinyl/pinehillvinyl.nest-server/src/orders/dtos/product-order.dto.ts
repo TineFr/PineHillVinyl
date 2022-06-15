@@ -4,7 +4,7 @@ import {Document, SchemaType} from 'mongoose';
 
 
 
-export class ProductOrder{
+export class OrderProduct{
 
     title: string;
     artist: string;
