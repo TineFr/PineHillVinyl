@@ -3,6 +3,7 @@ import {colors} from '../../../../styles/variables'
 import ReactPaginate from 'react-paginate';
 
 
+
 export const PaginationComponent = styled(ReactPaginate)`
 
 

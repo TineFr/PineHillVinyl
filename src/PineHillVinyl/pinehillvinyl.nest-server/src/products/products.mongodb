@@ -161,6 +161,653 @@ db.products.insertMany([
 
 
 
+        { 'title': 'Chet Baker Sings', 
+    'artist': 'Bob Marley & The Wailers', 
+    'image': 'https://media.s-bol.com/qAO8qzorvJBD/98q8MgZ/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a086e2f997b17707063a3f",
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+        { 'title': 'Reputation (Picture Disc)', 
+    'artist': 'Taylor Swift', 
+    'image': 'https://media.s-bol.com/2Rg2p0gZ6w5P/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+//vanaf hier
+           { 'title': 'THE IDEAL CRASH', 
+    'artist': 'DEUS', 
+    'image': 'https://media.s-bol.com/xZXRQ0PKp8J/550x553.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a6088b86915e02db23fe2a",
+      "62a60ec944c7f2df67fc241d"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+           { 'title': 'Rumours', 
+    'artist': 'Fleetwood Mac', 
+    'image': 'https://media.s-bol.com/g5x8qvVnlKDl/1153x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a60ec944c7f2df67fc241d",
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+           { 'title': 'My Beautiful Dark Twisted Fantasy ', 
+    'artist': 'Kanye West', 
+    'image': 'https://media.s-bol.com/n8x4NKwvGKMD/RoEP6AR/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a086d0f997b17707063a3d",
+      "62a086c6f997b17707063a3b",
+      "62a6088b86915e02db23fe2a"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+
+
+           { 'title': 'Before Love Came To Kill Us', 
+    'artist': 'Jessie Reyez', 
+    'image': 'https://media.s-bol.com/9QJJZ2EVz2NY/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08710f997b17707063a43",
+      "62a0871cf997b17707063a45",
+      "62a6088b86915e02db23fe2a"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+
+
+
+           { 'title': 'Case Study 01', 
+    'artist': 'Daniel Caesar', 
+    'image': 'https://media.s-bol.com/wpoyDGN9gR38/DRG0Woy/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+           { 'title': 'The Essentials', 
+    'artist': 'Postmodern Jukebox', 
+    'image': 'https://media.s-bol.com/j2v5wpn3Lw6R/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a0871cf997b17707063a45",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+           { 'title': 'Cult Of Yes', 
+    'artist': 'Pascal Deweze', 
+    'image': 'https://media.s-bol.com/ngAAVPD0KNWY/KOPQ8RJ/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a60ec944c7f2df67fc241d",
+    ], 
+    'price' : 28.75, 
+    'quantity' : 100},
+
+
+
+
+           { 'title': 'Sometimes I Might Be Introvert', 
+    'artist': 'Little Simz', 
+    'image': 'https://media.s-bol.com/q2wBBJ2Z3GLk/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a6088b86915e02db23fe2a",
+      "62a086c6f997b17707063a3b",
+      "62a6088b86915e02db23fe29"
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+           { 'title': 'Queen II', 
+    'artist': 'Queen', 
+    'image': 'https://media.s-bol.com/ZzKEqrBGwprE/550x551.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a60ec944c7f2df67fc241d",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 24.95, 
+    'quantity' : 100},
+
+
+
+
+
+           { 'title': 'Misfits Jubilee', 
+    'artist': 'Jim White', 
+    'image': 'https://media.s-bol.com/Y5oELz2JjRg9/y8ZmPDE/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+           { 'title': 'High As Hope', 
+    'artist': 'Florence And The Machine', 
+    'image': 'https://media.s-bol.com/mAzmMWlo38O/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08710f997b17707063a43",
+      "62a6088b86915e02db23fe2a"
+
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+           { 'title': 'Random Access Memories', 
+    'artist': 'Daft Punk', 
+    'image': 'https://media.s-bol.com/wjE2zmLAw6EX/550x546.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08710f997b17707063a43",
+    ], 
+    'price' : 20.95, 
+    'quantity' : 100},
+
+
+
+
+
+           { 'title': 'Stranger', 
+    'artist': 'Billie Joel', 
+    'image': 'https://media.s-bol.com/NkDO9QVvY8G2/550x493.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08710f997b17707063a43",
+    ], 
+    'price' : 25.95, 
+    'quantity' : 100},
+
+
+
+
+
+
+
+           { 'title': 'Julius', 
+    'artist': 'Meskerem Mees', 
+    'image': 'https://media.s-bol.com/N59AmzrjLLgm/6R6Y1L9/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 23.95, 
+    'quantity' : 100},
+
+
+
+
+           { 'title': "Hurry Up, We're Dreaming", 
+    'artist': 'M83', 
+    'image': 'https://media.s-bol.com/vgYRyQZDK4g0/1200x1200.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a6088b86915e02db23fe2a",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 21.95, 
+    'quantity' : 100},
+
+
+
+
+
+
+
+           { 'title': 'Back To Black', 
+    'artist': 'Amy Winehouse', 
+    'image': 'https://media.s-bol.com/ojB0y2O5M2EN/ElwZ7KW/550x545.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 27.95, 
+    'quantity' : 100},
+
+
+
+
+
+
+
+           { 'title': 'Persona', 
+    'artist': 'Selah Sue', 
+    'image': 'https://media.s-bol.com/yMLXYjG1L456/WLow6G4/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 31, 
+    'quantity' : 100},
+
+
+
+           { 'title': 'All My Demons Greeting Me', 
+    'artist': 'Aurore', 
+    'image': 'https://media.s-bol.com/grVNYj8VVnk/BNp4D7x/550x550.jpg', 
+    'trackList': [
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+      "lorem ipsum",
+    ], 
+    'description': "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.", 
+    'releaseDate' : new Date('2015-12-01T09:00:00Z'), 
+    'size' :  9,
+    'label' : 'lorem ipsum', 
+    'genres' : [
+      "62a08703f997b17707063a41",
+      "62a08710f997b17707063a43"
+    ], 
+    'price' : 9.99, 
+    'quantity' : 100},
 
 
 
@@ -170,20 +817,4 @@ db.products.insertMany([
 ]);
 
 
-
-
-
-
-
-
-
-
-
-
-
-const createFilter = (id : any) =>{
-    const test ={genres : id}
-    return test;
-
-}
 
