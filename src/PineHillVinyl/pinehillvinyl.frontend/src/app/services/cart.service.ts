@@ -1,4 +1,4 @@
-import { AmpStoriesOutlined } from "@material-ui/icons";
+
 import axios from "axios";
 import { ProductModel } from "../models";
 import { CartItem } from "../models/cart/cart-item.model";
@@ -9,9 +9,12 @@ const baseUrl = 'http://localhost:4000/api/v1/carts/'
 
 const getByUser = async (id : string) : Promise<CartModel | null>  =>{
     const response = await axios.get(baseUrl + id);
-    let result = await saveLocalStorage(response.data.id);
-    return result;
-
+    let result : any;
+     await saveLocalStorage(response.data.id).then( async res =>{
+        result = await axios.get(baseUrl + id);
+     }
+    );
+    return result.data;
 }
 
 const update = async (id: string, model : CartModel) : Promise<CartModel | null>  =>{
@@ -24,10 +27,11 @@ const saveLocalStorage = async (id : string) : Promise<any>  =>{
     if(localStorage.getItem('items')){
         products = JSON.parse(localStorage.getItem('items') || '[]');
     }
-    let result : any;
-    await axios.put(baseUrl + id + '/addMultiple', products).then(res => result = res.data);
+    if (products){
+        await axios.put(baseUrl + id + '/addMultiple', products);
+    }
     localStorage.removeItem('items');
-    return result;
+
 }
 
 const addToCart = async (id: string, model : ProductModel) : Promise<any>  =>{
@@ -36,6 +40,15 @@ const addToCart = async (id: string, model : ProductModel) : Promise<any>  =>{
         quantity: 1
     }
     const response = await axios.put(baseUrl + id + '/addProduct', cartItem);
+    return response.data;
+}
+
+const removeFromCart = async (id: string, model : ProductModel) : Promise<any>  =>{
+    const cartItem : CartItem= {
+        product: model,
+        quantity: 1
+    }
+    const response = await axios.put(baseUrl + id + '/removeProduct', cartItem);
     return response.data;
 }
 
@@ -50,14 +63,26 @@ const addProductLocally = async (model : ProductModel) =>{
         'quantity' : 1
     });
     localStorage.setItem('items', JSON.stringify(products));
+}
 
+
+const removeProductLocally = async (model : ProductModel) =>{
+    let products;
+    if(localStorage.getItem('items')){
+
+      products = JSON.parse(localStorage.getItem('items') || '[]');
+    } else products = [];
+    products = products.filter((x : any) => x.product.id !== model.id );
+    localStorage.setItem('items', JSON.stringify(products));;
 }
 
 const cartService = {
 update,
 getByUser,
 addToCart,
-addProductLocally
+addProductLocally,
+removeFromCart,
+removeProductLocally
 }
 
 export default cartService;

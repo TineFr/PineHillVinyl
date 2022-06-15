@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import {Container, Form, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks/redux/hooks';
 import { login, reset } from '../../../../app/redux/slices/authSlice';
 

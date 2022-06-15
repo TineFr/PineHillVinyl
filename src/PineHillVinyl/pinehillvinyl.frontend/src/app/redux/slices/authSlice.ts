@@ -1,35 +1,12 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import authService from 'src/app/services/auth.service';
-import { JwtModel, LoginModel, RegisterModel, UserModel } from '../../models';
+import { LoginModel, RegisterModel } from '../../models';
 import { AuthState } from '../interfaces/states/auth-state.interface';
 import { RootState } from '../store';
 
 
-// const storedUser: string | null  = localStorage.getItem('user');
-// let user : any = null;
-// if (storedUser) {
-//     user =  JSON.parse(localStorage.getItem(storedUser))
-
-// }
-
 const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
-const storedJWT = JSON.parse(localStorage.getItem('user') || '{}');
-    // user =  localStorage.getItem('user') ?
-    // if (user){
-
-    // } JSON.parse(localStorage.getItem('user')) : null;
-
-// if (storedUser) user =  JSON.parse(localStorage.getItem('user'))
-
-// const storedJWT: string | null = localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
-
-// let token : JwtModel | null = null;
-// if (storedJWT){ token = JSON.parse(JSON.stringify(storedJWT));}
-
-
-
-
-
+const storedJWT = { token : localStorage.getItem('jwt') || ''};
 
 const initialState: AuthState = {
     isLoading: false,

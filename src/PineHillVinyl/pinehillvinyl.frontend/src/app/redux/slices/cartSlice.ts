@@ -6,6 +6,8 @@ import { CartModel, ProductModel } from '../../models';
 import { CartState } from '../interfaces/states/cart-state.interface';
 import { RootState } from '../store';
 
+
+const calculateTotal = () =>{
 let totalCount = 0;
 
 if (localStorage.getItem('items')){
@@ -13,13 +15,15 @@ if (localStorage.getItem('items')){
     .forEach((element : any) => {
         totalCount += element.product.price * element.quantity}
     );
-}
+    }
 
+return totalCount.toFixed(2);
+}
 
 const initialState: CartState = {
 
     amountOfProducts : JSON.parse(localStorage.getItem('items') || '{}').length,
-    totalPrice : totalCount.toFixed(2),
+    totalPrice : calculateTotal(),
     isLoading: false,
     isSuccess : false,
     isError : false,
@@ -65,6 +69,21 @@ export const addToCart = createAsyncThunk(
     }
 )
 
+export const removeFromCart = createAsyncThunk(
+    'cart/removeFromCart',
+    async ({id, product}: {id: string | null, product: any}, thunkApi) =>{
+        try {  
+            if (id)  {
+                return await cartService.removeFromCart(id, product);
+            }      
+            else return await cartService.removeProductLocally(product);
+          
+        } catch (err : any) {
+            return thunkApi.rejectWithValue(err.response.data.message)
+        }
+    }
+)
+
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -78,7 +97,9 @@ export const cartSlice = createSlice({
         },
 
         resetCart : (state) =>{
-            state.cart = null
+            state.cart = null;
+            state.amountOfProducts = 0;
+            state.totalPrice = 0;
         },
     },
     extraReducers: (builder) =>{
@@ -91,7 +112,11 @@ export const cartSlice = createSlice({
         .addCase(getUserCart.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.cart = action.payload
-            state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
+            if (state.cart){
+                state.totalPrice = 0;
+                state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity);
+                state.totalPrice = state.totalPrice.toFixed(2);
+            }
         })
         .addCase(getUserCart.rejected, (state, action) =>{
             state.isLoading = false;
@@ -108,10 +133,36 @@ export const cartSlice = createSlice({
             state.isSuccess = true;
             state.cart = action.payload;
             state.amountOfProducts = JSON.parse(localStorage.getItem('items') || '{}').length;
-            state.totalPrice = totalCount.toFixed(2);
-            state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
+            state.totalPrice = calculateTotal();
+            if (state.cart){
+                state.totalPrice = 0;
+                state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
+            }
+            
         })
         .addCase(addToCart.rejected, (state, action) =>{
+            state.isLoading = false;
+            state.isError = true;
+            state.error = action.payload;
+        })
+
+        //removeFromCart
+        .addCase(removeFromCart.pending, (state) =>{
+            state.isLoading = true;
+        })
+        .addCase(removeFromCart.fulfilled, (state, action) =>{
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.cart = action.payload;
+            state.amountOfProducts = JSON.parse(localStorage.getItem('items') || '{}').length;
+            state.totalPrice = calculateTotal();
+            if (state.cart){
+                state.totalPrice = 0;
+                state.cart?.items.forEach(item => state.totalPrice! += item.product.price * item.quantity)
+            }
+            
+        })
+        .addCase(removeFromCart.rejected, (state, action) =>{
             state.isLoading = false;
             state.isError = true;
             state.error = action.payload;
@@ -124,7 +175,4 @@ export const {reset, resetCart} = cartSlice.actions;
 export const amountOfProducts = (state:RootState) =>{
     return state.cart.amountOfProducts;
 };
-// export const jwt = (state:RootState) =>{
-//     return state.auth.jwt;
-// };
 export default cartSlice.reducer;

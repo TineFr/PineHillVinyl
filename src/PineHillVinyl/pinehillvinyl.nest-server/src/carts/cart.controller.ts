@@ -32,7 +32,7 @@ export class CartsController {
   @Put(':id/removeProduct')
   async removeProduct(
     @Param('id') id:any,
-    @Body() dto: UpdateCartDto,
+    @Body() dto: {dto : CartItem},
   ) {
     return this._service.removeProduct(id, dto);
   }

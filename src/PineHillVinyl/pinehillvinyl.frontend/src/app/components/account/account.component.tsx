@@ -14,7 +14,7 @@ const AccountComponent = () => {
   const handleClick = (e:any) =>{
     e.preventDefault();
     dispatch(logout());
-    dispatch(resetCart())
+    dispatch(resetCart());
     navigate(-1);
   }
   return (
