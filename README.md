@@ -29,7 +29,7 @@ Login gegevens:
 Het gebruik van rollen lag niet in de scope van mijn project.
 Alle endpoints zijn zodus bereikbaar via volgende inloggegevens:
 
-email : test@test1.com
+email : test@test1.com <br>
 wachtwoord: test
 
 
@@ -45,7 +45,7 @@ Deze bronnenlijst is terug te vinden in de reports folder, per specifieke techno
 - Styled components: https://styled-components.com/
 - NestJs: https://nestjs.com/
 - MongoDB: https://www.mongodb.com/docs/
-- 
+
 ### Youtube bronnen
 - Lama dev, React E-Commerce App Design Tutorial: https://www.youtube.com/watch?v=c1xTDSIXit8&list=PLj-4DlPRT48mxPG8TAXOH4qqQ1ijuERO4&index=1
 - Jon Peppinck, NestJS CRUD API with Mongo for Beginners: https://www.youtube.com/watch?v=xCNAqAgSL_4
