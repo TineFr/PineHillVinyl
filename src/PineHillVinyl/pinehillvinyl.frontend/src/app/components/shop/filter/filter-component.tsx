@@ -24,7 +24,7 @@ useEffect(() =>{
 }, [genres])
   return (
     <Container>
-      <h1>Genres</h1>
+      <h1>GENRES</h1>
         <List>
         {genres?.map((item : any, index : number) => {
                 return (

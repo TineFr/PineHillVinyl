@@ -21,7 +21,7 @@ dotenv.config({ path: `${__dirname}/../.env` });
   CartModule,
   PaginationModule,
   StripeModule,
-  OrderModule],
+  ],
   providers: []
 })
 export class AppModule {}

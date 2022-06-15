@@ -8,6 +8,6 @@ export class ResponseUserDto {
     username: string;
     @IsEmail()
     email: string;
-    @IsObject()
-    addresses : Address[]
+    // @IsObject()
+    // addresses : Address[]
 }

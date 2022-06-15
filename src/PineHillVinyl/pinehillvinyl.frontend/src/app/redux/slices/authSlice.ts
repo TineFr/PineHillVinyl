@@ -5,11 +5,15 @@ import { AuthState } from '../interfaces/states/auth-state.interface';
 import { RootState } from '../store';
 
 
-const storedUser: string | null = localStorage.getItem('user');
-const user : UserModel | null =  storedUser ?  JSON.parse(storedUser) : null;
+const storedUser: string | null = localStorage.getItem('user') ? localStorage.getItem('user') : null;
+let user : UserModel | null = null;
+if (storedUser) user =  JSON.parse(JSON.stringify(storedUser))
 
-const storedJWT: string | null = localStorage.getItem('jwt');
-const token : JwtModel | null = !!storedJWT ? JSON.parse(JSON.stringify(storedJWT)) : null;
+const storedJWT: string | null = localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
+
+let token : JwtModel | null = null;
+if (storedJWT){ token = JSON.parse(JSON.stringify(storedJWT));}
+
 
 
 

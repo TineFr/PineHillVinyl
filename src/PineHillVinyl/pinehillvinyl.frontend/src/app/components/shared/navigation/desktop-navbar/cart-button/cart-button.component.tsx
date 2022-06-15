@@ -5,9 +5,9 @@ import { useAppDispatch, useAppSelector } from '../../../../../hooks/redux/hooks
 import {Amount} from './cart-button.styled'
 import { useEffect } from 'react';
 
+
 const CartButton = () => {
   const navigate = useNavigate();
-
   const {amountOfProducts, cart} = useAppSelector((state) => state.cart);
   const {user, isAuthenticated} = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
@@ -18,6 +18,7 @@ const CartButton = () => {
   useEffect(() =>{
     if (isAuthenticated){
       dispatch(getUserCart(user!.sub));
+
     }
   }, [isAuthenticated])
 

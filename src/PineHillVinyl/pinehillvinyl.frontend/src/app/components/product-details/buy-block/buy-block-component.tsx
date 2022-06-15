@@ -7,7 +7,7 @@ const BuyBlock = () => {
   return (
     <Container>
         <Wrapper>
-            <AddToCart></AddToCart>
+            <AddToCart icon={false}></AddToCart>
             <Availability></Availability>         
         </Wrapper>
     </Container>
