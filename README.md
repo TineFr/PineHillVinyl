@@ -5,9 +5,6 @@
 
 Aangezien ik mij graag zou focussen op een job als frontend developer, had ik graag wat geëxperimenteerd met verschillende javascript frameworks en libraries. Daar ik op mijn stage reeds in aanmerking zal komen met Angular, wens ik mijn innovative project in React te maken. Dit had ik graag gedaan in de vorm van een webshop voor lp’s of albums. De backend zal ik maken in Nest JS, een framework voor het bouwen van efficiënte Node.js-webapplicaties. Als database gebruik ik MongoDB.
 
-
-
-
 ## Gebruikte technologiën
 
 - React
@@ -16,20 +13,51 @@ Aangezien ik mij graag zou focussen op een job als frontend developer, had ik gr
 - Nest JS
 - Styled components
 
+-React packages:
+- MailJS
+- Toastify
+- AOS - Animate on scroll library
+
 
 ## Extra info
-Plaats hier de nodig informatie om het
-project te kunnen uitvoeren:
+Bij het clonen worden er mogelijks foutmeldingen gegeven voor het niet kunnen vinden van paden.
+William is hiervan op de hoogte.
 
-- API keys of nodige secrets
-- Logingegevens
-- Database configuraties
-- ...
+Als database gebruik ik de cloud database MongoDB Atlas.
+
+Login gegevens:
+Het gebruik van rollen lag niet in de scope van mijn project.
+Alle endpoints zijn zodus bereikbaar via volgende inloggegevens:
+
+email : test@test1.com
+wachtwoord: test
+
 
 ## Bronnenlijst
+Hieronder vind u een lijst met bronnen die ik geraadpleegd heb tijdens het programmeren.
+Ik heb ook een reeds bronnen gebruikt tijdens mijn zoektocht naar technologieën die ik kon gebruiken. 
+Deze bronnenlijst is terug te vinden in de reports folder, per specifieke technologë.
+
+### Officiële documentatie
 - React: https://reactjs.org/
-- Three.js : https://threejs.org/
-- Implementing three.js in React: https://blog.bitsrc.io/starting-with-react-16-and-three-js-in-5-minutes-3079b8829817
-- Anime.js: https://animejs.com/
-- p5.js: https://p5js.org/
-- Cursus creative coding met p5.js: https://www.domestika.org/es/courses/2729-codificacion-creativa-crea-piezas-visuales-con-javascript?gclid=CjwKCAiAx8KQBhAGEiwAD3EiP9Zce6LYuEiG5XBrnSvY1zUWIG8OW6vaspSS_22FSQ947a1BPI6J7RoCNrAQAvD_BwE
+- Redux documentatie: https://react-redux.js.org/
+- SCSS: https://sass-lang.com/
+- Styled components: https://styled-components.com/
+- NestJs: https://nestjs.com/
+- MongoDB: https://www.mongodb.com/docs/
+- 
+### Youtube bronnen
+- Lama dev, React E-Commerce App Design Tutorial: https://www.youtube.com/watch?v=c1xTDSIXit8&list=PLj-4DlPRT48mxPG8TAXOH4qqQ1ijuERO4&index=1
+- Jon Peppinck, NestJS CRUD API with Mongo for Beginners: https://www.youtube.com/watch?v=xCNAqAgSL_4
+- Code with Vlad, NestJs Authentication With JWT Tokens: https://www.youtube.com/watch?v=e5qk1Xruwso&t=2939s
+- Zpunet, Create a Modern Ecommerce Project with React, NodeJS & MongoDB: https://www.youtube.com/watch?v=1NWBO8L81J8&t=3926s
+- Traversy Media, MongoDB Crash Course 2022: https://www.youtube.com/watch?v=2QQGWYe7IDU&t=645s
+- Web Deb Simplyfied, MongoDB Crash Course: https://www.youtube.com/watch?v=ofme2o29ngU&t=1443s
+- Web Deb Simplyfied, Learn React In 30 Minutes: [https://www.youtube.com/watch?v=ofme2o29ngU&t=1443s
+- freeCodeCamp.org, React Course - Beginner's Tutorial for React JavaScript Library [2022]: https://www.youtube.com/watch?v=bMknfKXIFA8
+
+### Overige
+- https://stackoverflow.com/
+- Express - clean architecture :https://github.com/panagiop/node.js-clean-architecture
+- Nest JS - clean architecture: https://github.com/VincentJouanne/nest-clean-architecture
+
