@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
-import {Container, Form, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
+import {Container, Input, Submit, Title, FormGroup, Label, Error} from '../authentication-form.styled'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks/redux/hooks';
 import { login, reset } from '../../../../app/redux/slices/authSlice';
 
@@ -10,8 +9,6 @@ const LoginComponent = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({email: "", password: ""})
     const [apiError, setError] = useState("");
-
-
     const dispatch = useAppDispatch();
     const {loginIsSuccess, isAuthenticated, loginError} = useAppSelector((state) => state.auth);
 

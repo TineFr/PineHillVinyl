@@ -30,11 +30,20 @@ let CartRepository = class CartRepository {
         return result;
     }
     async addProduct(id, prd) {
-        return await this._model.findByIdAndUpdate(id, { $push: { items: Object.assign({}, prd) } });
+        await this._model.findByIdAndUpdate(id, { $push: { items: Object.assign({}, prd) } });
+        return this._model.findById(id);
+    }
+    ;
+    async addMultiple(id, prd) {
+        prd.forEach(async (element) => {
+            await this._model.findByIdAndUpdate(id, { $push: { items: Object.assign({}, element) } });
+        });
+        return this._model.findById(id);
     }
     ;
     async removeProduct(id, prd) {
-        return await this._model.findByIdAndUpdate(id, { $pull: { items: Object.assign({}, prd) } });
+        await this._model.findByIdAndUpdate(id, { $pull: { items: Object.assign({}, prd) } });
+        return this._model.findById(id);
     }
     ;
     async update(id, prd) {

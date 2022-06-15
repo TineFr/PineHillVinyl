@@ -22,21 +22,34 @@ export class CartRepository {
   }
 
     async addProduct(id: any, prd :  CartItem): Promise<CartDocument> {
-      return await this._model.findByIdAndUpdate(id, 
+      await this._model.findByIdAndUpdate(id, 
         { $push: {  items: {...prd}  }  }
      ) 
+     return this._model.findById(id);
     };
 
+    async addMultiple(id: any, prd :  CartItem[]): Promise<CartDocument> {
+      prd.forEach(async element => {
+        await this._model.findByIdAndUpdate(id, 
+          { $push: {  items: {...element}  }  }
+       ) 
+      })
+     return this._model.findById(id);
+  
+    };
+  
+
     async removeProduct(id: any, prd :  CartItem): Promise<CartDocument> {
-      return await this._model.findByIdAndUpdate(id, 
+      await this._model.findByIdAndUpdate(id, 
         { $pull: {  items : {...prd}  }  }
      ) 
+     return this._model.findById(id);
     };
 
     async update(id: any, prd :  Cart): Promise<CartDocument> {
      await this._model.findByIdAndUpdate(id, prd)
     return this._model.findById(id);
- 
+
     };
 
     async resetItems(id: any): Promise<CartDocument> {

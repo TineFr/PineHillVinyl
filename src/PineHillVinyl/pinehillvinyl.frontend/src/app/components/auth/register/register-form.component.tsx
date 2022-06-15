@@ -14,7 +14,6 @@ const RegisterComponent = () => {
     
     const dispatch = useAppDispatch();
     const {isLoading, registerIsSuccess, registerError} = useAppSelector((state) => state.auth);
-    const navigate = useNavigate();
 
     useEffect(() =>{
       if (registerIsSuccess){

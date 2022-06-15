@@ -1,11 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { PaginationParameters } from '../pagination/pagination-parameters.model';
-import { JwtGuard } from '../authentication/guards/jwt.guard';
 import { CreateProductDto, ResponseProductDto, UpdateProductDto } from './dtos';
 import { ProductService } from './product.service';
-import { Product } from './schemas/product.schema';
-import { FilterProductDto } from './dtos/product-filter.dto';
-import {Request} from 'express';
 import { PaginationService } from '../pagination/pagination.service';
 import { PaginationMeta } from '../pagination/pagination-meta.model';
 

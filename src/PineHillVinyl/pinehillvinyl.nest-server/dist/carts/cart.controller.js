@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CartsController = void 0;
 const common_1 = require("@nestjs/common");
 const cart_service_1 = require("./cart.service");
-const dtos_1 = require("./dtos");
 let CartsController = class CartsController {
     constructor(_service) {
         this._service = _service;
@@ -25,6 +24,9 @@ let CartsController = class CartsController {
     }
     async addProduct(id, body) {
         return this._service.addProduct(id, body);
+    }
+    async addMultiple(id, body) {
+        return this._service.addMultiple(id, body);
     }
     async removeProduct(id, dto) {
         return this._service.removeProduct(id, dto);
@@ -52,11 +54,19 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CartsController.prototype, "addProduct", null);
 __decorate([
+    (0, common_1.Put)(':id/addMultiple'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], CartsController.prototype, "addMultiple", null);
+__decorate([
     (0, common_1.Put)(':id/removeProduct'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, dtos_1.UpdateCartDto]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], CartsController.prototype, "removeProduct", null);
 __decorate([

@@ -5,7 +5,8 @@
 use('pinehillvinyl');
 db.products.drop();
 // Select the database to use.
-
+use('pinehillvinyl');
+db.products.find({genres : '62a08710f997b17707063a43'})
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.

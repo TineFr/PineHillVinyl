@@ -3,6 +3,7 @@ import {CheckoutButton} from '../checkout/products-in-cart/checkout-component/ch
 import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
 import { logout } from 'src/app/redux/slices/authSlice';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { resetCart } from 'src/app/redux/slices/cartSlice';
 
 const AccountComponent = () => {
 
@@ -13,6 +14,7 @@ const AccountComponent = () => {
   const handleClick = (e:any) =>{
     e.preventDefault();
     dispatch(logout());
+    dispatch(resetCart());
     navigate(-1);
   }
   return (

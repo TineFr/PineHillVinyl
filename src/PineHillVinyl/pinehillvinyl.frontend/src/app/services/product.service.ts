@@ -12,24 +12,24 @@ const getAllProducts = async (page : number) : Promise<ApiResponseList<ProductMo
 }
 
 const sortProducts = async (sortOption : string, products : ProductModel[]) : Promise<ProductModel[]>  =>{
-    let test : ProductModel[] =  [];
-    let testtest = [...products]
+    let result : ProductModel[] =  [];
+    let productsToSort = [...products]
     switch (sortOption) {
 
         case 'Price: Low-High':
-            test = testtest.sort((a, b) => a.price - b.price)
+            result = productsToSort.sort((a, b) => a.price - b.price)
             break;
         case 'Price: High-Low':
-            test =testtest.sort((a, b) => b.price - a.price)
+            result =productsToSort.sort((a, b) => b.price - a.price)
             break;
         case 'Alphabetically: A-Z':
-            test =testtest.sort((a, b) => a.title.localeCompare(b.title))
+            result =productsToSort.sort((a, b) => a.title.localeCompare(b.title))
         break;
         case 'Alphabetically: Z-A':
-            test = testtest.sort((a, b) => b.title.localeCompare(a.title))
+            result = productsToSort.sort((a, b) => b.title.localeCompare(a.title))
             break;
     }
-    return test;
+    return result;
 
 
 }
@@ -44,12 +44,18 @@ const getProductById = async (id : string) : Promise<ProductModel | null> =>{
     return response.data;
 }
 
+const getByGenre = async (id : string) : Promise<ApiResponseList<ProductModel> | null> =>{
+    const response = await axios.get('http://localhost:4000/api/v1/genres/' + id + '/products');
+    return response.data;
+}
+
 
 const productService = {
     getAllProducts,
     getProductById,
     getProductsSearch,
-    sortProducts
+    sortProducts,
+    getByGenre
     
 }
 

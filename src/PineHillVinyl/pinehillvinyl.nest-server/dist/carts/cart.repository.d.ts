@@ -7,6 +7,7 @@ export declare class CartRepository {
     getById(id: any): Promise<CartDocument>;
     getByUserId(id: any): Promise<CartDocument[]>;
     addProduct(id: any, prd: CartItem): Promise<CartDocument>;
+    addMultiple(id: any, prd: CartItem[]): Promise<CartDocument>;
     removeProduct(id: any, prd: CartItem): Promise<CartDocument>;
     update(id: any, prd: Cart): Promise<CartDocument>;
     resetItems(id: any): Promise<CartDocument>;

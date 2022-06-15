@@ -13,7 +13,7 @@ import { Product, ProductSchema } from './schemas/product.schema';
 }]), PaginationModule],
  controllers: [ProductsController],
  providers: [ProductService, ProductRepository, ProductMapper],
- exports: [ProductRepository]
+ exports: [ProductRepository, ProductService]
 
 })
 export class ProductModule {}

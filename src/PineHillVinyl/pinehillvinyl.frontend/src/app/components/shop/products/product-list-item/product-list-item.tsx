@@ -16,7 +16,7 @@ const ProductListItem = (props: any) => {
       <h2>{product.artist}</h2>
       <PriceContainer>
       <h2>€ {product.price}</h2>
-      <AddToCart icon={true}/>
+      <AddToCart icon={true} product={product}/>
       </PriceContainer>
       </InfoContainer>
 

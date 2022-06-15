@@ -23,7 +23,8 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
+        imports: [
+            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
             product_module_1.ProductModule,
             order_module_1.OrderModule,
             user_module_1.UserModule,

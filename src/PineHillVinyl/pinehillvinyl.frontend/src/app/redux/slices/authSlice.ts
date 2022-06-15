@@ -1,30 +1,19 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import authService from 'src/app/services/auth.service';
-import { JwtModel, LoginModel, RegisterModel, UserModel } from '../../models';
+import { LoginModel, RegisterModel } from '../../models';
 import { AuthState } from '../interfaces/states/auth-state.interface';
 import { RootState } from '../store';
 
 
-const storedUser: string | null = localStorage.getItem('user') ? localStorage.getItem('user') : null;
-let user : UserModel | null = null;
-if (storedUser) user =  JSON.parse(JSON.stringify(storedUser))
-
-const storedJWT: string | null = localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
-
-let token : JwtModel | null = null;
-if (storedJWT){ token = JSON.parse(JSON.stringify(storedJWT));}
-
-
-
-
-
+const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+const storedJWT = { token : localStorage.getItem('jwt') || ''};
 
 const initialState: AuthState = {
     isLoading: false,
     isSuccess : false,
     isError : false,
-    user: user,
-    jwt: token,
+    user: storedUser,
+    jwt: storedJWT,
     isAuthenticated: false,
     loginError : null,
     registerError : null,
@@ -106,7 +95,7 @@ export const authSlice = createSlice({
         .addCase(login.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.user = user;
+            state.user = JSON.parse(localStorage.getItem('user') || '{}');
             state.jwt = action.payload
             state.isAuthenticated = true;
         })

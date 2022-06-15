@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], OrderController.prototype, "createOrder", null);
 OrderController = __decorate([
-    (0, common_1.Controller)('order'),
+    (0, common_1.Controller)('orders'),
     __metadata("design:paramtypes", [order_service_1.OrderService])
 ], OrderController);
 exports.OrderController = OrderController;

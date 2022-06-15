@@ -23,7 +23,7 @@ ProductModule = __decorate([
                 }]), product_module_1.PaginationModule],
         controllers: [product_controller_1.ProductsController],
         providers: [product_service_1.ProductService, product_repository_1.ProductRepository, product_mapper_helper_1.ProductMapper],
-        exports: [product_repository_1.ProductRepository]
+        exports: [product_repository_1.ProductRepository, product_service_1.ProductService]
     })
 ], ProductModule);
 exports.ProductModule = ProductModule;

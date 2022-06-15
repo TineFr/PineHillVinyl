@@ -13,11 +13,13 @@ exports.StripeService = void 0;
 const common_1 = require("@nestjs/common");
 const stripe_1 = require("stripe");
 let StripeService = class StripeService {
-    constructor() { this.stripe = new stripe_1.default("sk_test_51L8jRUGiOJlUonpfP6bLjMCqzqPddo0Ho34UHfmhAsdP7p1bRF1pIt5YwGwTfUiSJdFlhDp8Huk6UxzGUziFnLpA00dxJQUZMv", { apiVersion: '2020-08-27' }); }
+    constructor() {
+        this.stripe = new stripe_1.default(process.env.STRIPE, { apiVersion: '2020-08-27' });
+    }
     checkout(cart) {
         const totalPrice = cart.items.reduce((acc, item) => acc + item.quantity * item.product.price, 0);
         return this.stripe.paymentIntents.create({
-            amount: totalPrice * 100,
+            amount: Math.round(totalPrice * 100),
             currency: 'eur',
             payment_method_types: ['card']
         });

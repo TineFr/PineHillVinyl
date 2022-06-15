@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { CartItem, CreateCartDto, ResponseCartDto, UpdateCartDto } from './dtos';
-import { Cart } from './schemas/cart.schema';
+
 
 
 @Controller('carts')
@@ -21,10 +21,18 @@ export class CartsController {
     return this._service.addProduct(id, body);
   }
 
+  @Put(':id/addMultiple')
+  async addMultiple(
+    @Param('id') id:any,
+    @Body() body : {dto : CartItem []},
+  ) {
+    return this._service.addMultiple(id, body);
+  }
+
   @Put(':id/removeProduct')
   async removeProduct(
     @Param('id') id:any,
-    @Body() dto: UpdateCartDto,
+    @Body() dto: {dto : CartItem},
   ) {
     return this._service.removeProduct(id, dto);
   }

@@ -9,7 +9,6 @@ class OrderMapper {
         const newOrder = new order_schema_1.Order();
         newOrder.userId = user.id;
         newOrder.amount = cart.items.reduce((acc, item) => acc + item.quantity * item.product.price, 0);
-        newOrder.shippingAddress = user.addresses.filter(function (x) { return x.isMainAddress; })[0];
         newOrder.items = this.cartItemToOrder(cart.items);
         return newOrder;
     }

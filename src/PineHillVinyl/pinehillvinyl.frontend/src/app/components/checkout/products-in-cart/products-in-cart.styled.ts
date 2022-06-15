@@ -78,8 +78,12 @@ export const Price = styled.div`
 font-size: 2rem;
 text-align: end;
 `
-export const Amount = styled.div`
+export const Quantity = styled.div`
 width: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 2rem;
 `
 
 export const DetailsWrapper = styled.div`
@@ -92,3 +96,33 @@ align-items: flex-end;
 
 
 `
+
+export const QuantityWrapper = styled.div`
+
+border: none;
+background-color: none;
+display:flex;
+flex-direction: row;
+width: 150px;
+justify-content: center;
+`
+
+export const Counter = styled.button`
+
+border: none;
+background-color: none;
+width: 40px;
+height: 40px;
+margin:2px;
+font-size: 1.5rem;
+`
+
+
+export const Test = styled.div`
+
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`
+

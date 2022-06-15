@@ -39,6 +39,14 @@ export class CartService {
 
   };
 
+  async addMultiple(id: any, prd :  any): Promise<ResponseCartDto> {
+    await this._repository.addMultiple(id, prd)
+    let result = await this._repository.getById(id);
+    let mappedResult = this._mapper.schemaToResponse(result);
+    return mappedResult;
+
+  };
+
   async update(id: any, dto :  any): Promise<ResponseCartDto> {
     let cart = await this._repository.getById(id);
     if (!cart) throw new HttpException(`Cart with id ${id} does not exist`, HttpStatus.NOT_FOUND)
@@ -48,6 +56,12 @@ export class CartService {
     let mappedResult = this._mapper.schemaToResponse(result);
     return mappedResult;
 
+  };
+
+  async resetItems(id: any): Promise<ResponseCartDto> {
+    let cart = await this._repository.resetItems(id);
+    let mappedResult = this._mapper.schemaToResponse(cart);
+    return mappedResult;
   };
 
   async removeProduct(id: any, prd :  any): Promise<ResponseCartDto> {

@@ -7,7 +7,7 @@ export const Authentication = () => {
   return (
     <>
     <SearchBar/>
-    <AuthenticationGrid>login</AuthenticationGrid>
+    <AuthenticationGrid></AuthenticationGrid>
     </>
   )
 }
