@@ -25,7 +25,7 @@ const CartButton = () => {
 
   return (
     <div onClick={() => handleNavigation()}>
-    <Amount badgeContent={cart?.items.length} color='primary' >
+    <Amount badgeContent={cart ? cart!.items.length : amountOfProducts} color='primary' >
         <ShoppingCartOutlined></ShoppingCartOutlined>
     </Amount>
     </div>

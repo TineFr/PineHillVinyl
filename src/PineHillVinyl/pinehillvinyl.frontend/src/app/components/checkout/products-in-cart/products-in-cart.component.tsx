@@ -1,17 +1,24 @@
-import { useState } from 'react';
-import { ProductCartModel } from 'src/app/models';
+import { useEffect, useState } from 'react';
+import { CartModel, ProductCartModel } from 'src/app/models';
 import { CartItem } from 'src/app/models/cart/cart-item.model';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux/hooks';
 import {Container, ProductCart, RemoveButton, ImageContainer, Title, Price, Amount, ProductWrapper, DetailsWrapper } from './products-in-cart.styled'
 
 const ProductsInCart = () => {
 
-  const {cart, } = useAppSelector((state) => state.cart);
+  const {cart } = useAppSelector((state) => state.cart);
+  const newCart : CartModel = {
+    id: '',
+    items: JSON.parse(localStorage.getItem('items') || '[]'),
+    quantity: 0
+  }
+
+  let displayCart = cart ? cart : newCart ;
 
   return (
     <Container>
 
-{cart!.items.map((item: CartItem, index : number) => {
+{displayCart!.items.map((item: CartItem, index : number) => {
                     return (
                       <ProductCart key={index}>
                       <RemoveButton/>

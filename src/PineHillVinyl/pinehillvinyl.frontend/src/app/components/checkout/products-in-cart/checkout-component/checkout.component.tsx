@@ -5,7 +5,7 @@ import {Container, TotalPrice, CheckoutButton} from './checkout.styled'
 const CheckoutComponent = () => {
 
   const navigate = useNavigate();
-  const {totalPrice} = useAppSelector((state) => state.cart);
+  const {totalPrice, amountOfProducts} = useAppSelector((state) => state.cart);
 
   const handleClick = () =>{
     navigate('/checkout');
@@ -13,7 +13,7 @@ const CheckoutComponent = () => {
 
   return (
     <Container>
-      <TotalPrice>Total price: €{totalPrice}</TotalPrice>
+      <TotalPrice>Total price: €{totalPrice ? totalPrice : amountOfProducts}</TotalPrice>
       <CheckoutButton onClick={handleClick}>Checkout</CheckoutButton>
     </Container>
   )

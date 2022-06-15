@@ -4,7 +4,7 @@ import { CartItem } from "./cart-item.model";
 
 export interface CartModel {
     id: string;
-    userId: string;
+    // userId: string;
     items: CartItem[];
     quantity: number;
 }

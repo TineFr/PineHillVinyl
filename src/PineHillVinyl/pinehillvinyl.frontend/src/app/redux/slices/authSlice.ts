@@ -5,14 +5,26 @@ import { AuthState } from '../interfaces/states/auth-state.interface';
 import { RootState } from '../store';
 
 
-const storedUser: string | null = localStorage.getItem('user') ? localStorage.getItem('user') : null;
-let user : UserModel | null = null;
-if (storedUser) user =  JSON.parse(JSON.stringify(storedUser))
+// const storedUser: string | null  = localStorage.getItem('user');
+// let user : any = null;
+// if (storedUser) {
+//     user =  JSON.parse(localStorage.getItem(storedUser))
 
-const storedJWT: string | null = localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
+// }
 
-let token : JwtModel | null = null;
-if (storedJWT){ token = JSON.parse(JSON.stringify(storedJWT));}
+const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+const storedJWT = JSON.parse(localStorage.getItem('user') || '{}');
+    // user =  localStorage.getItem('user') ?
+    // if (user){
+
+    // } JSON.parse(localStorage.getItem('user')) : null;
+
+// if (storedUser) user =  JSON.parse(localStorage.getItem('user'))
+
+// const storedJWT: string | null = localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
+
+// let token : JwtModel | null = null;
+// if (storedJWT){ token = JSON.parse(JSON.stringify(storedJWT));}
 
 
 
@@ -23,8 +35,8 @@ const initialState: AuthState = {
     isLoading: false,
     isSuccess : false,
     isError : false,
-    user: user,
-    jwt: token,
+    user: storedUser,
+    jwt: storedJWT,
     isAuthenticated: false,
     loginError : null,
     registerError : null,
@@ -106,7 +118,7 @@ export const authSlice = createSlice({
         .addCase(login.fulfilled, (state, action) =>{
             state.isLoading = false;
             state.isSuccess = true;
-            state.user = user;
+            state.user = JSON.parse(localStorage.getItem('user') || '{}');
             state.jwt = action.payload
             state.isAuthenticated = true;
         })
