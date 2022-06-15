@@ -20,7 +20,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Array)
-], Cart.prototype, "products", void 0);
+], Cart.prototype, "items", void 0);
 Cart = __decorate([
     (0, mongoose_1.Schema)()
 ], Cart);

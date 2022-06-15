@@ -1,6 +1,6 @@
-import { ProductCart } from '../../products/dtos/product-cart.dto';
+import { CartItem } from './cart-item.dto';
 export declare class ResponseCartDto {
     id: string;
     userId: string;
-    products: ProductCart[];
+    items: CartItem[];
 }

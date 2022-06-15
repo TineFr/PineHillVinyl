@@ -24,6 +24,6 @@ __decorate([
 __decorate([
     (0, class_validator_1.IsArray)(),
     __metadata("design:type", Array)
-], ResponseCartDto.prototype, "products", void 0);
+], ResponseCartDto.prototype, "items", void 0);
 exports.ResponseCartDto = ResponseCartDto;
 //# sourceMappingURL=response-cart.dto.js.map

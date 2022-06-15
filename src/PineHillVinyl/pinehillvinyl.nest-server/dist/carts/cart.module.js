@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CartModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
+const product_module_1 = require("../products/product.module");
 const cart_controller_1 = require("./cart.controller");
 const cart_repository_1 = require("./cart.repository");
 const cart_service_1 = require("./cart.service");
@@ -19,7 +20,7 @@ let CartModule = class CartModule {
 CartModule = __decorate([
     (0, common_1.Module)({
         imports: [mongoose_1.MongooseModule.forFeature([{ name: cart_schema_1.Cart.name, schema: cart_schema_1.CartSchema
-                }])],
+                }]), product_module_1.ProductModule],
         controllers: [cart_controller_1.CartsController],
         providers: [cart_service_1.CartService, cart_repository_1.CartRepository, cart_mapper_helper_1.CartMapper],
         exports: [cart_service_1.CartService]

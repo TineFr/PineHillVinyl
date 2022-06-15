@@ -16,6 +16,6 @@ class UpdateCartDto {
 __decorate([
     (0, class_validator_1.IsArray)(),
     __metadata("design:type", Array)
-], UpdateCartDto.prototype, "products", void 0);
+], UpdateCartDto.prototype, "items", void 0);
 exports.UpdateCartDto = UpdateCartDto;
 //# sourceMappingURL=update-cart.dto.js.map

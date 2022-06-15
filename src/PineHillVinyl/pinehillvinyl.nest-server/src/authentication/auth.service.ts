@@ -19,7 +19,7 @@ export class AuthService {
         return hashedPassword;
     }            
 
-    async verifyUser(email: string, password: string) : Promise<ResponseUserDto>{
+    async verifyUser(email: string, password: string) : Promise<any>{
         const user = await this._userRepository.getByEmail(email);
         if (user){
             const key = process.env.PASSWORD;

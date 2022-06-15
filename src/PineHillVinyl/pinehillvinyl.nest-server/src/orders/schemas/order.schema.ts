@@ -1,8 +1,7 @@
 import { Prop,  Schema,  SchemaFactory } from '@nestjs/mongoose';
 import {Document, SchemaType} from 'mongoose';
-import { ProductOrder} from 'src/orders/dtos/product-order.dto';
-import { Product, ProductSchema } from 'src/products/schemas/product.schema';
-import { Address, AddressSchema } from 'src/users/dtos/user-address.dto';
+import { OrderProduct} from '../../orders/dtos/product-order.dto';
+import { Address, AddressSchema } from '../../users/dtos/user-address.dto';
 export type OrderDocument = Order & Document;
 
 
@@ -16,10 +15,10 @@ export class Order{
     status: string;
     @Prop()
     amount: number;
-    @Prop({type : ProductOrder})
-    items: ProductOrder[];
+    @Prop({type : OrderProduct})
+    items: OrderProduct[];
     @Prop({type : AddressSchema})
-    shippingAddress: Address;
+    shippingAddress?: Address;
 }
 
 export const OrderSchema = SchemaFactory.createForClass(Order);

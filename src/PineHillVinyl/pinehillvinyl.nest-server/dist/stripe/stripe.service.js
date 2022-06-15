@@ -15,7 +15,7 @@ const stripe_1 = require("stripe");
 let StripeService = class StripeService {
     constructor() { this.stripe = new stripe_1.default("sk_test_51L8jRUGiOJlUonpfP6bLjMCqzqPddo0Ho34UHfmhAsdP7p1bRF1pIt5YwGwTfUiSJdFlhDp8Huk6UxzGUziFnLpA00dxJQUZMv", { apiVersion: '2020-08-27' }); }
     checkout(cart) {
-        const totalPrice = cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+        const totalPrice = cart.items.reduce((acc, item) => acc + item.quantity * item.product.price, 0);
         return this.stripe.paymentIntents.create({
             amount: totalPrice * 100,
             currency: 'eur',

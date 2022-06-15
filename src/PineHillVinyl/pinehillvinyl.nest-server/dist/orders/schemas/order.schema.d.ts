@@ -20,15 +20,15 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 import { Document } from 'mongoose';
-import { ProductOrder } from 'src/products/dtos/product-order.dto';
-import { Address } from 'src/users/dtos/user-address.dto';
+import { OrderProduct } from '../../orders/dtos/product-order.dto';
+import { Address } from '../../users/dtos/user-address.dto';
 export declare type OrderDocument = Order & Document;
 export declare class Order {
     userId: string;
     paymentStatus: string;
     status: string;
     amount: number;
-    items: ProductOrder[];
+    items: OrderProduct[];
     shippingAddress: Address;
 }
 export declare const OrderSchema: import("mongoose").Schema<Order, import("mongoose").Model<Order, any, any, any>, {}, {}, any>;

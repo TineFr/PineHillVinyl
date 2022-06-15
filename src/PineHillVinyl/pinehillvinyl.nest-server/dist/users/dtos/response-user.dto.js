@@ -25,5 +25,9 @@ __decorate([
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], ResponseUserDto.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsObject)(),
+    __metadata("design:type", Array)
+], ResponseUserDto.prototype, "addresses", void 0);
 exports.ResponseUserDto = ResponseUserDto;
 //# sourceMappingURL=response-user.dto.js.map

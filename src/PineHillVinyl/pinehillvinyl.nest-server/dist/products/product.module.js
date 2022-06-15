@@ -22,7 +22,8 @@ ProductModule = __decorate([
         imports: [mongoose_1.MongooseModule.forFeature([{ name: product_schema_1.Product.name, schema: product_schema_1.ProductSchema
                 }]), product_module_1.PaginationModule],
         controllers: [product_controller_1.ProductsController],
-        providers: [product_service_1.ProductService, product_repository_1.ProductRepository, product_mapper_helper_1.ProductMapper]
+        providers: [product_service_1.ProductService, product_repository_1.ProductRepository, product_mapper_helper_1.ProductMapper],
+        exports: [product_repository_1.ProductRepository]
     })
 ], ProductModule);
 exports.ProductModule = ProductModule;

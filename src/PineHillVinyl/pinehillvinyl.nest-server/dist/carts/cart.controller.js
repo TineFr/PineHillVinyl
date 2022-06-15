@@ -23,8 +23,17 @@ let CartsController = class CartsController {
     async findByUserId(id) {
         return await this._service.getByUserId(id);
     }
-    async updateCart(id, dto) {
+    async addProduct(id, body) {
+        return this._service.addProduct(id, body);
+    }
+    async removeProduct(id, dto) {
+        return this._service.removeProduct(id, dto);
+    }
+    async update(id, dto) {
         return this._service.update(id, dto);
+    }
+    async deleteProduct(id) {
+        return this._service.delete(id);
     }
 };
 __decorate([
@@ -35,13 +44,36 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CartsController.prototype, "findByUserId", null);
 __decorate([
-    (0, common_1.Put)(':id'),
+    (0, common_1.Put)(':id/addProduct'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], CartsController.prototype, "addProduct", null);
+__decorate([
+    (0, common_1.Put)(':id/removeProduct'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, dtos_1.UpdateCartDto]),
     __metadata("design:returntype", Promise)
-], CartsController.prototype, "updateCart", null);
+], CartsController.prototype, "removeProduct", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], CartsController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], CartsController.prototype, "deleteProduct", null);
 CartsController = __decorate([
     (0, common_1.Controller)('carts'),
     __metadata("design:paramtypes", [cart_service_1.CartService])

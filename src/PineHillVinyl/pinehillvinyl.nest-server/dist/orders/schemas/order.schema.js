@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderSchema = exports.Order = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const product_order_dto_1 = require("../../products/dtos/product-order.dto");
+const product_order_dto_1 = require("../../orders/dtos/product-order.dto");
 const user_address_dto_1 = require("../../users/dtos/user-address.dto");
 let Order = class Order {
 };
@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Order.prototype, "amount", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: product_order_dto_1.ProductOrder }),
+    (0, mongoose_1.Prop)({ type: product_order_dto_1.OrderProduct }),
     __metadata("design:type", Array)
 ], Order.prototype, "items", void 0);
 __decorate([
