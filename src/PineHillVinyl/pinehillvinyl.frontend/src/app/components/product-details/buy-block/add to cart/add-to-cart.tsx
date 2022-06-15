@@ -3,20 +3,21 @@ import {Button} from './add-to-cart-styled'
 import {GiShoppingCart} from 'react-icons/gi'
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/hooks';
 import { updateCart } from 'src/app/redux/slices/cartSlice';
+import { ShoppingCartOutlined } from '@material-ui/icons';
 
 
 const  AddToCart = (props: any) => {
-
   const dispatch = useAppDispatch();
    const handleClick = (e : any) =>{
     e.preventDefault();
     dispatch(updateCart(props.product))
    }  
-  return (
+   
+   if (props.icon) {
+      return  <ShoppingCartOutlined onClick={handleClick}></ShoppingCartOutlined>;
+   
+  } else return  <Button onClick={handleClick}>Add to cart<GiShoppingCart/></Button>;
 
-    <Button onClick={handleClick}>Add to cart<GiShoppingCart/></Button>
-
-  )
 }
 
 export default AddToCart
