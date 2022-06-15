@@ -19,6 +19,11 @@ export class ProductRepository {
         return result;
     }
 
+    async getByGenre(genreId: any): Promise<ProductDocument[]> {
+      let result =  await this._model.find({genres : genreId}).exec(); 
+      return result;
+  }
+
     async add(prd :  Product): Promise<ProductDocument> {
       return await this._model.create(prd);  
     };

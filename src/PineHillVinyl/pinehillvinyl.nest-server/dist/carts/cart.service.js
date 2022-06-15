@@ -46,6 +46,13 @@ let CartService = class CartService {
         return mappedResult;
     }
     ;
+    async addMultiple(id, prd) {
+        await this._repository.addMultiple(id, prd);
+        let result = await this._repository.getById(id);
+        let mappedResult = this._mapper.schemaToResponse(result);
+        return mappedResult;
+    }
+    ;
     async update(id, dto) {
         let cart = await this._repository.getById(id);
         if (!cart)
@@ -53,6 +60,12 @@ let CartService = class CartService {
         const mappedRequest = this._mapper.updateDtoToSchema(dto);
         let result = await this._repository.update(id, mappedRequest);
         let mappedResult = this._mapper.schemaToResponse(result);
+        return mappedResult;
+    }
+    ;
+    async resetItems(id) {
+        let cart = await this._repository.resetItems(id);
+        let mappedResult = this._mapper.schemaToResponse(cart);
         return mappedResult;
     }
     ;

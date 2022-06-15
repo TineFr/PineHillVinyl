@@ -9,7 +9,9 @@ export declare class CartService {
     constructor(_repository: CartRepository, _mapper: CartMapper, _productRepository: ProductRepository);
     getByUserId(id: any): Promise<ResponseCartDto>;
     addProduct(id: any, prd: any): Promise<ResponseCartDto>;
+    addMultiple(id: any, prd: any): Promise<ResponseCartDto>;
     update(id: any, dto: any): Promise<ResponseCartDto>;
+    resetItems(id: any): Promise<ResponseCartDto>;
     removeProduct(id: any, prd: any): Promise<ResponseCartDto>;
     delete(id: any): Promise<string>;
     add(dto: CreateCartDto): Promise<ResponseCartDto>;

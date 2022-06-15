@@ -29,6 +29,6 @@ export declare class Order {
     status: string;
     amount: number;
     items: OrderProduct[];
-    shippingAddress: Address;
+    shippingAddress?: Address;
 }
 export declare const OrderSchema: import("mongoose").Schema<Order, import("mongoose").Model<Order, any, any, any>, {}, {}, any>;

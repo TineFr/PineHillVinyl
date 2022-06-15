@@ -22,6 +22,13 @@ const update = async (id: string, model : CartModel) : Promise<CartModel | null>
     return response.data;
 }
 
+const updateLocally = async (model : any) :  Promise<any>  =>{
+
+    removeProductLocally(model.product);
+    addProductLocally(model.product, model.quantity)
+}
+
+
 const saveLocalStorage = async (id : string) : Promise<any>  =>{
     let products;
     if(localStorage.getItem('items')){
@@ -52,7 +59,7 @@ const removeFromCart = async (id: string, model : ProductModel) : Promise<any>  
     return response.data;
 }
 
-const addProductLocally = async (model : ProductModel) =>{
+const addProductLocally = async (model : any, quantity?: any) =>{
     let products;
     if(localStorage.getItem('items')){
 
@@ -60,20 +67,20 @@ const addProductLocally = async (model : ProductModel) =>{
     } else products = [];
     products.push({
         'product' : {'id' : model.id, 'image' : model.image, 'price' : model.price, 'artist' : model.artist, 'title' : model.title},
-        'quantity' : 1
+        'quantity' : quantity ? quantity : 1
     });
     localStorage.setItem('items', JSON.stringify(products));
 }
 
 
-const removeProductLocally = async (model : ProductModel) =>{
+const removeProductLocally = async (model : any) =>{
     let products;
     if(localStorage.getItem('items')){
 
       products = JSON.parse(localStorage.getItem('items') || '[]');
     } else products = [];
     products = products.filter((x : any) => x.product.id !== model.id );
-    localStorage.setItem('items', JSON.stringify(products));;
+    localStorage.setItem('items', JSON.stringify(products));
 }
 
 const cartService = {
@@ -82,7 +89,8 @@ getByUser,
 addToCart,
 addProductLocally,
 removeFromCart,
-removeProductLocally
+removeProductLocally,
+updateLocally
 }
 
 export default cartService;

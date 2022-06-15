@@ -39,6 +39,13 @@ let ProductService = class ProductService {
         let mappedResult = this._mapper.schemaToResponse(result);
         return mappedResult;
     }
+    async getByGenre(id) {
+        let result = await this._repository.getByGenre(id);
+        if (!result)
+            throw new common_1.HttpException('No results found', common_1.HttpStatus.NOT_FOUND);
+        let mappedResult = this._mapper.schemaListToResponse(result);
+        return mappedResult;
+    }
     async add(dto) {
         const product = this._mapper.createDtoToSchema(dto);
         let result = await this._repository.add(product);

@@ -28,4 +28,11 @@ height: 15vmin;
 `
 
 
+export const Container = styled.button`
+
+border: none;
+background-color: none;
+`
+
+
 

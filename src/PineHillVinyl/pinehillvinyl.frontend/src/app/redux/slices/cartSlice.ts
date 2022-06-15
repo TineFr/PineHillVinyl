@@ -45,9 +45,12 @@ export const getUserCart = createAsyncThunk(
 
 export const updateCart = createAsyncThunk(
     'cart/update',
-    async (cart: CartModel, thunkApi) =>{
+    async ({cart, cartItem}: {cart: any | null, cartItem: any}, thunkApi) =>{
         try {
-            return await cartService.update(cart.id, cart);          
+            if (cart){
+                return await cartService.update(cart.id, cartItem); 
+            }
+            else return await cartService.updateLocally(cartItem);
         } catch (err : any) {
             return thunkApi.rejectWithValue(err.response.data.message)
         }

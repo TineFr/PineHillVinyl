@@ -15,12 +15,16 @@ const order_controller_1 = require("./order.controller");
 const order_repository_1 = require("./order.repository");
 const order_service_1 = require("./order.service");
 const order_mapper_helper_1 = require("./helpers/order-mapper.helper");
+const mongoose_1 = require("@nestjs/mongoose");
+const order_schema_1 = require("./schemas/order.schema");
+const cart_module_1 = require("../carts/cart.module");
 dotenv.config({ path: `${__dirname}/../.env` });
 let OrderModule = class OrderModule {
 };
 OrderModule = __decorate([
     (0, common_1.Module)({
-        imports: [stripe_module_1.StripeModule, user_module_1.UserModule],
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: order_schema_1.Order.name, schema: order_schema_1.OrderSchema
+                }]), stripe_module_1.StripeModule, user_module_1.UserModule, cart_module_1.CartModule],
         controllers: [order_controller_1.OrderController],
         providers: [order_service_1.OrderService, order_repository_1.OrderRepository, order_mapper_helper_1.OrderMapper]
     })

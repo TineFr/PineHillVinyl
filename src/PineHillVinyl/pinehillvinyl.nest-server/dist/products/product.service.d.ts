@@ -7,6 +7,7 @@ export declare class ProductService {
     constructor(_repository: ProductRepository, _mapper: ProductMapper);
     get(search?: string): Promise<ResponseProductDto[]>;
     getById(id: any): Promise<ResponseProductDto>;
+    getByGenre(id: any): Promise<ResponseProductDto[]>;
     add(dto: CreateProductDto): Promise<ResponseProductDto>;
     update(id: any, dto: UpdateProductDto): Promise<ResponseProductDto>;
     delete(id: any): Promise<string>;

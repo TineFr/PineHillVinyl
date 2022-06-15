@@ -7,6 +7,7 @@ height: auto;
 margin-bottom: 100px;
 
 
+
 `
 
 export const Title = styled.div`
@@ -50,6 +51,7 @@ span{
 export const ProductsWrapper = styled.div`
 display: flex;
 align-items: center;
+justify-content: center;
 margin-top: 20px;
 overflow-x: auto;
 ::-webkit-scrollbar {   

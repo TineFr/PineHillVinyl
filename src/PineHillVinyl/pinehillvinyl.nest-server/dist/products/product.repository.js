@@ -29,6 +29,10 @@ let ProductRepository = class ProductRepository {
         let result = await this._model.findById(id);
         return result;
     }
+    async getByGenre(genreId) {
+        let result = await this._model.find({ genres: genreId }).exec();
+        return result;
+    }
     async add(prd) {
         return await this._model.create(prd);
     }

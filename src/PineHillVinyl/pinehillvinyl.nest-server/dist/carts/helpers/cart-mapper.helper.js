@@ -19,6 +19,7 @@ class CartMapper {
         const responseCart = new dtos_1.ResponseCartDto();
         responseCart.userId = cart.userId;
         responseCart.items = cart.items;
+        responseCart.id = cart.id;
         return responseCart;
     }
     schemaToCartProduct(item) {

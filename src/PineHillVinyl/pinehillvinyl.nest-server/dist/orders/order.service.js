@@ -15,16 +15,19 @@ const stripe_service_1 = require("../stripe/stripe.service");
 const user_service_1 = require("../users/user.service");
 const order_mapper_helper_1 = require("./helpers/order-mapper.helper");
 const order_repository_1 = require("./order.repository");
+const cart_service_1 = require("../carts/cart.service");
 let OrderService = class OrderService {
-    constructor(_stripeService, _userService, _mapper, _repository) {
+    constructor(_stripeService, _userService, _mapper, _repository, _cartService) {
         this._stripeService = _stripeService;
         this._userService = _userService;
         this._mapper = _mapper;
         this._repository = _repository;
+        this._cartService = _cartService;
     }
     async add(user, cart) {
+        let response;
         try {
-            this._stripeService.checkout(cart);
+            response = this._stripeService.checkout(cart);
         }
         catch (error) {
             throw new common_1.HttpException('Something went wrong during payment', common_1.HttpStatus.BAD_REQUEST);
@@ -33,9 +36,9 @@ let OrderService = class OrderService {
         if (!client)
             throw new common_1.HttpException('This user does not exist', common_1.HttpStatus.NOT_FOUND);
         const mappedRequest = this._mapper.ToSchema(client, cart);
-        let result = await this._repository.add(mappedRequest);
-        let mappedResult = this._mapper.schemaToResponse(result);
-        return mappedResult;
+        await this._repository.add(mappedRequest);
+        await this._cartService.resetItems(cart.id);
+        return response;
     }
 };
 OrderService = __decorate([
@@ -43,7 +46,8 @@ OrderService = __decorate([
     __metadata("design:paramtypes", [stripe_service_1.StripeService,
         user_service_1.UserService,
         order_mapper_helper_1.OrderMapper,
-        order_repository_1.OrderRepository])
+        order_repository_1.OrderRepository,
+        cart_service_1.CartService])
 ], OrderService);
 exports.OrderService = OrderService;
 //# sourceMappingURL=order.service.js.map

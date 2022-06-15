@@ -1,5 +1,5 @@
-import React from 'react'
-import {Button} from './add-to-cart-styled'
+import React, { useEffect, useState } from 'react'
+import {Button, Container} from './add-to-cart-styled'
 import {GiShoppingCart} from 'react-icons/gi'
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/hooks';
 import { addToCart, updateCart } from 'src/app/redux/slices/cartSlice';
@@ -11,6 +11,26 @@ const  AddToCart = (props: any) => {
   const dispatch = useAppDispatch();
   const {singleProduct} = useAppSelector((state) => state.product);
   const {cart} = useAppSelector((state) => state.cart);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  // useEffect(() =>{
+  //   let product =  props.product ? props.product : singleProduct
+  //   if (cart){
+  //     let inCart = cart?.items.filter((x : any) => x.product.id == product.id)
+  //     if (inCart[0])  setIsDisabled(true);
+  //     else  setIsDisabled(false);
+  //   }
+  //   else{
+  //     let products = JSON.parse(localStorage.getItem('items') || '[]');
+  //     let inCart = products.filter((x : any) => x.product.id == product.id)
+  //     if (inCart[0])  setIsDisabled(true);
+  //     else  setIsDisabled(false);
+  //   } 
+    
+
+
+  //   }, []);
+
    const handleClick = (e : any) =>{
     e.preventDefault();
       const test = {
@@ -20,7 +40,7 @@ const  AddToCart = (props: any) => {
     dispatch(addToCart(test));
 
    }  
-   
+
    if (props.icon) {
       return (
         <>
@@ -28,7 +48,7 @@ const  AddToCart = (props: any) => {
         </>
       )
    
-  } else return  <Button onClick={handleClick}>Add to cart<GiShoppingCart/></Button>;
+  } else return  <Button disabled={isDisabled} onClick={handleClick}>Add to cart<GiShoppingCart/></Button>;
 
 }
 

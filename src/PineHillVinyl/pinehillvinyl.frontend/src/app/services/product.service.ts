@@ -44,12 +44,18 @@ const getProductById = async (id : string) : Promise<ProductModel | null> =>{
     return response.data;
 }
 
+const getByGenre = async (id : string) : Promise<ApiResponseList<ProductModel> | null> =>{
+    const response = await axios.get('http://localhost:4000/api/v1/genres/' + id + '/products');
+    return response.data;
+}
+
 
 const productService = {
     getAllProducts,
     getProductById,
     getProductsSearch,
-    sortProducts
+    sortProducts,
+    getByGenre
     
 }
 

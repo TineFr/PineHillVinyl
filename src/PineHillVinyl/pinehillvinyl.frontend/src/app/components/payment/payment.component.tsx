@@ -3,9 +3,10 @@ import {Elements, CardElement, useStripe, useElements} from '@stripe/react-strip
 import { useAppDispatch, useAppSelector } from 'src/app/hooks/redux/hooks';
 import { Container, CardContainer, Button, Label } from './payment.styled';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserCart } from 'src/app/redux/slices/cartSlice';
+import Spinner from '../shared/spinner/spinner.component';
 const PaymentComponent = () => {
 
   const {cart} = useAppSelector((state) => state.cart);
@@ -13,7 +14,7 @@ const PaymentComponent = () => {
   const dispatch = useAppDispatch();
   const stripe = useStripe();
   const elements = useElements();
-
+  const [isLoading, setIsLoading] = useState(false);
   const {isAuthenticated, user} = useAppSelector((state) => state.auth);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const PaymentComponent = () => {
 
   const handlePayment =  async (e : any) =>{
     e.preventDefault();
+    setIsLoading(true);
     const cardEl = elements?.getElement(CardElement);
     const res = await axios.post("http://localhost:4000/api/v1/orders/stripe", {cart}, config);
     const {client_secret : clientSecret} = res.data;
@@ -41,6 +43,7 @@ const PaymentComponent = () => {
     if (paymentIntent) {
 
       dispatch(getUserCart(user!.sub));
+      setIsLoading(false);
       navigate('/');
 
   
@@ -51,7 +54,7 @@ const PaymentComponent = () => {
   return (
     <Container>
    <form onSubmit={handlePayment}>
-
+        <Spinner busy={isLoading}></Spinner>
         <Label htmlFor='card-element'>Place order</Label>
         <CardContainer>
         <CardElement  id='card-element'/>
